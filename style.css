@@ -1,18 +1,12 @@
-/* =========================================
-   BASIC RESET
-========================================= */
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-
 html {
     scroll-behavior: smooth;
 }
-
 
 body {
     background: #ffffff;
@@ -22,220 +16,111 @@ body {
 }
 
 
-/* =========================================
-   HEADER
-========================================= */
+/* ==============================
+   TOP HEADER
+============================== */
 
 .site-header {
-
     width: 100%;
-
-    padding:
-        24px
-        40px
-        20px;
-
+    padding: 24px 40px 20px;
     text-align: center;
-
     background: #ffffff;
-
-    border-bottom:
-        1px solid
-        #DCE7ED;
+    border-bottom: 1px solid #DCE7ED;
 }
 
-
-/* NAME */
-
 .name {
-
-    font-size:
-        clamp(1.8rem, 3vw, 3rem);
-
+    font-size: 2.5rem;
     font-weight: 500;
-
-    letter-spacing:
-        -0.045em;
-
+    letter-spacing: -0.045em;
     line-height: 1;
-
     margin-bottom: 8px;
 }
 
-
-/* PROFESSIONAL TITLE */
-
 .professional-title {
-
     font-size: 0.72rem;
-
-    letter-spacing:
-        0.10em;
-
+    letter-spacing: 0.10em;
     text-transform: uppercase;
-
     color: #1D4E6F;
-
     margin-bottom: 17px;
 }
 
-
-/* SLOGAN */
-
 .slogan {
-
     font-size: 0.95rem;
-
     font-style: italic;
-
     color: #27343D;
-
     margin-bottom: 12px;
 }
 
-
-/* FOUR KEYWORDS */
-
 .keywords {
-
     font-size: 0.58rem;
-
-    letter-spacing:
-        0.12em;
-
+    letter-spacing: 0.12em;
     color: #657B6B;
 }
 
 
-/* =========================================
+/* ==============================
    LEFT NAVIGATION
-========================================= */
+============================== */
 
 .side-navigation {
-
     position: fixed;
-
     left: 0;
-
     top: 50%;
-
-    transform:
-        translateY(-50%);
-
+    transform: translateY(-50%);
     z-index: 100;
-
     display: flex;
-
     flex-direction: column;
-
     gap: 5px;
 }
 
-
 .side-navigation a {
-
     width: 145px;
-
-    padding:
-        12px
-        14px;
-
-    background:
-        #F3F7F9;
-
-    border-top:
-        1px solid
-        #B8CCD7;
-
-    border-right:
-        1px solid
-        #B8CCD7;
-
-    border-bottom:
-        1px solid
-        #B8CCD7;
-
+    padding: 12px 14px;
+    background: #F3F7F9;
+    border-top: 1px solid #B8CCD7;
+    border-right: 1px solid #B8CCD7;
+    border-bottom: 1px solid #B8CCD7;
     display: flex;
-
     flex-direction: column;
-
     gap: 4px;
-
-    transition:
-        all 0.25s ease;
+    transition: all 0.25s ease;
 }
-
 
 .side-navigation a:hover {
-
     width: 175px;
-
-    background:
-        #DCE7ED;
-
-    border-color:
-        #1D4E6F;
+    background: #DCE7ED;
+    border-color: #1D4E6F;
 }
-
 
 .side-navigation span {
-
     font-size: 0.58rem;
-
-    letter-spacing:
-        0.08em;
-
-    color:
-        #1D4E6F;
+    letter-spacing: 0.08em;
+    color: #1D4E6F;
 }
 
-
 .side-navigation strong {
-
     font-size: 0.62rem;
-
-    letter-spacing:
-        0.08em;
-
+    letter-spacing: 0.08em;
     line-height: 1.35;
-
     font-weight: 600;
 }
 
 
-/* =========================================
-   MAIN CONTENT
-========================================= */
+/* ==============================
+   MAIN PAGE
+============================== */
 
 main {
-
-    margin-left:
-        175px;
-
-    padding-right:
-        40px;
+    margin-left: 175px;
+    padding-right: 40px;
 }
 
-
-/* EACH SECTION */
-
 section {
-
-    min-height:
-        90vh;
-
-    padding:
-        100px
-        7vw;
-
-    border-bottom:
-        1px solid
-        #DCE7ED;
-
+    min-height: 75vh;
+    padding: 90px 7vw;
+    border-bottom: 1px solid #DCE7ED;
     display: flex;
-
     flex-direction: column;
-
     justify-content: center;
 }
 
@@ -243,230 +128,113 @@ section {
 /* SECTION NUMBER */
 
 .section-label {
-
-    font-size:
-        0.65rem;
-
-    letter-spacing:
-        0.15em;
-
-    color:
-        #657B6B;
-
-    margin-bottom:
-        20px;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: #657B6B;
+    margin-bottom: 16px;
 }
 
 
 /* SECTION TITLE */
 
 section h1 {
-
-    font-size:
-        clamp(2.5rem, 5vw, 5.5rem);
-
-    font-weight:
-        400;
-
-    letter-spacing:
-        -0.045em;
-
-    line-height:
-        0.95;
-
-    max-width:
-        900px;
-
-    margin-bottom:
-        30px;
+    font-size: 2.5rem;
+    font-weight: 400;
+    letter-spacing: -0.035em;
+    line-height: 1.1;
+    max-width: 900px;
+    margin-bottom: 22px;
 }
 
 
 /* SECTION DESCRIPTION */
 
 section p {
-
-    max-width:
-        600px;
-
-    font-size:
-        1rem;
-
-    color:
-        #27343D;
+    max-width: 600px;
+    font-size: 1rem;
+    color: #27343D;
 }
 
 
-/* =========================================
+/* ==============================
    FOOTER
-========================================= */
+============================== */
 
 footer {
-
-    margin-left:
-        175px;
-
-    padding:
-        30px 7vw;
-
-    font-size:
-        0.6rem;
-
-    letter-spacing:
-        0.1em;
-
-    text-transform:
-        uppercase;
-
-    color:
-        #657B6B;
+    margin-left: 175px;
+    padding: 30px 7vw;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #657B6B;
 }
 
 
-/* =========================================
+/* ==============================
    MOBILE
-========================================= */
+============================== */
 
 @media (max-width: 800px) {
 
-
-    /* HEADER */
-
     .site-header {
-
-        padding:
-            25px
-            20px
-            22px;
+        padding: 25px 20px 22px;
     }
-
 
     .name {
-
-        font-size:
-            2rem;
+        font-size: 2rem;
     }
-
 
     .professional-title {
-
-        font-size:
-            0.62rem;
-
-        line-height:
-            1.7;
+        font-size: 0.62rem;
+        line-height: 1.7;
     }
-
 
     .slogan {
-
-        font-size:
-            0.85rem;
-
-        line-height:
-            1.5;
+        font-size: 0.85rem;
+        line-height: 1.5;
     }
-
 
     .keywords {
-
-        font-size:
-            0.52rem;
-
-        line-height:
-            1.8;
+        font-size: 0.52rem;
+        line-height: 1.8;
     }
-
-
-    /* NAVIGATION */
 
     .side-navigation {
-
-        position:
-            static;
-
-        transform:
-            none;
-
-        width:
-            100%;
-
-        padding:
-            8px 12px;
-
-        display:
-            grid;
-
-        grid-template-columns:
-            1fr 1fr;
-
-        gap:
-            5px;
-
-        background:
-            #ffffff;
-
-        border-bottom:
-            1px solid
-            #DCE7ED;
+        position: static;
+        transform: none;
+        width: 100%;
+        padding: 8px 12px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5px;
+        background: #ffffff;
+        border-bottom: 1px solid #DCE7ED;
     }
-
 
     .side-navigation a {
-
-        width:
-            100%;
+        width: 100%;
     }
-
 
     .side-navigation a:hover {
-
-        width:
-            100%;
+        width: 100%;
     }
-
-
-    /* CONTENT */
 
     main {
-
-        margin-left:
-            0;
-
-        padding-right:
-            0;
+        margin-left: 0;
+        padding-right: 0;
     }
-
 
     section {
-
-        min-height:
-            75vh;
-
-        padding:
-            80px 7vw;
+        min-height: 70vh;
+        padding: 70px 7vw;
     }
 
+    section h1 {
+        font-size: 2rem;
+    }
 
-section h1 {
-
-    font-size:
-        clamp(1.8rem, 3vw, 3rem);
-
-    font-weight:
-        400;
-
-    letter-spacing:
-        -0.035em;
-
-    line-height:
-        1.1;
-
-    max-width:
-        900px;
-
-    margin-bottom:
-        22px;
-}
-
+    footer {
+        margin-left: 0;
+        padding: 25px 7vw;
+    }
 }
