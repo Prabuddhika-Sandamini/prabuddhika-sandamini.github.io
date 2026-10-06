@@ -680,15 +680,278 @@
     </div>
 
     <script>
-        const projectData = {
-            'project-1': {
-                title: 'Urban Eco-Corridor Network Masterplan',
-                tagline: 'GIS-driven blue-green infrastructure framework for metropolitan heat mitigation',
-                image: 'https://placehold.co/800x500/e8edf3/2c4a6f?text=Eco-Corridor+Blueprint+Drawing',
-                components: ['Hydrological GIS Modeling', 'Pedestrian Walkway Integration', 'Native Flora Restoration Index', 'Microclimate Sensor Network'],
-                description: 'This comprehensive design project establishes a continuous ecological corridor linking fragmented urban parks through hydrological pathways and shade-engineered corridors. Utilizing advanced GIS spatial analysis, high-risk heat islands were identified and prioritized for targeted landscape interventions.',
-                maps: 'Includes 3-layer GIS overlay maps of thermal anomalies, surface runoff coefficients, and accessibility heatmaps.'
-            },
+const projectData = {
+    'project-1': {
+        category: 'COASTAL LANDSCAPE',
+        title: 'Adaptive Waters',
+        subtitle: 'Community-based Artificial Lagoon and Beach Walk - Pilot Project at the Eastern Coast of Sri Lanka',
+
+        images: [
+            'images/adaptive-waters-01.jpg',
+            'images/adaptive-waters-02.jpg',
+            'images/adaptive-waters-03.jpg'
+        ],
+
+        summary: 'A coastal landscape proposal exploring the transformation of an unsuccessful harbour project into a resilient and self-sustaining public landscape. The project responds to declining local livelihoods, social isolation, coastal erosion, and ecological degradation by reimagining the waterfront as a multifunctional landscape that brings together ecological restoration, recreation, community spaces, and water-based environments.',
+
+        approach: 'The design adaptively reuses existing harbour infrastructure and reorganises the fragmented waterfront into a connected sequence of landscape nodes. The approach is informed by research into coastal ecosystems, aquaculture, local livelihoods, and community needs, integrating these findings into the spatial organisation of the site. Fishing-related environments, recreation, ecological restoration, and community spaces are connected through blue-green corridors, pathways, planting, and water-based environments. The landscape is conceived as a mutually supportive system where ecological processes and community activities can coexist.',
+
+        response: 'The proposal creates a multifunctional coastal landscape where ecological restoration, recreation, community interaction, and local livelihoods are integrated rather than treated as separate functions. By reconnecting fragmented spaces and introducing productive blue-green environments, the former harbour landscape is transformed into a more resilient and socially active coastal system.',
+
+        projectType: 'Conceptual Project',
+        year: '2020',
+        location: 'Oluvil, Sri Lanka',
+
+        scope: [
+            'Site Analysis',
+            'Landscape Design',
+            'Ecological Restoration',
+            'Participatory Design',
+            'Visualisation'
+        ],
+
+        keyElements: [
+            'Artificial Lagoon',
+            'Beach Walk',
+            'Ecological Restoration',
+            'Aquaculture',
+            'Community Spaces',
+            'Recreation'
+        ]
+    }
+};
+
+function openModal(projectId) {
+    const data = projectData[projectId];
+    if (!data) return;
+
+    const modalContent = document.getElementById('modal-content');
+
+    modalContent.innerHTML = `
+        <div class="font-sans">
+
+            <!-- CATEGORY -->
+            <div class="font-mono text-[10px] text-drafting-blue tracking-widest mb-2">
+                [ ${data.category} ]
+            </div>
+
+            <!-- TITLE + SUBTITLE -->
+            <div class="mb-5">
+                <h3 class="text-2xl md:text-3xl font-bold font-heading text-navy-900 leading-tight">
+                    ${data.title}
+                </h3>
+
+                <p class="font-mono text-[11px] md:text-xs text-slate-500 mt-2 leading-relaxed">
+                    ${data.subtitle}
+                </p>
+            </div>
+
+            <!-- IMAGE SLIDER -->
+            <div class="relative border border-slate-300 bg-slate-100 rounded overflow-hidden">
+
+                <div id="modal-image-container" class="h-64 md:h-80 overflow-hidden">
+                    <img
+                        id="modal-project-image"
+                        src="${data.images[0]}"
+                        alt="${data.title}"
+                        class="w-full h-full object-cover transition-opacity duration-300"
+                    >
+                </div>
+
+                <!-- PREVIOUS -->
+                <button
+                    onclick="changeProjectImage(-1)"
+                    class="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 bg-white/90 border border-slate-300 text-navy-900 rounded-full flex items-center justify-center text-sm hover:bg-drafting-dark hover:text-white transition"
+                >
+                    ‹
+                </button>
+
+                <!-- NEXT -->
+                <button
+                    onclick="changeProjectImage(1)"
+                    class="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 bg-white/90 border border-slate-300 text-navy-900 rounded-full flex items-center justify-center text-sm hover:bg-drafting-dark hover:text-white transition"
+                >
+                    ›
+                </button>
+            </div>
+
+            <!-- IMAGE DOTS -->
+            <div class="flex justify-center gap-2 mt-3 mb-7">
+                ${data.images.map((_, index) => `
+                    <button
+                        onclick="showProjectImage(${index})"
+                        class="modal-image-dot w-1.5 h-1.5 rounded-full bg-slate-300 hover:bg-drafting-blue transition"
+                        data-index="${index}"
+                    ></button>
+                `).join('')}
+            </div>
+
+            <!-- CONTENT + METADATA -->
+            <div class="grid grid-cols-1 md:grid-cols-[1fr_170px] gap-7">
+
+                <!-- MAIN PROJECT TEXT -->
+                <div class="space-y-7">
+
+                    <!-- PROJECT SUMMARY -->
+                    <section>
+                        <h4 class="font-mono text-[11px] font-bold text-navy-900 tracking-wider mb-2">
+                            PROJECT SUMMARY
+                        </h4>
+
+                        <p class="text-xs md:text-[13px] text-slate-700 leading-relaxed">
+                            ${data.summary}
+                        </p>
+                    </section>
+
+                    <!-- DESIGN APPROACH -->
+                    <section>
+                        <h4 class="font-mono text-[11px] font-bold text-navy-900 tracking-wider mb-2">
+                            DESIGN APPROACH
+                        </h4>
+
+                        <p class="text-xs md:text-[13px] text-slate-700 leading-relaxed">
+                            ${data.approach}
+                        </p>
+                    </section>
+
+                    <!-- PROJECT RESPONSE -->
+                    <section>
+                        <h4 class="font-mono text-[11px] font-bold text-navy-900 tracking-wider mb-2">
+                            PROJECT RESPONSE
+                        </h4>
+
+                        <p class="text-xs md:text-[13px] text-slate-700 leading-relaxed">
+                            ${data.response}
+                        </p>
+                    </section>
+
+                </div>
+
+                <!-- PROJECT INFORMATION -->
+                <aside class="border-l border-slate-200 pl-5">
+
+                    <div class="space-y-5">
+
+                        <div>
+                            <div class="font-mono text-[9px] tracking-widest text-slate-400 mb-1">
+                                PROJECT TYPE
+                            </div>
+                            <div class="font-mono text-[10px] text-navy-900 leading-relaxed">
+                                ${data.projectType}
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="font-mono text-[9px] tracking-widest text-slate-400 mb-1">
+                                YEAR
+                            </div>
+                            <div class="font-mono text-[10px] text-navy-900">
+                                ${data.year}
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="font-mono text-[9px] tracking-widest text-slate-400 mb-1">
+                                LOCATION
+                            </div>
+                            <div class="font-mono text-[10px] text-navy-900 leading-relaxed">
+                                ${data.location}
+                            </div>
+                        </div>
+
+                    </div>
+
+                </aside>
+
+            </div>
+
+            <!-- SCOPE -->
+            <div class="border-t border-slate-200 mt-7 pt-5">
+
+                <h4 class="font-mono text-[10px] font-bold text-navy-900 tracking-wider mb-2">
+                    SCOPE
+                </h4>
+
+                <div class="flex flex-wrap gap-x-2 gap-y-1">
+                    ${data.scope.map(item => `
+                        <span class="font-mono text-[10px] text-slate-500">
+                            ${item}
+                        </span>
+                    `).join(' · ')}
+                </div>
+
+            </div>
+
+            <!-- KEY ELEMENTS -->
+            <div class="mt-5">
+
+                <h4 class="font-mono text-[10px] font-bold text-navy-900 tracking-wider mb-2">
+                    KEY ELEMENTS
+                </h4>
+
+                <div class="flex flex-wrap gap-x-2 gap-y-1">
+                    ${data.keyElements.map(item => `
+                        <span class="font-mono text-[10px] text-slate-500">
+                            ${item}
+                        </span>
+                    `).join(' · ')}
+                </div>
+
+            </div>
+
+        </div>
+    `;
+
+    /* Initialise image slider */
+    currentProjectImage = 0;
+    currentProjectImages = data.images;
+
+    updateProjectImage();
+
+    const modal = document.getElementById('project-modal');
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+}
+
+
+/* IMAGE SLIDER */
+let currentProjectImage = 0;
+let currentProjectImages = [];
+
+function updateProjectImage() {
+    const image = document.getElementById('modal-project-image');
+    if (!image) return;
+
+    image.src = currentProjectImages[currentProjectImage];
+
+    const dots = document.querySelectorAll('.modal-image-dot');
+
+    dots.forEach((dot, index) => {
+        if (index === currentProjectImage) {
+            dot.classList.remove('bg-slate-300');
+            dot.classList.add('bg-drafting-blue');
+        } else {
+            dot.classList.remove('bg-drafting-blue');
+            dot.classList.add('bg-slate-300');
+        }
+    });
+}
+
+function changeProjectImage(direction) {
+    if (!currentProjectImages.length) return;
+
+    currentProjectImage =
+        (currentProjectImage + direction + currentProjectImages.length)
+        % currentProjectImages.length;
+
+    updateProjectImage();
+}
+
+function showProjectImage(index) {
+    currentProjectImage = index;
+    updateProjectImage();
+},
             'project-2': {
                 title: 'Coastal Edge Resilience Plan',
                 tagline: 'Climate adaptation and waterfront spatial design for rising sea-level mitigation',
