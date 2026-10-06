@@ -1052,16 +1052,16 @@ function openModal(projectId) {
             <!-- IMAGE SLIDER -->
             <div class="relative border border-slate-300 bg-slate-100 rounded overflow-hidden">
 
-                <div class="h-64 md:h-80 overflow-hidden">
+                <div class="h-64 md:h-80 flex items-center justify-center bg-slate-50">
 
-                    <img
-                        id="modal-project-image"
-                        src="${data.images[0]}"
-                        alt="${data.title}"
-                        class="w-full h-full object-cover transition-opacity duration-300"
-                    >
+    <img
+        id="modal-project-image"
+        src="${data.images[0]}"
+        alt="${data.title}"
+        class="max-w-full max-h-full object-contain transition-opacity duration-300"
+    >
 
-                </div>
+</div>
 
 
                 <button
