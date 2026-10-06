@@ -1,24 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Prabuddhika Sandamini</title>
+    <title>PRABUDDHIKA SANDAMINI | Urban Systems & Landscape Architecture</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter and Space Grotesk -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        navy: { 900: '#0f172a' },
-                        'drafting-blue': '#2c4a6f'
+                        drafting: {
+                            blue: '#4a709c',
+                            dark: '#2c4a6f',
+                            light: '#f4f7fa',
+                            paper: '#e8edf3'
+                        },
+                        navy: {
+                            900: '#1a2b4c',
+                            800: '#2c4a6f'
+                        }
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                        heading: ['Inter', 'sans-serif']
+                        heading: ['Space Grotesk', 'sans-serif']
                     }
                 }
             }
@@ -26,280 +36,513 @@
     </script>
     <style>
         body {
-            background-color: #ffffff;
+            background-color: #fafbfc;
+            color: #2b3748;
             background-image: 
-                linear-gradient(to right, rgba(44, 74, 111, 0.04) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(44, 74, 111, 0.04) 1px, transparent 1px);
+                linear-gradient(to right, rgba(74, 112, 156, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(74, 112, 156, 0.05) 1px, transparent 1px);
             background-size: 32px 32px;
         }
+
+        .torn-paper-tab {
+            background-color: #e5edf5;
+            color: #1a2b4c;
+            clip-path: polygon(
+                0% 2%, 3% 0%, 8% 3%, 14% 1%, 20% 3%, 27% 0%, 34% 2%, 40% 0%, 46% 3%, 53% 1%, 60% 3%, 67% 0%, 74% 2%, 81% 0%, 88% 3%, 94% 1%, 98% 3%, 100% 0%,
+                100% 97%, 97% 99%, 92% 97%, 86% 100%, 80% 97%, 73% 100%, 67% 98%, 61% 100%, 55% 97%, 48% 100%, 41% 98%, 35% 100%, 28% 97%, 21% 100%, 15% 97%, 9% 100%, 4% 97%, 0% 100%
+            );
+            box-shadow: 3px 4px 10px rgba(44, 74, 111, 0.12), inset 1px 1px 0px rgba(255, 255, 255, 0.8);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            border-left: 4px solid #4a709c;
+        }
+
+        .torn-paper-tab:hover {
+            background-color: #d4e2f0;
+            transform: translateX(8px);
+            box-shadow: 5px 6px 14px rgba(44, 74, 111, 0.2);
+        }
+
         .arch-card {
             background: #ffffff;
             border: 1px solid #cbd5e1;
-            transition: all 0.25s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+            transition: all 0.2s ease;
         }
+
         .arch-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px rgba(44, 74, 111, 0.1);
-            border-color: #2c4a6f;
+            border-color: #4a709c;
+            box-shadow: 0 8px 20px rgba(74, 112, 156, 0.08);
+            transform: translateY(-2px);
         }
-        .modal-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(15, 23, 42, 0.7);
-            backdrop-filter: blur(4px);
-            display: flex; align-items: center; justify-content: center;
-            opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 100;
+
+        ::-webkit-scrollbar {
+            width: 6px;
         }
-        .modal-overlay.active {
-            opacity: 1; visibility: visible;
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
         }
     </style>
 </head>
-<body class="text-slate-800 antialiased flex min-h-screen">
+<body class="font-sans antialiased min-h-screen flex flex-col md:flex-row">
 
-    <!-- SIDEBAR (Your Original Format) -->
-    <aside class="w-80 bg-slate-50 border-r border-slate-200 p-8 flex flex-col justify-between fixed h-screen overflow-y-auto z-10">
+    <header class="md:hidden bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between sticky top-0 z-40">
         <div>
-            <div class="pb-6 border-b border-slate-300">
-                <h1 class="font-bold text-navy-900 tracking-tight text-lg">PRABUDDHIKA SANDAMINI</h1>
-                <p class="text-[10px] text-slate-500 mt-1 uppercase font-mono tracking-wider">Landscape Architect & Urban Systems Researcher</p>
+            <h1 class="font-heading font-bold text-navy-900 text-xs tracking-wider">PRABUDDHIKA SANDAMINI</h1>
+            <p class="text-[9px] text-slate-500 font-mono">Landscape architect · Urban systems researcher · GIS</p>
+        </div>
+        <button id="mobile-menu-btn" class="text-navy-900 focus:outline-none p-2 rounded border border-slate-200 bg-slate-50">
+            <i class="fa-solid fa-bars text-base"></i>
+        </button>
+    </header>
+
+    <div id="mobile-drawer" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs hidden md:hidden">
+        <div class="absolute left-0 top-0 bottom-0 w-3/4 max-w-xs bg-white p-6 shadow-2xl flex flex-col justify-between border-r border-slate-200">
+            <div>
+                <div class="flex items-center justify-between mb-6 pb-3 border-b border-slate-200">
+                    <span class="font-heading font-bold text-navy-900 text-xs tracking-widest">PORTFOLIO INDEX</span>
+                    <button id="close-drawer" class="text-slate-400 hover:text-navy-900"><i class="fa-solid fa-xmark text-lg"></i></button>
+                </div>
+                <nav class="space-y-3 font-sans text-xs">
+                    <a href="#overview" class="mobile-nav-link flex items-center gap-3 py-2 px-3 rounded bg-drafting-blue text-white"><span class="font-mono font-bold">00</span> Overview</a>
+                    <a href="#design-projects" class="mobile-nav-link flex items-center gap-3 py-2 px-3 rounded text-slate-700 hover:bg-slate-100"><span class="font-mono font-bold text-drafting-blue">01</span> Design Projects</a>
+                    <a href="#research-projects" class="mobile-nav-link flex items-center gap-3 py-2 px-3 rounded text-slate-700 hover:bg-slate-100"><span class="font-mono font-bold text-drafting-blue">02</span> Research & Experience</a>
+                    <a href="#background" class="mobile-nav-link flex items-center gap-3 py-2 px-3 rounded text-slate-700 hover:bg-slate-100"><span class="font-mono font-bold text-drafting-blue">03</span> Education & Background</a>
+                    <a href="#contact" class="mobile-nav-link flex items-center gap-3 py-2 px-3 rounded text-slate-700 hover:bg-slate-100"><span class="font-mono font-bold text-drafting-blue">04</span> Contact</a>
+                </nav>
             </div>
-            <nav class="mt-8 flex flex-col space-y-3 font-mono text-xs">
-                <a href="#overview" class="p-3 bg-drafting-blue text-white rounded font-medium shadow-sm hover:bg-navy-900 transition flex items-center justify-between">
-                    <span>Overview</span><span>00</span>
+            <div class="text-[9px] font-mono text-slate-400 text-center pt-3 border-t border-slate-200">
+                github.com/prabuddhika-sandamini
+            </div>
+        </div>
+    </div>
+
+    <aside class="hidden md:flex flex-col w-72 h-screen sticky top-0 py-8 justify-between z-30 pr-3">
+        <div class="space-y-4">
+            <div class="px-6 mb-6 pb-4 border-b border-slate-300/80">
+                <h1 class="font-heading font-extrabold text-navy-900 text-sm tracking-wide leading-snug">PRABUDDHIKA SANDAMINI</h1>
+                <p class="text-[10px] text-drafting-dark font-mono leading-tight mt-1.5 uppercase">
+                    Landscape Architect · Urban Systems Researcher · GIS
+                </p>
+                <div class="w-12 h-0.5 bg-drafting-blue mt-2.5"></div>
+            </div>
+
+            <nav class="space-y-3.5 font-sans text-xs">
+                <a href="#overview" class="torn-paper-tab flex items-center justify-between py-3 px-5 group">
+                    <span class="font-mono font-bold text-drafting-dark text-[11px]">00</span>
+                    <span class="font-heading font-bold tracking-wider text-navy-900">OVERVIEW</span>
+                    <i class="fa-solid fa-arrow-right text-[10px] text-drafting-blue"></i>
                 </a>
-                <a href="#projects" class="p-3 bg-drafting-blue text-white rounded font-medium shadow-sm hover:bg-navy-900 transition flex items-center justify-between">
-                    <span>Design Projects</span><span>01</span>
+                <a href="#design-projects" class="torn-paper-tab flex items-center justify-between py-3 px-5 group">
+                    <span class="font-mono font-bold text-drafting-dark text-[11px]">01</span>
+                    <span class="font-heading font-bold tracking-wider text-navy-900">DESIGN PROJECTS</span>
+                    <i class="fa-solid fa-arrow-right text-[10px] text-drafting-blue"></i>
                 </a>
-                <a href="#research" class="p-3 bg-drafting-blue text-white rounded font-medium shadow-sm hover:bg-navy-900 transition flex items-center justify-between">
-                    <span>Research Projects</span><span>02</span>
+                <a href="#research-projects" class="torn-paper-tab flex items-center justify-between py-3 px-5 group">
+                    <span class="font-mono font-bold text-drafting-dark text-[11px]">02</span>
+                    <span class="font-heading font-bold tracking-wider text-navy-900">EXPERIENCE & SKILLS</span>
+                    <i class="fa-solid fa-arrow-right text-[10px] text-drafting-blue"></i>
                 </a>
-                <a href="#background" class="p-3 bg-drafting-blue text-white rounded font-medium shadow-sm hover:bg-navy-900 transition flex items-center justify-between">
-                    <span>Background & Experience</span><span>03</span>
+                <a href="#background" class="torn-paper-tab flex items-center justify-between py-3 px-5 group">
+                    <span class="font-mono font-bold text-drafting-dark text-[11px]">03</span>
+                    <span class="font-heading font-bold tracking-wider text-navy-900">BACKGROUND & EDU</span>
+                    <i class="fa-solid fa-arrow-right text-[10px] text-drafting-blue"></i>
                 </a>
-                <a href="#awards" class="p-3 bg-drafting-blue text-white rounded font-medium shadow-sm hover:bg-navy-900 transition flex items-center justify-between">
-                    <span>Awards & Publications</span><span>04</span>
-                </a>
-                <a href="#contact" class="p-3 bg-drafting-blue text-white rounded font-medium shadow-sm hover:bg-navy-900 transition flex items-center justify-between">
-                    <span>Contact</span><span>05</span>
+                <a href="#contact" class="torn-paper-tab flex items-center justify-between py-3 px-5 group">
+                    <span class="font-mono font-bold text-drafting-dark text-[11px]">04</span>
+                    <span class="font-heading font-bold tracking-wider text-navy-900">CONTACT</span>
+                    <i class="fa-solid fa-arrow-right text-[10px] text-drafting-blue"></i>
                 </a>
             </nav>
         </div>
-        <div class="text-[10px] font-mono text-slate-400 pt-4 border-t border-slate-200">
-            © 2026 Prabuddhika Sandamini
+
+        <div class="px-6 font-mono text-[9px] text-slate-400">
+            <div>COLOMBO, SRI LANKA</div>
+            <div class="text-drafting-blue font-semibold mt-0.5">SPATIAL & LANDSCAPE LAB</div>
         </div>
     </aside>
 
-    <!-- MAIN CONTENT -->
-    <main class="ml-80 flex-1 p-16 max-w-5xl">
+    <main class="flex-1 overflow-y-auto px-6 md:px-14 py-10 max-w-7xl mx-auto space-y-20 bg-white shadow-xl md:my-6 md:rounded-xl border border-slate-200">
 
-        <!-- 00 OVERVIEW -->
-        <section id="overview" class="mb-20">
-            <div class="font-mono text-xs text-slate-400 mb-2">00</div>
-            <h2 class="text-3xl font-bold text-navy-900 mb-4 font-heading">Overview</h2>
-            <p class="text-sm text-slate-600 leading-relaxed font-sans">
-                I am a Landscape Architect and an Urban Systems Researcher with a background in landscape design, urban planning, and spatial analysis[cite: 5]. My work explores how landscape and urban systems can contribute to more sustainable, resilient, and inclusive environments[cite: 5]. I am particularly interested in climate-responsive design, nature-based solutions, blue-green infrastructure, urban ecological networks, and spatial performance[cite: 5].
-            </p>
+        <!-- 00 OVERVIEW SECTION -->
+        <section id="overview" class="space-y-6 scroll-mt-10">
+            <div class="border-b border-slate-200 pb-3 flex items-center justify-between font-mono text-xs text-slate-500">
+                <span class="text-navy-900 font-bold tracking-widest">00 — OVERVIEW</span>
+                <span>[ PROFILE SPECIFICATION ]</span>
+            </div>
+
+            <div class="bg-slate-50/80 rounded-lg border border-slate-200 p-6 md:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-4 flex flex-col items-center justify-center bg-white rounded p-4 border border-slate-300 shadow-2xs">
+                    <div class="w-40 h-48 bg-slate-100 rounded flex items-center justify-center border border-slate-300 overflow-hidden relative">
+                        <!-- Sourced from portfolio photo -->
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80" alt="Prabuddhika Sandamini" class="w-full h-full object-cover grayscale contrast-125 hover:grayscale-0 transition duration-500">
+                    </div>
+                    <span class="mt-3 font-mono text-[10px] text-slate-500 tracking-wider">PHOTO ID: PS-2026</span>
+                </div>
+
+                <div class="lg:col-span-8 space-y-4">
+                    <h3 class="text-xl md:text-2xl font-heading font-bold text-navy-900 tracking-tight italic">
+                        "Designing resilient landscapes that connect people, communities, and ecological systems."[cite: 34]
+                    </h3>
+                    <p class="text-slate-700 leading-relaxed text-xs md:text-sm font-sans">
+                        I am a Landscape Architect and Urban Systems Researcher with a background in landscape design, urban planning, and spatial analysis[cite: 21]. My work explores how landscape and urban systems can contribute to more sustainable, resilient, and inclusive environments, utilizing GIS, remote sensing, and evidence-based planning[cite: 21].
+                    </p>
+                    
+                    <div class="pt-3 border-t border-slate-200">
+                        <div class="text-[11px] font-mono font-bold text-drafting-dark uppercase tracking-wider mb-2">Core Areas of Interest</div>
+                        <div class="flex flex-wrap gap-2 text-xs font-mono text-drafting-dark">
+                            <span class="bg-white px-2.5 py-1 rounded border border-slate-200">Climate-Resilient Cities</span>
+                            <span class="bg-white px-2.5 py-1 rounded border border-slate-200">Nature-Based Solutions</span>
+                            <span class="bg-white px-2.5 py-1 rounded border border-slate-200">Blue-Green Infrastructure</span>
+                            <span class="bg-white px-2.5 py-1 rounded border border-slate-200">GIS & Spatial Analysis</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <!-- 01 DESIGN PROJECTS SECTION -->
-        <section id="projects" class="mb-20">
-            <div class="font-mono text-xs text-slate-400 mb-2">01</div>
-            <h2 class="text-3xl font-bold text-navy-900 mb-2 font-heading">Design Projects</h2>
-            <p class="text-sm text-slate-600 mb-8">Selected architectural design and spatial intervention works.</p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Project 1 -->
-                <div onclick="openProjectModal(1)" class="arch-card rounded-lg p-4 cursor-pointer group flex flex-col justify-between">
+        <!-- 01 DESIGN PROJECTS SECTION (4 Selected Projects) -->
+        <section id="design-projects" class="space-y-6 scroll-mt-10">
+            <div class="border-b border-slate-200 pb-3 flex items-center justify-between font-mono text-xs text-slate-500">
+                <div>
+                    <span class="text-navy-900 font-bold tracking-widest">01 — DESIGN PROJECTS</span>
+                    <h3 class="text-xl font-bold font-heading text-navy-900 mt-0.5">Selected Works & Masterplans</h3>
+                </div>
+                <span class="text-drafting-blue text-[11px] hidden sm:inline">[ CLICK CARD FOR DETAILS & BLUEPRINTS ]</span>
+            </div>
+
+            <p class="text-xs text-slate-600 font-sans">
+                Explore the four core projects from my landscape architecture portfolio: Adaptive Waters, Encountering Dynamism, River Threads (River Restoration), and Coastal Corridor[cite: 22]. Click any project card to open comprehensive descriptions, concept scopes, and components.
+            </p>
+
+            <!-- Project Cards Grid (4 Projects) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Project 1: Adaptive Waters -->
+                <div onclick="openModal('project-1')" class="arch-card rounded-lg p-4 cursor-pointer group flex flex-col justify-between">
                     <div>
-                        <div class="h-44 bg-slate-100 border border-slate-200 rounded mb-3 overflow-hidden relative">
-                            <img src="images/project1.jpg" alt="Adaptive Waters" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400/e8edf3/2c4a6f?text=Adaptive+Waters'">
-                            <div class="absolute bottom-2 left-2 bg-navy-900/90 text-white text-[9px] font-mono px-2 py-0.5 rounded">ECOLOGICAL RESTORATION</div>
+                        <div class="h-48 bg-slate-100 border border-slate-200 rounded mb-3 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Adaptive Waters" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute bottom-2 left-2 bg-navy-900/90 text-white text-[9px] font-mono px-2 py-0.5 rounded">01 — ADAPTIVE WATERS</div>
                         </div>
-                        <h4 class="font-bold text-navy-900 text-sm group-hover:text-drafting-blue font-heading transition">Adaptive Waters</h4>
-                        <p class="text-[11px] text-slate-600 mt-1 font-sans">Transformation of an unsuccessful harbor project into a resilient, self-sustaining coastal landscape.</p>
+                        <h4 class="font-bold text-navy-900 text-sm group-hover:text-drafting-blue font-heading transition">Adaptive Waters: Artificial Lagoon & Beach Walk</h4>
+                        <p class="text-[11px] text-slate-600 mt-1 font-sans">Transformation of an unsuccessful harbor project on the eastern coast of Sri Lanka into a resilient coastal landscape.</p>
                         <div class="mt-3 flex flex-wrap gap-1">
-                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Hydrology</span>
+                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Ecological Restoration</span>
                             <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Participatory Design</span>
                         </div>
                     </div>
                     <div class="mt-4 pt-2 border-t border-slate-100 flex items-center justify-between font-mono text-[10px]">
-                        <span class="text-slate-400">Project: 01</span>
+                        <span class="text-slate-400">Location: Eastern Coast, Sri Lanka</span>
                         <span class="text-drafting-blue font-semibold group-hover:underline">OPEN POPUP →</span>
                     </div>
                 </div>
 
-                <!-- Project 2 -->
-                <div onclick="openProjectModal(2)" class="arch-card rounded-lg p-4 cursor-pointer group flex flex-col justify-between">
+                <!-- Project 2: Encountering Dynamism -->
+                <div onclick="openModal('project-2')" class="arch-card rounded-lg p-4 cursor-pointer group flex flex-col justify-between">
                     <div>
-                        <div class="h-44 bg-slate-100 border border-slate-200 rounded mb-3 overflow-hidden relative">
-                            <img src="images/project2.jpg" alt="Encountering Dynamism" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400/e8edf3/2c4a6f?text=Encountering+Dynamism'">
-                            <div class="absolute bottom-2 left-2 bg-navy-900/90 text-white text-[9px] font-mono px-2 py-0.5 rounded">GEOTOURISM</div>
+                        <div class="h-48 bg-slate-100 border border-slate-200 rounded mb-3 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80" alt="Encountering Dynamism" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute bottom-2 left-2 bg-navy-900/90 text-white text-[9px] font-mono px-2 py-0.5 rounded">02 — ENCOUNTERING DYNAMISM</div>
                         </div>
-                        <h4 class="font-bold text-navy-900 text-sm group-hover:text-drafting-blue font-heading transition">Encountering Dynamism</h4>
-                        <p class="text-[11px] text-slate-600 mt-1 font-sans">Reclamation and geological interpretation of the Aruwakkalu fossil bed landscape.</p>
+                        <h4 class="font-bold text-navy-900 text-sm group-hover:text-drafting-blue font-heading transition">Encountering Dynamism: Aruwakkalu Quarry Site</h4>
+                        <p class="text-[11px] text-slate-600 mt-1 font-sans">Geotourism and community-based landscape project exploring the reclamation of an industrial limestone quarry and fossil bed.</p>
                         <div class="mt-3 flex flex-wrap gap-1">
-                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Quarry Reclamation</span>
-                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Geotourism</span>
+                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Geotourism Planning</span>
+                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Reclamation</span>
                         </div>
                     </div>
                     <div class="mt-4 pt-2 border-t border-slate-100 flex items-center justify-between font-mono text-[10px]">
-                        <span class="text-slate-400">Project: 02</span>
+                        <span class="text-slate-400">Location: Aruwakkalu, Sri Lanka</span>
                         <span class="text-drafting-blue font-semibold group-hover:underline">OPEN POPUP →</span>
                     </div>
                 </div>
 
-                <!-- Project 3 -->
-                <div onclick="openProjectModal(3)" class="arch-card rounded-lg p-4 cursor-pointer group flex flex-col justify-between">
+                <!-- Project 3: River Restoration (River Threads) -->
+                <div onclick="openModal('project-3')" class="arch-card rounded-lg p-4 cursor-pointer group flex flex-col justify-between">
                     <div>
-                        <div class="h-44 bg-slate-100 border border-slate-200 rounded mb-3 overflow-hidden relative">
-                            <img src="images/project3.jpg" alt="River Threads" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400/e8edf3/2c4a6f?text=River+Threads'">
-                            <div class="absolute bottom-2 left-2 bg-navy-900/90 text-white text-[9px] font-mono px-2 py-0.5 rounded">RIVER RESTORATION</div>
+                        <div class="h-48 bg-slate-100 border border-slate-200 rounded mb-3 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=600&q=80" alt="River Restoration" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute bottom-2 left-2 bg-navy-900/90 text-white text-[9px] font-mono px-2 py-0.5 rounded">03 — RIVER RESTORATION</div>
                         </div>
-                        <h4 class="font-bold text-navy-900 text-sm group-hover:text-drafting-blue font-heading transition">River Threads</h4>
-                        <p class="text-[11px] text-slate-600 mt-1 font-sans">Ecological rehabilitation of the Maha Oya basin degraded by sand and clay mining.</p>
+                        <h4 class="font-bold text-navy-900 text-sm group-hover:text-drafting-blue font-heading transition">River Restoration: River Threads (Maha Oya)</h4>
+                        <p class="text-[11px] text-slate-600 mt-1 font-sans">Ecological rehabilitation of a landscape degraded by extensive sand and clay mining along the Maha Oya basin.</p>
                         <div class="mt-3 flex flex-wrap gap-1">
-                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Ecosystem Corridors</span>
-                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Hydrology</span>
+                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Ecological Rehabilitation</span>
+                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Watershed Planning</span>
                         </div>
                     </div>
                     <div class="mt-4 pt-2 border-t border-slate-100 flex items-center justify-between font-mono text-[10px]">
-                        <span class="text-slate-400">Project: 03</span>
+                        <span class="text-slate-400">Location: Maha Oya Basin, Sri Lanka</span>
+                        <span class="text-drafting-blue font-semibold group-hover:underline">OPEN POPUP →</span>
+                    </div>
+                </div>
+
+                <!-- Project 4: Coastal Corridor -->
+                <div onclick="openModal('project-4')" class="arch-card rounded-lg p-4 cursor-pointer group flex flex-col justify-between">
+                    <div>
+                        <div class="h-48 bg-slate-100 border border-slate-200 rounded mb-3 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=600&q=80" alt="Coastal Corridor" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute bottom-2 left-2 bg-navy-900/90 text-white text-[9px] font-mono px-2 py-0.5 rounded">04 — COASTAL CORRIDOR</div>
+                        </div>
+                        <h4 class="font-bold text-navy-900 text-sm group-hover:text-drafting-blue font-heading transition">Coastal Corridor: Beachfront Development</h4>
+                        <p class="text-[11px] text-slate-600 mt-1 font-sans">Transformation of a 6.2 km coastal stretch into a major public waterfront and recreational destination.</p>
+                        <div class="mt-3 flex flex-wrap gap-1">
+                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Waterfront Design</span>
+                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Reclamation</span>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-2 border-t border-slate-100 flex items-center justify-between font-mono text-[10px]">
+                        <span class="text-slate-400">Location: Colpetty-Dehiwala, Sri Lanka</span>
                         <span class="text-drafting-blue font-semibold group-hover:underline">OPEN POPUP →</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 02 RESEARCH PROJECTS -->
-        <section id="research" class="mb-20">
-            <div class="font-mono text-xs text-slate-400 mb-2">02</div>
-            <h2 class="text-3xl font-bold text-navy-900 mb-4 font-heading">Research Projects</h2>
-            <p class="text-sm text-slate-600">Academic research exploring spatial conditions, GIS modeling, and environmental performance.</p>
+        <!-- 02 EXPERIENCE & SKILLS SECTION -->
+        <section id="research-projects" class="space-y-6 scroll-mt-10">
+            <div class="border-b border-slate-200 pb-3 flex items-center justify-between font-mono text-xs text-slate-500">
+                <div>
+                    <span class="text-navy-900 font-bold tracking-widest">02 — EXPERIENCE & TECHNICAL SKILLS</span>
+                    <h3 class="text-xl font-bold font-heading text-navy-900 mt-0.5">Professional Practice & Toolkit</h3>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 font-sans">
+                <div class="arch-card rounded-lg p-5 space-y-3">
+                    <div class="font-mono text-[10px] text-drafting-dark font-bold tracking-wider">PROFESSIONAL EXPERIENCE</div>
+                    <ul class="space-y-2.5 text-xs text-slate-700">
+                        <li><strong class="text-navy-900">Visiting Lecturer (2026–Present):</strong> University of Moratuwa[cite: 21].</li>
+                        <li><strong class="text-navy-900">Freelance Landscape Designer (2020–Present):</strong> International remote projects and local commissions in Sri Lanka[cite: 21].</li>
+                        <li><strong class="text-navy-900">Landscape Architect / Architectural Designer (2020–2021):</strong> ADF Architects, Sri Lanka[cite: 21].</li>
+                        <li><strong class="text-navy-900">Temporary Instructor & Research Assistant (2021–2023):</strong> Department of Architecture, University of Moratuwa[cite: 21].</li>
+                    </ul>
+                </div>
+
+                <div class="arch-card rounded-lg p-5 space-y-3">
+                    <div class="font-mono text-[10px] text-drafting-dark font-bold tracking-wider">SOFTWARE & TECHNICAL SKILLS</div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Proficient in industry-standard drafting, spatial analysis, and 3D visualization software suites:
+                    </p>
+                    <div class="flex flex-wrap gap-1.5 pt-1">
+                        <span class="font-mono bg-slate-100 border border-slate-200 text-navy-900 text-[10px] px-2 py-0.5 rounded">AutoCAD</span>
+                        <span class="font-mono bg-slate-100 border border-slate-200 text-navy-900 text-[10px] px-2 py-0.5 rounded">GIS</span>
+                        <span class="font-mono bg-slate-100 border border-slate-200 text-navy-900 text-[10px] px-2 py-0.5 rounded">SketchUp</span>
+                        <span class="font-mono bg-slate-100 border border-slate-200 text-navy-900 text-[10px] px-2 py-0.5 rounded">Lumion</span>
+                        <span class="font-mono bg-slate-100 border border-slate-200 text-navy-900 text-[10px] px-2 py-0.5 rounded">Google Earth Engine</span>
+                        <span class="font-mono bg-slate-100 border border-slate-200 text-navy-900 text-[10px] px-2 py-0.5 rounded">Adobe Photoshop</span>
+                        <span class="font-mono bg-slate-100 border border-slate-200 text-navy-900 text-[10px] px-2 py-0.5 rounded">Adobe Illustrator</span>
+                        <span class="font-mono bg-slate-100 border border-slate-200 text-navy-900 text-[10px] px-2 py-0.5 rounded">Adobe InDesign</span>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <!-- 03 BACKGROUND -->
-        <section id="background" class="mb-20">
-            <div class="font-mono text-xs text-slate-400 mb-2">03</div>
-            <h2 class="text-3xl font-bold text-navy-900 mb-4 font-heading">Background & Experience</h2>
-            <p class="text-sm text-slate-600">Professional practice, academic teaching, and research history[cite: 5].</p>
+        <!-- 03 BACKGROUND & EDUCATION SECTION -->
+        <section id="background" class="space-y-6 scroll-mt-10">
+            <div class="border-b border-slate-200 pb-3 flex items-center justify-between font-mono text-xs text-slate-500">
+                <div>
+                    <span class="text-navy-900 font-bold tracking-widest">03 — EDUCATION & BACKGROUND</span>
+                    <h3 class="text-xl font-bold font-heading text-navy-900 mt-0.5">Academic Credentials</h3>
+                </div>
+            </div>
+
+            <div class="bg-slate-50/80 border border-slate-200 rounded-lg p-6 md:p-8">
+                <div class="relative pl-6 border-l-2 border-drafting-blue space-y-8">
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-drafting-blue border-2 border-white"></div>
+                        <span class="font-mono text-[11px] text-drafting-dark font-bold">2023 — 2025</span>
+                        <h4 class="font-bold text-navy-900 text-base font-heading mt-0.5">MSc Urban Systems Engineering</h4>
+                        <p class="font-mono text-[11px] text-slate-500">University of Debrecen, Hungary • GPA: 4.99/5.00 (Summa Cum Laude)</p>
+                        <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">Stipendium Hungaricum Scholarship Awardee[cite: 21].</p>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-slate-400 border-2 border-white"></div>
+                        <span class="font-mono text-[11px] text-slate-500 font-bold">2015 — 2020</span>
+                        <h4 class="font-bold text-navy-900 text-base font-heading mt-0.5">BLA (Hons) Landscape Architecture</h4>
+                        <p class="font-mono text-[11px] text-slate-500">University of Moratuwa, Sri Lanka • Second Upper Division[cite: 21]</p>
+                        <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">Comprehensive foundational training in site planning, environmental design, and spatial planning.</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <!-- 04 AWARDS -->
-        <section id="awards" class="mb-20">
-            <div class="font-mono text-xs text-slate-400 mb-2">04</div>
-            <h2 class="text-3xl font-bold text-navy-900 mb-4 font-heading">Awards & Publications</h2>
-            <p class="text-sm text-slate-600">Scholarships, recognitions, and academic honors[cite: 5].</p>
-        </section>
+        <!-- 04 CONTACT SECTION -->
+        <section id="contact" class="space-y-6 scroll-mt-10 pb-12">
+            <div class="border-b border-slate-200 pb-3 flex items-center justify-between font-mono text-xs text-slate-500">
+                <div>
+                    <span class="text-navy-900 font-bold tracking-widest">04 — CONTACT</span>
+                    <h3 class="text-xl font-bold font-heading text-navy-900 mt-0.5">Get in Touch</h3>
+                </div>
+            </div>
 
-        <!-- 05 CONTACT -->
-        <section id="contact" class="mb-20">
-            <div class="font-mono text-xs text-slate-400 mb-2">05</div>
-            <h2 class="text-3xl font-bold text-navy-900 mb-4 font-heading">Contact</h2>
-            <p class="text-sm text-slate-600">Get in touch for collaborations or professional project inquiries.</p>
+            <div class="bg-slate-50/80 border border-slate-200 rounded-lg p-6 md:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <div class="lg:col-span-5 space-y-4">
+                    <h3 class="text-lg font-heading font-bold text-navy-900">Let's collaborate on spatial innovations</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">
+                        Whether you want to discuss urban systems, landscape architecture projects, or GIS spatial analysis consulting, feel free to send a message.
+                    </p>
+                    <div class="space-y-1.5 font-mono text-[11px] text-slate-600 pt-1">
+                        <div>EMAIL: prabuddhikasr@gmail.com[cite: 34]</div>
+                        <div>LOCATION: Colombo, Sri Lanka[cite: 34]</div>
+                        <div>LINKEDIN: linkedin.com/in/prabuddhika-ramawickrama[cite: 34]</div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7">
+                    <form onsubmit="handleContactSubmit(event)" class="space-y-3">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block font-mono text-[9px] text-slate-500 mb-1 uppercase">Your Name</label>
+                                <input type="text" required class="w-full px-3 py-2 rounded bg-white border border-slate-300 text-xs text-navy-900 font-sans focus:outline-none focus:border-drafting-blue">
+                            </div>
+                            <div>
+                                <label class="block font-mono text-[9px] text-slate-500 mb-1 uppercase">Your Email</label>
+                                <input type="email" required class="w-full px-3 py-2 rounded bg-white border border-slate-300 text-xs text-navy-900 font-sans focus:outline-none focus:border-drafting-blue">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block font-mono text-[9px] text-slate-500 mb-1 uppercase">Subject</label>
+                            <input type="text" required class="w-full px-3 py-2 rounded bg-white border border-slate-300 text-xs text-navy-900 font-sans focus:outline-none focus:border-drafting-blue">
+                        </div>
+                        <div>
+                            <label class="block font-mono text-[9px] text-slate-500 mb-1 uppercase">Message</label>
+                            <textarea rows="3" required class="w-full px-3 py-2 rounded bg-white border border-slate-300 text-xs text-navy-900 font-sans focus:outline-none focus:border-drafting-blue"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-2.5 bg-drafting-dark hover:bg-navy-900 text-white font-sans font-semibold text-xs transition rounded shadow-xs">
+                            TRANSMIT MESSAGE →
+                        </button>
+                    </form>
+                </div>
+            </div>
         </section>
 
     </main>
 
-    <!-- PROJECT MODAL POPUP WITH HORIZONTAL SLIDESHOW -->
-    <div class="modal-overlay" id="projectModal">
-        <div class="bg-white w-[90%] max-w-2xl p-8 rounded-lg relative max-h-[90vh] overflow-y-auto shadow-2xl">
-            <button onclick="closeProjectModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-800 font-mono text-lg">✕</button>
-            
-            <!-- Slideshow Container -->
-            <div class="mb-5">
-                <div class="h-64 bg-navy-900 rounded-md overflow-hidden relative flex items-center justify-center">
-                    <img id="modalActiveImg" src="" alt="Project View" class="w-full h-full object-cover">
-                    <button onclick="changeSlide(-1)" class="absolute left-3 bg-black/50 text-white px-3 py-1 rounded text-xs hover:bg-black/80">❮</button>
-                    <button onclick="changeSlide(1)" class="absolute right-3 bg-black/50 text-white px-3 py-1 rounded text-xs hover:bg-black/80">❯</button>
-                </div>
-                <!-- Horizontal Thumbnail Strip -->
-                <div id="modalThumbnails" class="flex gap-2 mt-3 overflow-x-auto pb-1"></div>
+    <!-- Modal Popup for Project Blueprints -->
+    <div id="project-modal" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs hidden items-center justify-center p-4">
+        <div class="bg-white border-2 border-drafting-blue rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative p-6 md:p-8">
+            <button onclick="closeModal()" class="absolute top-4 right-4 w-7 h-7 bg-slate-100 text-navy-900 font-mono rounded flex items-center justify-center text-xs hover:bg-drafting-dark hover:text-white border border-slate-300 transition">
+                ✕
+            </button>
+            <div id="modal-content" class="space-y-4">
+                <!-- Populated dynamically -->
             </div>
-
-            <h3 id="modalTitle" class="text-xl font-bold text-navy-900"></h3>
-            <div id="modalTagline" class="text-xs font-mono text-drafting-blue font-semibold uppercase mt-1 mb-3"></div>
-            <p id="modalDesc" class="text-sm text-slate-600 leading-relaxed mb-4"></p>
-            <div id="modalDetails" class="text-xs text-slate-500 font-mono border-t border-slate-100 pt-3"></div>
         </div>
     </div>
 
-    <!-- JAVASCRIPT FOR SLIDESHOW AND POPUP -->
+    <div id="notification-box" class="fixed bottom-6 right-6 z-50 bg-navy-900 text-white font-mono text-xs px-4 py-2.5 shadow-xl border border-drafting-blue rounded transform translate-y-20 opacity-0 transition-all duration-300">
+        <span id="notification-text">Message successfully transmitted.</span>
+    </div>
+
     <script>
-        const projectsData = {
-            1: {
-                title: "Adaptive Waters",
-                tagline: "Community-Based Artificial Lagoon and Beach Walk",
-                description: "Transformation of an unsuccessful harbor project on the eastern coast of Sri Lanka into a resilient, self-sustaining coastal landscape combining ecological restoration, recreation, and community infrastructure[cite: 7].",
-                details: "Location: Eastern Coast, Sri Lanka[cite: 7] | Scope: Site Analysis, Concept Development, Landscape Design, Ecological Restoration, Participatory Design[cite: 7]",
-                images: ["images/project1.jpg", "https://placehold.co/600x400/e8edf3/2c4a6f?text=Adaptive+Waters+View+2", "https://placehold.co/600x400/e8edf3/2c4a6f?text=Adaptive+Waters+Plan"]
+        const projectData = {
+            'project-1': {
+                title: 'Adaptive Waters: Community-Based Artificial Lagoon & Beach Walk',
+                tagline: 'Transformation of an unsuccessful harbor project into a resilient, self-sustaining coastal landscape',
+                image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
+                components: ['Site Analysis', 'Concept Development', 'Landscape Design', 'Ecological Restoration', 'Participatory Design', 'Visualization'],
+                description: 'Adaptive Waters explores the transformation of an unsuccessful harbor project on the eastern coast of Sri Lanka into a resilient and self-sustaining coastal landscape[cite: 23]. The project responds to social, economic, and ecological challenges including loss of livelihoods, social isolation, coastal erosion, and ecosystem degradation[cite: 23]. Driven by the concept of mutualism, the proposal reimagines the waterfront as a productive public landscape combining ecological restoration, community spaces, and water-based environments[cite: 23, 25].',
+                location: 'Eastern Coast, Sri Lanka[cite: 23]'
             },
-            2: {
-                title: "Encountering Dynamism",
-                tagline: "Geotourism and Community-Based Landscape Project",
-                description: "Reclamation of the Aruwakkalu fossil bed, a significant paleobiodiversity and limestone landscape in northern Sri Lanka, translating geological history into spatial experiences[cite: 10].",
-                details: "Location: Reclaimed Aruwakkalu Quarry Site, Sri Lanka[cite: 10] | Scope: Geotourism Planning, Concept Development, Ecological Interpretation[cite: 10]",
-                images: ["images/project2.jpg", "https://placehold.co/600x400/e8edf3/2c4a6f?text=Quarry+Site+Analysis", "https://placehold.co/600x400/e8edf3/2c4a6f?text=Fossil+Bed+Masterplan"]
+            'project-2': {
+                title: 'Encountering Dynamism: Geotourism & Community-Based Landscape',
+                tagline: 'Reclamation of the Aruwakkalu fossil bed and limestone quarry site',
+                image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80',
+                components: ['Site Analysis', 'Geotourism Planning', 'Concept Development', 'Community-Based Design', 'Ecological Interpretation', 'Visualization'],
+                description: 'Encountering Dynamism explores the reclamation of the Aruwakkalu fossil bed, a significant paleobiodiversity and limestone landscape in northern Sri Lanka[cite: 26]. Shaped by millions of years of geological processes and industrial limestone extraction, the project reveals and interprets its geological history[cite: 26]. Rather than restoring what was lost, the design creates a new relationship between people and the transformed geological environment across macro and micro scales[cite: 27].',
+                location: 'Aruwakkalu Quarry Site, Sri Lanka[cite: 26]'
             },
-            3: {
-                title: "River Threads",
-                tagline: "River Restoration and Revitalization Project",
-                description: "Ecological rehabilitation of a landscape degraded by extensive sand and clay mining along the Maha Oya basin, reconnecting fragmented habitats through ecological corridors[cite: 13].",
-                details: "Location: Maha Oya, Sri Lanka[cite: 13] | Scope: River Rehabilitation, Landscape Planning, Habitat Connectivity Strategy[cite: 13]",
-                images: ["images/project3.jpg", "https://placehold.co/600x400/e8edf3/2c4a6f?text=Maha+Oya+Corridor", "https://placehold.co/600x400/e8edf3/2c4a6f?text=Habitat+Network"]
+            'project-3': {
+                title: 'River Restoration: River Threads (Maha Oya)',
+                tagline: 'Ecological rehabilitation of a landscape degraded by extensive sand and clay mining',
+                image: 'https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80',
+                components: ['Site Analysis', 'Concept Development', 'Ecological Restoration', 'Landscape Planning', 'Connectivity Strategy', 'Visualization'],
+                description: 'River Threads explores the ecological rehabilitation of a landscape degraded by extensive sand and clay mining along the Maha Oya basin[cite: 29]. Mining has disrupted river systems, altered natural sand movement, and fragmented habitats[cite: 29]. The design reconnects these fragmented landscapes through ecological corridors, regenerated vegetation, restored waterways, and retention and wetland spaces guided by natural succession[cite: 29].',
+                location: 'Maha Oya Basin, Sri Lanka[cite: 29]'
+            },
+            'project-4': {
+                title: 'Coastal Corridor: Beachfront Development Project',
+                tagline: 'Transformation of a 6.2 km coastal stretch into a major public waterfront destination',
+                image: 'https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=800&q=80',
+                components: ['Conceptualization', 'Landscape Design', '3D Visualization', 'Urban Integration', 'Reclamation'],
+                description: 'Coastal Corridor proposes the transformation of a 6.2 km coastal stretch between Colpetty and Dehiwala into a major public waterfront and recreational destination[cite: 31]. The project explores the reclamation and restructuring of approximately 85 ha of coastal land to create a continuous beachfront landscape connected to Colombo[cite: 31], linking the city, beach, and sea through open spaces and diverse waterfront experiences[cite: 31].',
+                location: 'Colpetty-Dehiwala Beach Strip, Colombo, Sri Lanka[cite: 31]'
             }
         };
 
-        let currentProjectImages = [];
-        let currentImageIndex = 0;
+        function openModal(projectId) {
+            const data = projectData[projectId];
+            if (!data) return;
 
-        function openProjectModal(projectId) {
-            const project = projectsData[projectId];
-            if (!project) return;
+            const modalContent = document.getElementById('modal-content');
+            modalContent.innerHTML = `
+                <div class="space-y-4 font-sans">
+                    <div class="font-mono text-[10px] text-drafting-blue tracking-widest">[ PROJECT BLUEPRINT & DETAILS POPUP ]</div>
+                    <h3 class="text-xl font-bold font-heading text-navy-900">${data.title}</h3>
+                    <p class="font-mono text-xs text-slate-500">${data.tagline}</p>
+                    
+                    <div class="border border-slate-300 bg-slate-100 h-56 overflow-hidden rounded relative">
+                        <img src="${data.image}" alt="${data.title}" class="w-full h-full object-cover">
+                    </div>
 
-            document.getElementById('modalTitle').innerText = project.title;
-            document.getElementById('modalTagline').innerText = project.tagline;
-            document.getElementById('modalDesc').innerText = project.description;
-            document.getElementById('modalDetails').innerText = project.details;
+                    <div class="space-y-1.5">
+                        <h4 class="font-mono text-[11px] font-bold text-navy-900 uppercase tracking-wider">PROJECT DESCRIPTION & CONCEPT</h4>
+                        <p class="text-xs text-slate-700 leading-relaxed font-sans">${data.description}</p>
+                    </div>
 
-            currentProjectImages = project.images;
-            currentImageIndex = 0;
-            updateActiveSlide();
+                    <div class="space-y-2 pt-2 border-t border-slate-200">
+                        <h4 class="font-mono text-[11px] font-bold text-navy-900 uppercase tracking-wider">PROJECT SCOPE & COMPONENTS</h4>
+                        <p class="font-mono text-[10px] text-slate-500">Location: ${data.location}</p>
+                        <div class="flex flex-wrap gap-1.5 pt-1">
+                            ${data.components.map(comp => `<span class="font-mono bg-slate-100 border border-slate-200 text-navy-900 text-[10px] px-2 py-0.5 rounded">✓ ${comp}</span>`).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
 
-            document.getElementById('projectModal').classList.add('active');
+            const modal = document.getElementById('project-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
         }
 
-        function closeProjectModal() {
-            document.getElementById('projectModal').classList.remove('active');
+        function closeModal() {
+            const modal = document.getElementById('project-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
         }
 
-        function changeSlide(direction) {
-            currentImageIndex += direction;
-            if (currentImageIndex < 0) {
-                currentImageIndex = currentProjectImages.length - 1;
-            } else if (currentImageIndex >= currentProjectImages.length) {
-                currentImageIndex = 0;
+        window.onclick = function(event) {
+            const modal = document.getElementById('project-modal');
+            if (event.target === modal) {
+                closeModal();
             }
-            updateActiveSlide();
         }
 
-        function setSlide(index) {
-            currentImageIndex = index;
-            updateActiveSlide();
-        }
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileDrawer = document.getElementById('mobile-drawer');
+        const closeDrawer = document.getElementById('close-drawer');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
-        function updateActiveSlide() {
-            document.getElementById('modalActiveImg').src = currentProjectImages[currentImageIndex];
+        mobileMenuBtn.addEventListener('click', () => mobileDrawer.classList.remove('hidden'));
+        closeDrawer.addEventListener('click', () => mobileDrawer.classList.add('hidden'));
+        mobileNavLinks.forEach(link => link.addEventListener('click', () => mobileDrawer.classList.add('hidden')));
 
-            const thumbContainer = document.getElementById('modalThumbnails');
-            thumbContainer.innerHTML = '';
-            currentProjectImages.forEach((imgSrc, idx) => {
-                const thumb = document.createElement('img');
-                thumb.src = imgSrc;
-                thumb.className = `w-16 h-12 object-cover rounded cursor-pointer border transition ${idx === currentImageIndex ? 'border-drafting-blue ring-1 ring-drafting-blue' : 'border-slate-200 opacity-70 hover:opacity-100'}`;
-                thumb.onclick = () => setSlide(idx);
-                thumbContainer.appendChild(thumb);
-            });
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            const notification = document.getElementById('notification-box');
+            notification.classList.remove('translate-y-20', 'opacity-0');
+            event.target.reset();
+            setTimeout(() => {
+                notification.classList.add('translate-y-20', 'opacity-0');
+            }, 4000);
         }
     </script>
 </body>
