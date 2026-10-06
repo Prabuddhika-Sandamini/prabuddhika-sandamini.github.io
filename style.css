@@ -25,51 +25,48 @@ a {
    HEADER
 -------------------------------- */
 
-.hero {
-    padding: 35px 7vw 30px;
+.site-header {
+    width: 100%;
+    padding: 22px 5vw 18px;
     border-bottom: 1px solid #DCE7ED;
+    background: #ffffff;
 }
 
-.hero-content {
-    max-width: 1400px;
-    margin: 0 auto;
+.identity {
     text-align: center;
 }
 
-.hero h1 {
-    font-size: clamp(2rem, 4vw, 4rem);
+.identity h1 {
+    font-size: clamp(1.8rem, 3vw, 3rem);
     font-weight: 500;
     letter-spacing: -0.045em;
     line-height: 1;
-    margin-bottom: 10px;
+    margin-bottom: 7px;
 }
 
-.title {
-    font-size: 0.75rem;
+.identity .title {
+    font-size: 0.68rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: #1D4E6F;
-    margin-bottom: 22px;
+}
+
+.intro-line {
+    margin-top: 18px;
+    text-align: center;
 }
 
 .statement {
-    font-size: 1.15rem;
+    font-size: 0.95rem;
     font-style: italic;
-    font-weight: 400;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .keywords {
-    font-size: 0.62rem;
-    letter-spacing: 0.13em;
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
     color: #657B6B;
-    line-height: 1.6;
 }
-
-
-/* --------------------------------
-   SIDE NAVIGATION
--------------------------------- */
 
 .side-navigation {
     position: fixed;
