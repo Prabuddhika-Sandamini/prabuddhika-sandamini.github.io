@@ -2204,6 +2204,134 @@ function handleContactSubmit(event) {
     }, 4000);
 
 }
+
+        const researchData = {
+    "research-1": {
+        title: "Assessing the Impact of the Spatial and Demographic Factors on Air Pollution in Urban Green Spaces: A Predictive Model for Sustainable Planning",
+        category: "MSc THESIS",
+        image: "images/research-thesis-01.jpg",
+        type: "MSc Thesis",
+        year: "2025",
+        institution: "University of Debrecen",
+        location: "Debrecen, Hungary",
+        role: "Researcher",
+        supervisor: "Dr. György Csomós",
+        description: `
+            <p>
+                This research investigates how spatial and demographic factors influence particulate matter concentrations across eight urban green spaces in Debrecen, Hungary.
+            </p>
+        `
+    },
+
+    "research-2": {
+        title: "Reconnecting Colombo Through Beira Lake",
+        category: "OTDK RESEARCH",
+        image: "images/research-otdk-01.jpg",
+        type: "OTDK Conference Research Project",
+        year: "2025",
+        institution: "University of Moratuwa",
+        location: "Colombo, Sri Lanka",
+        role: "Researcher",
+        supervisor: "Dr. Lovra Eva",
+        description: `
+            <p>
+                This research explores the urban renewal of Beira Lake and its surrounding areas through blue-green infrastructure, pedestrian connectivity, and waterfront regeneration.
+            </p>
+        `
+    },
+
+    "research-3": {
+        title: "Spatial Configuration and Urban Connectivity: A Space Syntax Analysis of Colombo",
+        category: "SPATIAL ANALYSIS",
+        image: "images/research-space-syntax-01.jpg",
+        type: "Research Project",
+        year: "2020",
+        institution: "University of Moratuwa",
+        location: "Colombo, Sri Lanka",
+        role: "Researcher",
+        supervisor: "Dr. Bereczki Zoltán",
+        description: `
+            <p>
+                This study examines Colombo's spatial configuration and urban connectivity using GIS, OpenStreetMap data, and Space Syntax analysis.
+            </p>
+        `
+    },
+
+    "research-4": {
+        title: "CITY FORM AS A STRATEGY FOR CITY BRANDING: A Comparative Study Of Kandy And Galle",
+        category: "CITY BRANDING",
+        image: "images/research-city-branding-01.jpg",
+        type: "FARU Conference Research Paper",
+        year: "2019",
+        institution: "University of Moratuwa",
+        location: "Kandy & Galle, Sri Lanka",
+        role: "Co-author / Researcher",
+        supervisor: "—",
+        description: `
+            <p>
+                This comparative study examines how landmarks, parks, and streets influence the perception and identity of city brands in Kandy and Galle.
+            </p>
+        `
+    },
+
+    "research-5": {
+        title: "Appraising Indoor Thermal Perception of Elderly in Hot Climates: An Experimental Investigation of Free-Running Residential Aged Care Homes in Colombo",
+        category: "THERMAL COMFORT",
+        image: "images/research-thermal-01.jpg",
+        type: "Research Study",
+        year: "2018",
+        institution: "University of Moratuwa",
+        location: "Colombo, Sri Lanka",
+        role: "Research Assistant",
+        supervisor: "Indrika Rajapaksha",
+        description: `
+            <p>
+                This field-based study investigates indoor thermal conditions, elderly residents' thermal perceptions, and adaptive behaviour in residential aged care homes in Colombo.
+            </p>
+        `
+    }
+};
+
+
+function openResearchModal(id) {
+
+    const project = researchData[id];
+
+    if (!project) return;
+
+    document.getElementById("research-modal-title").textContent = project.title;
+    document.getElementById("research-modal-category").textContent = project.category;
+
+    document.getElementById("research-modal-image").src = project.image;
+    document.getElementById("research-modal-image").alt = project.title;
+
+    document.getElementById("research-modal-description").innerHTML = project.description;
+
+    document.getElementById("research-modal-type").textContent = project.type;
+    document.getElementById("research-modal-year").textContent = project.year;
+    document.getElementById("research-modal-institution").textContent = project.institution;
+    document.getElementById("research-modal-location").textContent = project.location;
+    document.getElementById("research-modal-role").textContent = project.role;
+    document.getElementById("research-modal-supervisor").textContent = project.supervisor;
+
+    const modal = document.getElementById("research-modal");
+
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+
+    document.body.style.overflow = "hidden";
+}
+
+
+function closeResearchModal() {
+
+    const modal = document.getElementById("research-modal");
+
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+
+    document.body.style.overflow = "";
+}
     </script>
 </body>
 </html>
