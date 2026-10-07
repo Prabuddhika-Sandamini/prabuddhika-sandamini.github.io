@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>PRABUDDHIKA SANDAMINI | Urban Systems & Landscape Architecture</title>
-    <!-- Tailwind CSS CDN -->
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts: Inter and Space Grotesk -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
     <script>
         tailwind.config = {
             theme: {
@@ -34,26 +38,55 @@
             }
         }
     </script>
+
     <style>
+
         body {
             background-color: #fafbfc;
             color: #2b3748;
-            background-image: 
-                linear-gradient(to right, rgba(74, 112, 156, 0.05) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(74, 112, 156, 0.05) 1px, transparent 1px);
+
+            background-image:
+                linear-gradient(
+                    to right,
+                    rgba(74, 112, 156, 0.05) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    to bottom,
+                    rgba(74, 112, 156, 0.05) 1px,
+                    transparent 1px
+                );
+
             background-size: 32px 32px;
         }
 
-        /* Torn paper tab styling using organic polygon clip-paths mimicking the reference image top row second rectangle */
+        /* =====================================================
+           SIDEBAR TABS
+           ===================================================== */
+
         .torn-paper-tab {
             background-color: #e5edf5;
             color: #1a2b4c;
+
             clip-path: polygon(
-                0% 2%, 3% 0%, 8% 3%, 14% 1%, 20% 3%, 27% 0%, 34% 2%, 40% 0%, 46% 3%, 53% 1%, 60% 3%, 67% 0%, 74% 2%, 81% 0%, 88% 3%, 94% 1%, 98% 3%, 100% 0%,
-                100% 97%, 97% 99%, 92% 97%, 86% 100%, 80% 97%, 73% 100%, 67% 98%, 61% 100%, 55% 97%, 48% 100%, 41% 98%, 35% 100%, 28% 97%, 21% 100%, 15% 97%, 9% 100%, 4% 97%, 0% 100%
+                0% 2%, 3% 0%, 8% 3%, 14% 1%, 20% 3%,
+                27% 0%, 34% 2%, 40% 0%, 46% 3%, 53% 1%,
+                60% 3%, 67% 0%, 74% 2%, 81% 0%, 88% 3%,
+                94% 1%, 98% 3%, 100% 0%,
+                100% 97%, 97% 99%, 92% 97%, 86% 100%,
+                80% 97%, 73% 100%, 67% 98%, 61% 100%,
+                55% 97%, 48% 100%, 41% 98%, 35% 100%,
+                28% 97%, 21% 100%, 15% 97%, 9% 100%,
+                4% 97%, 0% 100%
             );
-            box-shadow: 3px 4px 10px rgba(44, 74, 111, 0.12), inset 1px 1px 0px rgba(255, 255, 255, 0.8);
-            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+            box-shadow:
+                3px 4px 10px rgba(44, 74, 111, 0.12),
+                inset 1px 1px 0 rgba(255,255,255,0.8);
+
+            transition:
+                all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
             position: relative;
             border-left: 4px solid #4a709c;
         }
@@ -61,1130 +94,1988 @@
         .torn-paper-tab:hover {
             background-color: #d4e2f0;
             transform: translateX(8px);
-            box-shadow: 5px 6px 14px rgba(44, 74, 111, 0.2);
+
+            box-shadow:
+                5px 6px 14px rgba(44, 74, 111, 0.2);
         }
+
+        /* =====================================================
+           CARDS
+           ===================================================== */
 
         .arch-card {
             background: #ffffff;
             border: 1px solid #cbd5e1;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+
+            box-shadow:
+                0 2px 4px rgba(0,0,0,0.02);
+
             transition: all 0.2s ease;
         }
 
         .arch-card:hover {
             border-color: #4a709c;
-            box-shadow: 0 8px 20px rgba(74, 112, 156, 0.08);
+
+            box-shadow:
+                0 8px 20px rgba(74,112,156,0.08);
+
             transform: translateY(-2px);
         }
+
+        /* =====================================================
+           SCROLLBAR
+           ===================================================== */
 
         ::-webkit-scrollbar {
             width: 6px;
         }
+
         ::-webkit-scrollbar-track {
             background: #f1f5f9;
         }
+
         ::-webkit-scrollbar-thumb {
             background: #cbd5e1;
             border-radius: 3px;
         }
+
+        /* =====================================================
+           UNIFIED PROJECT MODALS
+           ===================================================== */
+
+        .portfolio-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 50;
+
+            background: rgba(15, 23, 42, 0.55);
+
+            backdrop-filter: blur(3px);
+
+            display: none;
+            align-items: center;
+            justify-content: center;
+
+            padding: 1rem;
+        }
+
+        .portfolio-modal.active {
+            display: flex;
+        }
+
+        .portfolio-modal-window {
+            width: 100%;
+            max-width: 1100px;
+
+            max-height: 92vh;
+
+            overflow-y: auto;
+
+            background: #ffffff;
+
+            border: 2px solid #4a709c;
+
+            border-radius: 8px;
+
+            box-shadow:
+                0 25px 60px rgba(15, 23, 42, 0.25);
+
+            position: relative;
+        }
+
+        .portfolio-modal-inner {
+            padding: 28px;
+        }
+
+        /* Modal title area */
+
+        .modal-category {
+            font-family: 'Inter', sans-serif;
+
+            font-size: 10px;
+            font-weight: 600;
+
+            letter-spacing: 0.18em;
+
+            color: #4a709c;
+
+            text-transform: uppercase;
+
+            margin-bottom: 7px;
+        }
+
+        .modal-title {
+            font-family: 'Space Grotesk', sans-serif;
+
+            font-size: 28px;
+            line-height: 1.18;
+
+            font-weight: 700;
+
+            color: #1a2b4c;
+
+            margin: 0;
+        }
+
+        .modal-subtitle {
+            font-family: 'Inter', sans-serif;
+
+            font-size: 12px;
+            line-height: 1.6;
+
+            color: #64748b;
+
+            margin-top: 8px;
+
+            max-width: 850px;
+        }
+
+        /* Image */
+
+        .modal-image-frame {
+            margin-top: 22px;
+
+            width: 100%;
+
+            height: 420px;
+
+            background: #f1f5f9;
+
+            border: 1px solid #cbd5e1;
+
+            border-radius: 6px;
+
+            overflow: hidden;
+
+            position: relative;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-image-frame img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: contain;
+
+            display: block;
+
+            transition: opacity 0.25s ease;
+        }
+
+        .modal-image-arrow {
+            position: absolute;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            width: 34px;
+            height: 34px;
+
+            border-radius: 50%;
+
+            border: 1px solid #cbd5e1;
+
+            background: rgba(255,255,255,0.94);
+
+            color: #1a2b4c;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 17px;
+
+            cursor: pointer;
+
+            transition: all 0.2s ease;
+
+            z-index: 2;
+        }
+
+        .modal-image-arrow:hover {
+            background: #2c4a6f;
+            color: #ffffff;
+            border-color: #2c4a6f;
+        }
+
+        .modal-image-arrow.left {
+            left: 14px;
+        }
+
+        .modal-image-arrow.right {
+            right: 14px;
+        }
+
+        .modal-image-counter {
+            text-align: center;
+
+            font-family: 'Inter', sans-serif;
+
+            font-size: 10px;
+
+            color: #94a3b8;
+
+            margin-top: 7px;
+        }
+
+        /* =====================================================
+           UNIFIED CONTENT GRID
+           ===================================================== */
+
+        .modal-main-grid {
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1fr)
+                230px;
+
+            gap: 42px;
+
+            margin-top: 30px;
+        }
+
+        .modal-text-column {
+            min-width: 0;
+        }
+
+        .modal-text-section {
+            margin-bottom: 28px;
+        }
+
+        .modal-section-heading {
+            font-family: 'Inter', sans-serif;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.16em;
+
+            text-transform: uppercase;
+
+            color: #1a2b4c;
+
+            margin-bottom: 9px;
+
+            padding-bottom: 6px;
+
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .modal-body-text {
+            font-family: 'Inter', sans-serif;
+
+            font-size: 13px;
+
+            line-height: 1.8;
+
+            color: #475569;
+
+            text-align: justify;
+
+            text-justify: inter-word;
+
+            margin: 0;
+        }
+
+        .modal-body-text + .modal-body-text {
+            margin-top: 12px;
+        }
+
+        .modal-info-column {
+            border-left: 1px solid #e2e8f0;
+
+            padding-left: 22px;
+
+            min-width: 0;
+        }
+
+        .modal-info-heading {
+            font-family: 'Inter', sans-serif;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.16em;
+
+            text-transform: uppercase;
+
+            color: #64748b;
+
+            margin-bottom: 20px;
+        }
+
+        .modal-info-item {
+            margin-bottom: 18px;
+        }
+
+        .modal-info-label {
+            font-family: 'Inter', sans-serif;
+
+            font-size: 8px;
+
+            font-weight: 600;
+
+            letter-spacing: 0.14em;
+
+            text-transform: uppercase;
+
+            color: #94a3b8;
+
+            margin-bottom: 4px;
+        }
+
+        .modal-info-value {
+            font-family: 'Inter', sans-serif;
+
+            font-size: 11px;
+
+            line-height: 1.55;
+
+            color: #334155;
+
+        }
+
+        /* =====================================================
+           TAG GROUPS
+           ===================================================== */
+
+        .modal-tag-section {
+            border-top: 1px solid #e2e8f0;
+
+            margin-top: 4px;
+
+            padding-top: 20px;
+
+            margin-bottom: 6px;
+        }
+
+        .modal-tags {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 6px;
+        }
+
+        .modal-tag {
+            font-family: 'Inter', sans-serif;
+
+            font-size: 9px;
+
+            line-height: 1.4;
+
+            color: #64748b;
+
+            background: #f8fafc;
+
+            border: 1px solid #e2e8f0;
+
+            border-radius: 3px;
+
+            padding: 4px 7px;
+        }
+
+        /* =====================================================
+           CLOSE BUTTON
+           ===================================================== */
+
+        .modal-close {
+            position: absolute;
+
+            top: 15px;
+            right: 15px;
+
+            width: 29px;
+            height: 29px;
+
+            border-radius: 4px;
+
+            background: #f8fafc;
+
+            border: 1px solid #cbd5e1;
+
+            color: #334155;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 13px;
+
+            cursor: pointer;
+
+            transition: all 0.2s ease;
+
+            z-index: 10;
+        }
+
+        .modal-close:hover {
+            background: #2c4a6f;
+            border-color: #2c4a6f;
+            color: white;
+        }
+
+        /* =====================================================
+           MOBILE MODAL
+           ===================================================== */
+
+        @media (max-width: 768px) {
+
+            .portfolio-modal {
+                padding: 8px;
+            }
+
+            .portfolio-modal-window {
+                max-height: 95vh;
+            }
+
+            .portfolio-modal-inner {
+                padding: 20px;
+            }
+
+            .modal-title {
+                font-size: 22px;
+
+                padding-right: 25px;
+            }
+
+            .modal-image-frame {
+                height: 260px;
+            }
+
+            .modal-main-grid {
+                grid-template-columns: 1fr;
+
+                gap: 28px;
+
+                margin-top: 25px;
+            }
+
+            .modal-info-column {
+                border-left: none;
+
+                border-top: 1px solid #e2e8f0;
+
+                padding-left: 0;
+
+                padding-top: 22px;
+            }
+
+            .modal-body-text {
+                font-size: 12px;
+
+                line-height: 1.75;
+            }
+
+        }
+
     </style>
 </head>
+
 <body class="font-sans antialiased min-h-screen flex flex-col md:flex-row">
 
+    <!-- =====================================================
+         MOBILE HEADER
+         ===================================================== -->
+
     <header class="md:hidden bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between sticky top-0 z-40">
+
         <div>
-            <h1 class="font-heading font-bold text-navy-900 text-xs tracking-wider">PRABUDDHIKA SANDAMINI</h1>
-            <p class="text-[9px] text-slate-500 font-mono">Urban systems researcher · Landscape architect · GIS</p>
+            <h1 class="font-heading font-bold text-navy-900 text-xs tracking-wider">
+                PRABUDDHIKA SANDAMINI
+            </h1>
+
+            <p class="text-[9px] text-slate-500 font-mono">
+                Urban systems researcher · Landscape architect · GIS
+            </p>
         </div>
-        <button id="mobile-menu-btn" class="text-navy-900 focus:outline-none p-2 rounded border border-slate-200 bg-slate-50">
+
+        <button
+            id="mobile-menu-btn"
+            class="text-navy-900 focus:outline-none p-2 rounded border border-slate-200 bg-slate-50"
+        >
             <i class="fa-solid fa-bars text-base"></i>
         </button>
+
     </header>
 
-    <div id="mobile-drawer" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs hidden md:hidden">
+
+    <!-- =====================================================
+         MOBILE DRAWER
+         ===================================================== -->
+
+    <div
+        id="mobile-drawer"
+        class="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs hidden md:hidden"
+    >
+
         <div class="absolute left-0 top-0 bottom-0 w-3/4 max-w-xs bg-white p-6 shadow-2xl flex flex-col justify-between border-r border-slate-200">
+
             <div>
+
                 <div class="flex items-center justify-between mb-6 pb-3 border-b border-slate-200">
-                    <span class="font-heading font-bold text-navy-900 text-xs tracking-widest">PORTFOLIO INDEX</span>
-                    <button id="close-drawer" class="text-slate-400 hover:text-navy-900"><i class="fa-solid fa-xmark text-lg"></i></button>
+
+                    <span class="font-heading font-bold text-navy-900 text-xs tracking-widest">
+                        PORTFOLIO INDEX
+                    </span>
+
+                    <button
+                        id="close-drawer"
+                        class="text-slate-400 hover:text-navy-900"
+                    >
+                        <i class="fa-solid fa-xmark text-lg"></i>
+                    </button>
+
                 </div>
+
                 <nav class="space-y-3 font-sans text-xs">
-                    <a href="#overview" class="mobile-nav-link flex items-center gap-3 py-2 px-3 rounded bg-drafting-blue text-white"><span class="font-mono font-bold">00</span> Overview</a>
-                    <a href="#design-projects" class="mobile-nav-link flex items-center gap-3 py-2 px-3 rounded text-slate-700 hover:bg-slate-100"><span class="font-mono font-bold text-drafting-blue">01</span> Design Projects</a>
-                    <a href="#research-projects" class="mobile-nav-link flex items-center gap-3 py-2 px-3 rounded text-slate-700 hover:bg-slate-100"><span class="font-mono font-bold text-drafting-blue">02</span> Research Projects</a>
-                    <a href="#background" class="mobile-nav-link flex items-center gap-3 py-2 px-3 rounded text-slate-700 hover:bg-slate-100"><span class="font-mono font-bold text-drafting-blue">03</span> Background & Experience</a>
-                    <a href="#awards" class="mobile-nav-link flex items-center gap-3 py-2 px-3 rounded text-slate-700 hover:bg-slate-100"><span class="font-mono font-bold text-drafting-blue">04</span> Awards & Publications</a>
-                    <a href="#contact" class="mobile-nav-link flex items-center gap-3 py-2 px-3 rounded text-slate-700 hover:bg-slate-100"><span class="font-mono font-bold text-drafting-blue">05</span> Contact</a>
+
+                    <a href="#overview"
+                       class="mobile-nav-link flex items-center gap-3 py-2 px-3 rounded bg-drafting-blue text-white">
+                        <span class="font-mono font-bold">00</span>
+                        Overview
+                    </a>
+
+                    <a href="#design-projects"
+                       class="mobile-nav-link flex items-center gap-3 py-2 px-3 rounded text-slate-700 hover:bg-slate-100">
+                        <span class="font-mono font-bold text-drafting-blue">01</span>
+                        Design Projects
+                    </a>
+
+                    <a href="#research-projects"
+                       class="mobile-nav-link flex items-center gap-3 py-2 px-3 rounded text-slate-700 hover:bg-slate-100">
+                        <span class="font-mono font-bold text-drafting-blue">02</span>
+                        Research Projects
+                    </a>
+
+                    <a href="#background"
+                       class="mobile-nav-link flex items-center gap-3 py-2 px-3 rounded text-slate-700 hover:bg-slate-100">
+                        <span class="font-mono font-bold text-drafting-blue">03</span>
+                        Background & Experience
+                    </a>
+
+                    <a href="#awards"
+                       class="mobile-nav-link flex items-center gap-3 py-2 px-3 rounded text-slate-700 hover:bg-slate-100">
+                        <span class="font-mono font-bold text-drafting-blue">04</span>
+                        Awards & Publications
+                    </a>
+
+                    <a href="#contact"
+                       class="mobile-nav-link flex items-center gap-3 py-2 px-3 rounded text-slate-700 hover:bg-slate-100">
+                        <span class="font-mono font-bold text-drafting-blue">05</span>
+                        Contact
+                    </a>
+
                 </nav>
+
             </div>
+
             <div class="text-[9px] font-mono text-slate-400 text-center pt-3 border-t border-slate-200">
                 github.com/prabuddhika-sandamini
             </div>
+
         </div>
+
     </div>
 
+
+    <!-- =====================================================
+         DESKTOP SIDEBAR
+         ===================================================== -->
+
     <aside class="hidden md:flex flex-col w-72 h-screen sticky top-0 py-8 justify-between z-30 pr-3">
+
         <div class="space-y-4">
-            <!-- Name and title header placed on the top sidebar with architectural divider lines -->
+
             <div class="px-6 mb-6 pb-4 border-b border-slate-300/80">
-                <h1 class="font-heading font-extrabold text-navy-900 text-sm tracking-wide leading-snug">PRABUDDHIKA SANDAMINI</h1>
+
+                <h1 class="font-heading font-extrabold text-navy-900 text-sm tracking-wide leading-snug">
+                    PRABUDDHIKA SANDAMINI
+                </h1>
+
                 <p class="text-[10px] text-drafting-dark font-mono leading-tight mt-1.5 uppercase">
                     Urban systems researcher · Landscape architect · Spatial analyst
                 </p>
+
                 <div class="w-12 h-0.5 bg-drafting-blue mt-2.5"></div>
+
             </div>
 
-            <!-- Hanging Torn Paper Tabs -->
+
             <nav class="space-y-3.5 font-sans text-xs">
-                <a href="#overview" class="torn-paper-tab flex items-center justify-between py-3 px-5 group">
-                    <span class="font-mono font-bold text-drafting-dark text-[11px]">00</span>
-                    <span class="font-heading font-bold tracking-wider text-navy-900">OVERVIEW</span>
+
+                <a href="#overview"
+                   class="torn-paper-tab flex items-center justify-between py-3 px-5 group">
+
+                    <span class="font-mono font-bold text-drafting-dark text-[11px]">
+                        00
+                    </span>
+
+                    <span class="font-heading font-bold tracking-wider text-navy-900">
+                        OVERVIEW
+                    </span>
+
                     <i class="fa-solid fa-arrow-right text-[10px] text-drafting-blue"></i>
+
                 </a>
-                <a href="#design-projects" class="torn-paper-tab flex items-center justify-between py-3 px-5 group">
-                    <span class="font-mono font-bold text-drafting-dark text-[11px]">01</span>
-                    <span class="font-heading font-bold tracking-wider text-navy-900">DESIGN PROJECTS</span>
+
+
+                <a href="#design-projects"
+                   class="torn-paper-tab flex items-center justify-between py-3 px-5 group">
+
+                    <span class="font-mono font-bold text-drafting-dark text-[11px]">
+                        01
+                    </span>
+
+                    <span class="font-heading font-bold tracking-wider text-navy-900">
+                        DESIGN PROJECTS
+                    </span>
+
                     <i class="fa-solid fa-arrow-right text-[10px] text-drafting-blue"></i>
+
                 </a>
-                <a href="#research-projects" class="torn-paper-tab flex items-center justify-between py-3 px-5 group">
-                    <span class="font-mono font-bold text-drafting-dark text-[11px]">02</span>
-                    <span class="font-heading font-bold tracking-wider text-navy-900">RESEARCH PROJECTS</span>
+
+
+                <a href="#research-projects"
+                   class="torn-paper-tab flex items-center justify-between py-3 px-5 group">
+
+                    <span class="font-mono font-bold text-drafting-dark text-[11px]">
+                        02
+                    </span>
+
+                    <span class="font-heading font-bold tracking-wider text-navy-900">
+                        RESEARCH PROJECTS
+                    </span>
+
                     <i class="fa-solid fa-arrow-right text-[10px] text-drafting-blue"></i>
+
                 </a>
-                <a href="#background" class="torn-paper-tab flex items-center justify-between py-3 px-5 group">
-                    <span class="font-mono font-bold text-drafting-dark text-[11px]">03</span>
-                    <span class="font-heading font-bold tracking-wider text-navy-900">BACKGROUND & EXP</span>
+
+
+                <a href="#background"
+                   class="torn-paper-tab flex items-center justify-between py-3 px-5 group">
+
+                    <span class="font-mono font-bold text-drafting-dark text-[11px]">
+                        03
+                    </span>
+
+                    <span class="font-heading font-bold tracking-wider text-navy-900">
+                        BACKGROUND & EXP
+                    </span>
+
                     <i class="fa-solid fa-arrow-right text-[10px] text-drafting-blue"></i>
+
                 </a>
-                <a href="#awards" class="torn-paper-tab flex items-center justify-between py-3 px-5 group">
-                    <span class="font-mono font-bold text-drafting-dark text-[11px]">04</span>
-                    <span class="font-heading font-bold tracking-wider text-navy-900">AWARDS & PUBS</span>
+
+
+                <a href="#awards"
+                   class="torn-paper-tab flex items-center justify-between py-3 px-5 group">
+
+                    <span class="font-mono font-bold text-drafting-dark text-[11px]">
+                        04
+                    </span>
+
+                    <span class="font-heading font-bold tracking-wider text-navy-900">
+                        AWARDS & PUBS
+                    </span>
+
                     <i class="fa-solid fa-arrow-right text-[10px] text-drafting-blue"></i>
+
                 </a>
-                <a href="#contact" class="torn-paper-tab flex items-center justify-between py-3 px-5 group">
-                    <span class="font-mono font-bold text-drafting-dark text-[11px]">05</span>
-                    <span class="font-heading font-bold tracking-wider text-navy-900">CONTACT</span>
+
+
+                <a href="#contact"
+                   class="torn-paper-tab flex items-center justify-between py-3 px-5 group">
+
+                    <span class="font-mono font-bold text-drafting-dark text-[11px]">
+                        05
+                    </span>
+
+                    <span class="font-heading font-bold tracking-wider text-navy-900">
+                        CONTACT
+                    </span>
+
                     <i class="fa-solid fa-arrow-right text-[10px] text-drafting-blue"></i>
+
                 </a>
+
             </nav>
+
         </div>
 
     </aside>
 
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
     <main class="flex-1 overflow-y-auto px-6 md:px-14 py-10 max-w-7xl mx-auto space-y-20 bg-white shadow-xl md:my-6 md:rounded-xl border border-slate-200">
 
-        <!-- 00 OVERVIEW SECTION -->
+
+        <!-- =================================================
+             00 OVERVIEW
+             ================================================= -->
+
         <section id="overview" class="space-y-6 scroll-mt-10">
+
             <div class="border-b border-slate-200 pb-3 flex items-center justify-between font-mono text-xs text-slate-500">
-                <span class="text-navy-900 font-bold tracking-widest">00 — OVERVIEW</span>
-                <span>[ PROFILE SPECIFICATION ]</span>
+
+                <span class="text-navy-900 font-bold tracking-widest">
+                    00 — OVERVIEW
+                </span>
+
+                <span>
+                    [ PROFILE SPECIFICATION ]
+                </span>
+
             </div>
 
-            <!-- Overview Card Layout matching wireframe with requested tagline -->
+
             <div class="bg-slate-50/80 rounded-lg border border-slate-200 p-6 md:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                <!-- Photo Frame -->
+
                 <div class="lg:col-span-4 flex flex-col items-center justify-center bg-white rounded p-4 border border-slate-300 shadow-2xs">
+
                     <div class="w-40 h-48 bg-slate-100 rounded flex items-center justify-center border border-slate-300 overflow-hidden relative">
-                        <img src="https://placehold.co/300x360/e8edf3/2c4a6f?text=Prabuddhika" alt="Prabuddhika Sandamini" class="w-full h-full object-cover grayscale contrast-125 hover:grayscale-0 transition duration-500" onerror="this.src='https://placehold.co/300x360/e8edf3/2c4a6f?text=Photo'">
+
+                        <img
+                            src="https://placehold.co/300x360/e8edf3/2c4a6f?text=Prabuddhika"
+                            alt="Prabuddhika Sandamini"
+                            class="w-full h-full object-cover grayscale contrast-125 hover:grayscale-0 transition duration-500"
+                            onerror="this.src='https://placehold.co/300x360/e8edf3/2c4a6f?text=Photo'"
+                        >
+
                     </div>
-                    <span class="mt-3 font-mono text-[10px] text-slate-500 tracking-wider">PHOTO ID: PS-2026</span>
+
+                    <span class="mt-3 font-mono text-[10px] text-slate-500 tracking-wider">
+                        PHOTO ID: PS-2026
+                    </span>
+
                 </div>
 
-                <!-- Bio & Tagline -->
+
                 <div class="lg:col-span-8 space-y-4">
+
                     <h3 class="text-xl md:text-2xl font-heading font-bold text-navy-900 tracking-tight italic">
                         "CLIMATE-RESILIENT CITIES | HUMAN-CENTRED DESIGN"
                     </h3>
+
                     <p class="text-slate-700 leading-relaxed text-xs md:text-sm font-sans">
-                        I am interested in what cities might become as environmental conditions change. My work explores how urban form and ecological systems interact under pressure from heat, flooding, and other climate-related stresses, and what these relationships reveal about the capacity of landscapes to adapt. Using GIS, spatial analysis, field research, and landscape thinking, I trace these patterns across places and scales to explore how evidence can shape more resilient and responsive urban futures, with human experience considered as part of the larger system.
+                        I am interested in what cities might become as environmental conditions change.
+                        My work explores how urban form and ecological systems interact under pressure
+                        from heat, flooding, and other climate-related stresses, and what these
+                        relationships reveal about the capacity of landscapes to adapt. Using GIS,
+                        spatial analysis, field research, and landscape thinking, I trace these patterns
+                        across places and scales to explore how evidence can shape more resilient and
+                        responsive urban futures, with human experience considered as part of the
+                        larger system.
                     </p>
-                    
-                    <!-- Tagline requested in overview section -->
+
                     <div class="pt-3 border-t border-slate-200">
-                        <div class="text-[11px] font-mono font-bold text-drafting-dark uppercase tracking-wider mb-2">Core Competency Framework</div>
-                        <div class="flex flex-wrap gap-2 text-xs font-mono text-drafting-dark">
-                             <span class="px-3 py-1 bg-slate-100 text-slate-700 text-sm rounded">Urban Systems</span>
-                            <span class="px-3 py-1 bg-slate-100 text-slate-700 text-sm rounded">Landscape Architecture</span>
-                            <span class="px-3 py-1 bg-slate-100 text-slate-700 text-sm rounded">GIS & Spatial Analysis</span>
-                            <span class="px-3 py-1 bg-slate-100 text-slate-700 text-sm rounded">Environmental Research</span>
-                            <span class="px-3 py-1 bg-slate-100 text-slate-700 text-sm rounded">Climate Adaptation</span>
-                            <span class="px-3 py-1 bg-slate-100 text-slate-700 text-sm rounded">Disaster Risk Reduction</span>
-                            <span class="px-3 py-1 bg-slate-100 text-slate-700 text-sm rounded">Nature-Based Solutions</span>
-                            <span class="px-3 py-1 bg-slate-100 text-slate-700 text-sm rounded">Blue-Green Infrastructure</span>
+
+                        <div class="text-[11px] font-mono font-bold text-drafting-dark uppercase tracking-wider mb-2">
+                            Core Competency Framework
                         </div>
+
+                        <div class="flex flex-wrap gap-2 text-xs font-mono text-drafting-dark">
+
+                            <span class="px-3 py-1 bg-slate-100 text-slate-700 text-sm rounded">
+                                Urban Systems
+                            </span>
+
+                            <span class="px-3 py-1 bg-slate-100 text-slate-700 text-sm rounded">
+                                Landscape Architecture
+                            </span>
+
+                            <span class="px-3 py-1 bg-slate-100 text-slate-700 text-sm rounded">
+                                GIS & Spatial Analysis
+                            </span>
+
+                            <span class="px-3 py-1 bg-slate-100 text-slate-700 text-sm rounded">
+                                Environmental Research
+                            </span>
+
+                            <span class="px-3 py-1 bg-slate-100 text-slate-700 text-sm rounded">
+                                Climate Adaptation
+                            </span>
+
+                            <span class="px-3 py-1 bg-slate-100 text-slate-700 text-sm rounded">
+                                Disaster Risk Reduction
+                            </span>
+
+                            <span class="px-3 py-1 bg-slate-100 text-slate-700 text-sm rounded">
+                                Nature-Based Solutions
+                            </span>
+
+                            <span class="px-3 py-1 bg-slate-100 text-slate-700 text-sm rounded">
+                                Blue-Green Infrastructure
+                            </span>
+
+                        </div>
+
                     </div>
+
                 </div>
+
             </div>
+
         </section>
 
-       <section id="design-projects" class="space-y-6 scroll-mt-10">
 
-    <div class="border-b border-slate-200 pb-3 flex items-center justify-between font-mono text-xs text-slate-500">
+        <!-- =================================================
+             01 DESIGN PROJECTS
+             ================================================= -->
 
-        <div>
-            <span class="text-navy-900 font-bold tracking-widest">
-                01 — DESIGN PROJECTS
-            </span>
+        <section id="design-projects" class="space-y-6 scroll-mt-10">
 
-            <h3 class="text-xl font-bold font-heading text-navy-900 mt-0.5">
-                Landscape Architecture & Urban Design
-            </h3>
-        </div>
+            <div class="border-b border-slate-200 pb-3">
 
-    </div>
+                <span class="text-navy-900 font-bold tracking-widest font-mono text-xs">
+                    01 — DESIGN PROJECTS
+                </span>
 
+                <h3 class="text-xl font-bold font-heading text-navy-900 mt-0.5">
+                    Landscape Architecture & Urban Design
+                </h3>
 
-    <p class="text-xs text-slate-600 font-sans">
-        Landscape architecture, urban design, spatial planning and environmental design projects.
-    </p>
+            </div>
 
 
-    <!-- PROJECT CARDS -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <p class="text-xs text-slate-600 font-sans">
+                Landscape architecture, urban design, spatial planning and environmental design projects.
+            </p>
 
 
-        <!-- PROJECT 1 — ADAPTIVE WATERS -->
-        <div
-            onclick="openModal('project-1')"
-            class="arch-card rounded-lg p-4 cursor-pointer group flex flex-col justify-between"
-        >
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-            <div>
 
-                <div class="h-44 bg-slate-100 border border-slate-200 rounded mb-3 overflow-hidden relative">
+                <!-- DESIGN PROJECT 1 -->
 
-                    <img
-                        src="images/adaptive-waters-01.jpg"
-                        alt="Adaptive Waters"
-                        class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-                        onerror="this.src='https://placehold.co/600x400/e8edf3/2c4a6f?text=Adaptive+Waters'"
-                    >
+                <div
+                    onclick="openDesignModal('project-1')"
+                    class="arch-card rounded-lg p-4 cursor-pointer group flex flex-col justify-between"
+                >
 
-                    <div class="absolute bottom-2 left-2 bg-navy-900/90 text-white text-[9px] font-mono px-2 py-0.5 rounded">
-                        COASTAL LANDSCAPE
+                    <div>
+
+                        <div class="h-44 bg-slate-100 border border-slate-200 rounded mb-3 overflow-hidden relative">
+
+                            <img
+                                src="images/adaptive-waters-01.jpg"
+                                alt="Adaptive Waters"
+                                class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                                onerror="this.src='https://placehold.co/600x400/e8edf3/2c4a6f?text=Adaptive+Waters'"
+                            >
+
+                            <div class="absolute bottom-2 left-2 bg-navy-900/90 text-white text-[9px] font-mono px-2 py-0.5 rounded">
+                                COASTAL LANDSCAPE
+                            </div>
+
+                        </div>
+
+                        <h4 class="font-bold text-navy-900 text-sm group-hover:text-drafting-blue font-heading transition">
+                            Adaptive Waters
+                        </h4>
+
+                        <p class="text-[11px] text-slate-600 mt-1 font-sans">
+                            A resilient coastal landscape that reconnects ecological restoration,
+                            recreation, community spaces, and local livelihoods.
+                        </p>
+
+                        <div class="mt-3 flex flex-wrap gap-1">
+
+                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
+                                Coastal Resilience
+                            </span>
+
+                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
+                                Community Design
+                            </span>
+
+                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
+                                Blue-Green Infrastructure
+                            </span>
+
+                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
+                                Self-sustaining Landscape
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="mt-4 pt-2 border-t border-slate-100 text-right font-mono text-[10px]">
+
+                        <span class="text-drafting-blue font-semibold group-hover:underline">
+                            VIEW PROJECT →
+                        </span>
+
                     </div>
 
                 </div>
 
 
-                <h4 class="font-bold text-navy-900 text-sm group-hover:text-drafting-blue font-heading transition">
-                    Adaptive Waters
-                </h4>
+                <!-- DESIGN PROJECT 2 -->
 
-                <p class="text-[11px] text-slate-600 mt-1 font-sans">
-                    A resilient coastal landscape that reconnects ecological restoration,
-                    recreation, community spaces, and local livelihoods.
-                </p>
+                <div
+                    onclick="openDesignModal('project-2')"
+                    class="arch-card rounded-lg p-4 cursor-pointer group flex flex-col justify-between"
+                >
 
+                    <div>
 
-                <div class="mt-3 flex flex-wrap gap-1">
+                        <div class="h-44 bg-slate-100 border border-slate-200 rounded mb-3 overflow-hidden relative">
 
-                    <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
-                        Coastal Resilience
-                    </span>
+                            <img
+                                src="images/encountering-dynamism-01.jpg"
+                                alt="Encountering Dynamism"
+                                class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                                onerror="this.src='https://placehold.co/600x400/e8edf3/2c4a6f?text=Encountering+Dynamism'"
+                            >
 
-                    <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
-                        Community Design
-                    </span>
+                            <div class="absolute bottom-2 left-2 bg-navy-900/90 text-white text-[9px] font-mono px-2 py-0.5 rounded">
+                                GEOLOGICAL LANDSCAPE
+                            </div>
 
-                    <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
-                        Blue-Green Infrastructure
-                    </span>
+                        </div>
 
-                    <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
-                        Self-sustaining Landscape
-                    </span>
+                        <h4 class="font-bold text-navy-900 text-sm group-hover:text-drafting-blue font-heading transition">
+                            Encountering Dynamism
+                        </h4>
 
-                </div>
+                        <p class="text-[11px] text-slate-600 mt-1 font-sans">
+                            A reclaimed quarry landscape that reveals geological history and creates
+                            new relationships between people and a transformed environment.
+                        </p>
 
-            </div>
+                        <div class="mt-3 flex flex-wrap gap-1">
 
+                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
+                                Geotourism
+                            </span>
 
-            <div class="mt-4 pt-2 border-t border-slate-100 text-right font-mono text-[10px]">
+                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
+                                Community Design
+                            </span>
 
-                <span class="text-drafting-blue font-semibold group-hover:underline">
-                    VIEW PROJECT →
-                </span>
+                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
+                                Ecological Interpretation
+                            </span>
 
-            </div>
+                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
+                                Landscape Reclamation
+                            </span>
 
-        </div>
+                        </div>
 
+                    </div>
 
+                    <div class="mt-4 pt-2 border-t border-slate-100 text-right font-mono text-[10px]">
 
-        <!-- PROJECT 2 — ENCOUNTERING DYNAMISM -->
-        <div
-            onclick="openModal('project-2')"
-            class="arch-card rounded-lg p-4 cursor-pointer group flex flex-col justify-between"
-        >
+                        <span class="text-drafting-blue font-semibold group-hover:underline">
+                            VIEW PROJECT →
+                        </span>
 
-            <div>
-
-                <div class="h-44 bg-slate-100 border border-slate-200 rounded mb-3 overflow-hidden relative">
-
-                    <img
-                        src="images/encountering-dynamism-01.jpg"
-                        alt="Encountering Dynamism"
-                        class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-                        onerror="this.src='https://placehold.co/600x400/e8edf3/2c4a6f?text=Encountering+Dynamism'"
-                    >
-
-                    <div class="absolute bottom-2 left-2 bg-navy-900/90 text-white text-[9px] font-mono px-2 py-0.5 rounded">
-                        GEOLOGICAL LANDSCAPE
                     </div>
 
                 </div>
 
 
-                <h4 class="font-bold text-navy-900 text-sm group-hover:text-drafting-blue font-heading transition">
-                    Encountering Dynamism
-                </h4>
+                <!-- DESIGN PROJECT 3 -->
 
-                <p class="text-[11px] text-slate-600 mt-1 font-sans">
-                    A reclaimed quarry landscape that reveals geological history and creates new relationships between people and a transformed environment.
-                </p>
+                <div
+                    onclick="openDesignModal('project-3')"
+                    class="arch-card rounded-lg p-4 cursor-pointer group flex flex-col justify-between"
+                >
 
+                    <div>
 
-                <div class="mt-3 flex flex-wrap gap-1">
+                        <div class="h-44 bg-slate-100 border border-slate-200 rounded mb-3 overflow-hidden relative">
 
-                    <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
-                        Geotourism
-                    </span>
+                            <img
+                                src="images/river-threads-01.jpg"
+                                alt="River Threads"
+                                class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                                onerror="this.src='https://placehold.co/600x400/e8edf3/2c4a6f?text=River+Threads'"
+                            >
 
-                    <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
-                        Community Design
-                    </span>
+                            <div class="absolute bottom-2 left-2 bg-navy-900/90 text-white text-[9px] font-mono px-2 py-0.5 rounded">
+                                RIVER RESTORATION
+                            </div>
 
-                    <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
-                        Ecological Interpretation
-                    </span>
+                        </div>
 
-                    <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
-                        Landscape Reclamation
-                    </span>
+                        <h4 class="font-bold text-navy-900 text-sm group-hover:text-drafting-blue font-heading transition">
+                            River Threads
+                        </h4>
 
-                </div>
+                        <p class="text-[11px] text-slate-600 mt-1 font-sans">
+                            A river restoration strategy that reconnects fragmented habitats,
+                            waterways, and communities across a post-mining landscape.
+                        </p>
 
-            </div>
+                        <div class="mt-3 flex flex-wrap gap-1">
 
+                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
+                                River Restoration
+                            </span>
 
-            <div class="mt-4 pt-2 border-t border-slate-100 text-right font-mono text-[10px]">
+                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
+                                Ecological Corridors
+                            </span>
 
-                <span class="text-drafting-blue font-semibold group-hover:underline">
-                    VIEW PROJECT →
-                </span>
+                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
+                                Landscape Connectivity
+                            </span>
 
-            </div>
+                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
+                                Wetland Restoration
+                            </span>
 
-        </div>
+                        </div>
 
+                    </div>
 
+                    <div class="mt-4 pt-2 border-t border-slate-100 text-right font-mono text-[10px]">
 
-        <!-- PROJECT 3 — RIVER THREADS -->
-        <div
-            onclick="openModal('project-3')"
-            class="arch-card rounded-lg p-4 cursor-pointer group flex flex-col justify-between"
-        >
+                        <span class="text-drafting-blue font-semibold group-hover:underline">
+                            VIEW PROJECT →
+                        </span>
 
-            <div>
-
-                <div class="h-44 bg-slate-100 border border-slate-200 rounded mb-3 overflow-hidden relative">
-
-                    <img
-                        src="images/river-threads-01.jpg"
-                        alt="River Threads"
-                        class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-                        onerror="this.src='https://placehold.co/600x400/e8edf3/2c4a6f?text=River+Threads'"
-                    >
-
-                    <div class="absolute bottom-2 left-2 bg-navy-900/90 text-white text-[9px] font-mono px-2 py-0.5 rounded">
-                        RIVER RESTORATION
                     </div>
 
                 </div>
 
 
-                <h4 class="font-bold text-navy-900 text-sm group-hover:text-drafting-blue font-heading transition">
-                    River Threads
-                </h4>
+                <!-- DESIGN PROJECT 4 -->
 
-                <p class="text-[11px] text-slate-600 mt-1 font-sans">
-                    A river restoration strategy that reconnects fragmented habitats, waterways, and communities across a post-mining landscape.
-                </p>
+                <div
+                    onclick="openDesignModal('project-4')"
+                    class="arch-card rounded-lg p-4 cursor-pointer group flex flex-col justify-between"
+                >
 
+                    <div>
 
-                <div class="mt-3 flex flex-wrap gap-1">
+                        <div class="h-44 bg-slate-100 border border-slate-200 rounded mb-3 overflow-hidden relative">
 
-                    <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
-                        River Restoration
-                    </span>
+                            <img
+                                src="images/coastal-corridor-01.jpg"
+                                alt="Coastal Corridor"
+                                class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                                onerror="this.src='https://placehold.co/600x400/e8edf3/2c4a6f?text=Coastal+Corridor'"
+                            >
 
-                    <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
-                        Ecological Corridors
-                    </span>
+                            <div class="absolute bottom-2 left-2 bg-navy-900/90 text-white text-[9px] font-mono px-2 py-0.5 rounded">
+                                COASTAL DEVELOPMENT
+                            </div>
 
-                    <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
-                        Landscape Connectivity
-                    </span>
+                        </div>
 
-                    <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
-                        Wetland Restoration
-                    </span>
+                        <h4 class="font-bold text-navy-900 text-sm group-hover:text-drafting-blue font-heading transition">
+                            Coastal Corridor
+                        </h4>
 
-                </div>
+                        <p class="text-[11px] text-slate-600 mt-1 font-sans">
+                            A 6.2 km public waterfront proposal connecting Colombo's coastline
+                            through recreation, open space, and diverse waterfront experiences.
+                        </p>
 
-            </div>
+                        <div class="mt-3 flex flex-wrap gap-1">
 
+                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
+                                Coastal Planning
+                            </span>
 
-            <div class="mt-4 pt-2 border-t border-slate-100 text-right font-mono text-[10px]">
+                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
+                                Landscape Design
+                            </span>
 
-                <span class="text-drafting-blue font-semibold group-hover:underline">
-                    VIEW PROJECT →
-                </span>
+                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
+                                Waterfront Design
+                            </span>
 
-            </div>
+                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
+                                3D Visualisation
+                            </span>
 
-        </div>
+                        </div>
 
+                    </div>
 
+                    <div class="mt-4 pt-2 border-t border-slate-100 text-right font-mono text-[10px]">
 
-        <!-- PROJECT 4 — COASTAL CORRIDOR -->
-        <div
-            onclick="openModal('project-4')"
-            class="arch-card rounded-lg p-4 cursor-pointer group flex flex-col justify-between"
-        >
+                        <span class="text-drafting-blue font-semibold group-hover:underline">
+                            VIEW PROJECT →
+                        </span>
 
-            <div>
-
-                <div class="h-44 bg-slate-100 border border-slate-200 rounded mb-3 overflow-hidden relative">
-
-                    <img
-                        src="images/coastal-corridor-01.jpg"
-                        alt="Coastal Corridor"
-                        class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-                        onerror="this.src='https://placehold.co/600x400/e8edf3/2c4a6f?text=Coastal+Corridor'"
-                    >
-
-                    <div class="absolute bottom-2 left-2 bg-navy-900/90 text-white text-[9px] font-mono px-2 py-0.5 rounded">
-                        COASTAL DEVELOPMENT
                     </div>
 
                 </div>
 
 
-                <h4 class="font-bold text-navy-900 text-sm group-hover:text-drafting-blue font-heading transition">
-                    Coastal Corridor
-                </h4>
+                <!-- DESIGN PROJECT 5 -->
 
-                <p class="text-[11px] text-slate-600 mt-1 font-sans">
-                    A 6.2 km public waterfront proposal connecting Colombo's coastline through recreation, open space, and diverse waterfront experiences.
-                </p>
+                <div
+                    onclick="openDesignModal('project-5')"
+                    class="arch-card rounded-lg p-4 cursor-pointer group flex flex-col justify-between"
+                >
 
+                    <div>
 
-                <div class="mt-3 flex flex-wrap gap-1">
+                        <div class="h-44 bg-slate-100 border border-slate-200 rounded mb-3 overflow-hidden relative">
 
-                    <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
-                        Coastal Planning
-                    </span>
+                            <img
+                                src="images/residential-01.jpg"
+                                alt="Residential and Resort Landscapes"
+                                class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                                onerror="this.src='https://placehold.co/600x400/e8edf3/2c4a6f?text=Residential+%26+Resort+Landscapes'"
+                            >
 
-                    <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
-                        Landscape Design
-                    </span>
+                            <div class="absolute bottom-2 left-2 bg-navy-900/90 text-white text-[9px] font-mono px-2 py-0.5 rounded">
+                                RESIDENTIAL & HOSPITALITY
+                            </div>
 
-                    <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
-                        Waterfront Design
-                    </span>
+                        </div>
 
-                    <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
-                        3D Visualisation
-                    </span>
+                        <h4 class="font-bold text-navy-900 text-sm group-hover:text-drafting-blue font-heading transition">
+                            Residential & Resort Landscapes
+                        </h4>
+
+                        <p class="text-[11px] text-slate-600 mt-1 font-sans">
+                            Selected residential and resort landscape projects exploring outdoor
+                            living, planting, recreation, and the integration of landscape with architecture.
+                        </p>
+
+                        <div class="mt-3 flex flex-wrap gap-1">
+
+                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
+                                Residential Design
+                            </span>
+
+                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
+                                Resort Landscapes
+                            </span>
+
+                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
+                                Planting Design
+                            </span>
+
+                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
+                                Outdoor Spaces
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="mt-4 pt-2 border-t border-slate-100 text-right font-mono text-[10px]">
+
+                        <span class="text-drafting-blue font-semibold group-hover:underline">
+                            VIEW PROJECT →
+                        </span>
+
+                    </div>
 
                 </div>
 
             </div>
 
+        </section>
 
-            <div class="mt-4 pt-2 border-t border-slate-100 text-right font-mono text-[10px]">
 
-                <span class="text-drafting-blue font-semibold group-hover:underline">
-                    VIEW PROJECT →
+        <!-- =================================================
+             02 RESEARCH PROJECTS
+             ================================================= -->
+
+        <section id="research-projects" class="space-y-6 scroll-mt-10">
+
+            <div class="border-b border-slate-200 pb-3">
+
+                <span class="text-navy-900 font-bold tracking-widest font-mono text-xs">
+                    02 — RESEARCH PROJECTS
                 </span>
+
+                <h3 class="text-xl font-bold font-heading text-navy-900 mt-0.5">
+                    Spatial Analytics & Urban Research
+                </h3>
 
             </div>
 
-        </div>
+            <p class="text-xs text-slate-600 font-sans">
+                Research projects exploring environmental conditions, urban systems,
+                spatial analysis, human perception, and climate-responsive environments.
+            </p>
 
 
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-<!-- PROJECT 5 — RESIDENTIAL & RESORT LANDSCAPES -->
-<div
-    onclick="openModal('project-5')"
-    class="arch-card rounded-lg p-4 cursor-pointer group flex flex-col justify-between"
->
 
-    <div>
+                <!-- RESEARCH 1 -->
 
-        <div class="h-44 bg-slate-100 border border-slate-200 rounded mb-3 overflow-hidden relative">
+                <div
+                    onclick="openResearchModal('research-1')"
+                    class="arch-card rounded-lg p-4 cursor-pointer group flex flex-col justify-between"
+                >
 
-            <img
-                src="images/residential-01.jpg"
-                alt="Residential and Resort Landscapes"
-                class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-                onerror="this.src='https://placehold.co/600x400/e8edf3/2c4a6f?text=Residential+%26+Resort+Landscapes'"
+                    <div>
+
+                        <div class="h-52 bg-slate-100 border border-slate-200 rounded mb-3 overflow-hidden relative">
+
+                            <img
+                                src="images/research-thesis-01.jpg"
+                                alt="MSc Thesis"
+                                class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                                onerror="this.src='https://placehold.co/800x500/e8edf3/2c4a6f?text=MSc+Thesis'"
+                            >
+
+                            <div class="absolute bottom-2 left-2 bg-navy-900/90 text-white text-[9px] font-mono px-2 py-0.5 rounded">
+                                MSc THESIS
+                            </div>
+
+                        </div>
+
+                        <h4 class="font-bold text-navy-900 text-sm group-hover:text-drafting-blue font-heading transition">
+                            Assessing the Impact of the Spatial and Demographic Factors on Air Pollution in Urban Green Spaces: A Predictive Model for Sustainable Planning
+                        </h4>
+
+                        <p class="text-[11px] text-slate-600 mt-2 font-sans leading-relaxed">
+                            An environmental spatial analysis investigating how spatial and demographic
+                            factors influence particulate matter concentrations across urban green spaces in Debrecen.
+                        </p>
+
+                        <div class="mt-3 flex flex-wrap gap-1">
+
+                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
+                                GIS
+                            </span>
+
+                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
+                                Remote Sensing
+                            </span>
+
+                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
+                                Predictive Modelling
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="mt-4 pt-2 border-t border-slate-100 text-right font-mono text-[10px]">
+
+                        <span class="text-drafting-blue font-semibold group-hover:underline">
+                            VIEW RESEARCH →
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RESEARCH 2 -->
+
+                <div
+                    onclick="openResearchModal('research-2')"
+                    class="arch-card rounded-lg p-4 cursor-pointer group flex flex-col justify-between"
+                >
+
+                    <div>
+
+                        <div class="h-52 bg-slate-100 border border-slate-200 rounded mb-3 overflow-hidden relative">
+
+                            <img
+                                src="images/research-otdk-01.jpg"
+                                alt="Beira Lake Urban Renewal"
+                                class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                                onerror="this.src='https://placehold.co/800x500/e8edf3/2c4a6f?text=OTDK+Research'"
+                            >
+
+                            <div class="absolute bottom-2 left-2 bg-navy-900/90 text-white text-[9px] font-mono px-2 py-0.5 rounded">
+                                OTDK RESEARCH
+                            </div>
+
+                        </div>
+
+                        <h4 class="font-bold text-navy-900 text-sm group-hover:text-drafting-blue font-heading transition">
+                            Urban Renewal of Beira Lake and Its Surrounding Areas
+                        </h4>
+
+                        <p class="text-[11px] text-slate-600 mt-2 font-sans leading-relaxed">
+                            An urban renewal study exploring blue-green infrastructure, pedestrian
+                            connectivity, and waterfront regeneration around Beira East Lake and Pettah.
+                        </p>
+
+                        <div class="mt-3 flex flex-wrap gap-1">
+
+                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
+                                Urban Renewal
+                            </span>
+
+                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
+                                Blue-Green Infrastructure
+                            </span>
+
+                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
+                                Waterfront Regeneration
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="mt-4 pt-2 border-t border-slate-100 text-right font-mono text-[10px]">
+
+                        <span class="text-drafting-blue font-semibold group-hover:underline">
+                            VIEW RESEARCH →
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RESEARCH 3 -->
+
+                <div
+                    onclick="openResearchModal('research-3')"
+                    class="arch-card rounded-lg p-4 cursor-pointer group flex flex-col justify-between"
+                >
+
+                    <div>
+
+                        <div class="h-52 bg-slate-100 border border-slate-200 rounded mb-3 overflow-hidden relative">
+
+                            <img
+                                src="images/research-space-syntax-01.jpg"
+                                alt="Colombo Space Syntax Analysis"
+                                class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                                onerror="this.src='https://placehold.co/800x500/e8edf3/2c4a6f?text=Space+Syntax'"
+                            >
+
+                            <div class="absolute bottom-2 left-2 bg-navy-900/90 text-white text-[9px] font-mono px-2 py-0.5 rounded">
+                                SPATIAL ANALYSIS
+                            </div>
+
+                        </div>
+
+                        <h4 class="font-bold text-navy-900 text-sm group-hover:text-drafting-blue font-heading transition">
+                            Spatial Configuration and Urban Connectivity: A Space Syntax Analysis of Colombo
+                        </h4>
+
+                        <p class="text-[11px] text-slate-600 mt-2 font-sans leading-relaxed">
+                            A GIS and space syntax study examining Colombo's street network and
+                            comparing computational measures of connectivity with observed urban movement and activity.
+                        </p>
+
+                        <div class="mt-3 flex flex-wrap gap-1">
+
+                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
+                                GIS
+                            </span>
+
+                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
+                                Space Syntax
+                            </span>
+
+                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
+                                Network Analysis
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="mt-4 pt-2 border-t border-slate-100 text-right font-mono text-[10px]">
+
+                        <span class="text-drafting-blue font-semibold group-hover:underline">
+                            VIEW RESEARCH →
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RESEARCH 4 -->
+
+                <div
+                    onclick="openResearchModal('research-4')"
+                    class="arch-card rounded-lg p-4 cursor-pointer group flex flex-col justify-between"
+                >
+
+                    <div>
+
+                        <div class="h-52 bg-slate-100 border border-slate-200 rounded mb-3 overflow-hidden relative">
+
+                            <img
+                                src="images/research-city-branding-01.jpg"
+                                alt="City Form as a Strategy for City Branding"
+                                class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                                onerror="this.src='https://placehold.co/800x500/e8edf3/2c4a6f?text=City+Branding'"
+                            >
+
+                            <div class="absolute bottom-2 left-2 bg-navy-900/90 text-white text-[9px] font-mono px-2 py-0.5 rounded">
+                                CITY BRANDING
+                            </div>
+
+                        </div>
+
+                        <h4 class="font-bold text-navy-900 text-sm group-hover:text-drafting-blue font-heading transition">
+                            City Form as a Strategy for City Branding
+                        </h4>
+
+                        <p class="text-[11px] text-slate-600 mt-2 font-sans leading-relaxed">
+                            A comparative study of Kandy and Galle examining how landmarks,
+                            parks, and streets influence the perception and identity of city brands.
+                        </p>
+
+                        <div class="mt-3 flex flex-wrap gap-1">
+
+                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
+                                Urban Form
+                            </span>
+
+                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
+                                User Perception
+                            </span>
+
+                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
+                                Comparative Study
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="mt-4 pt-2 border-t border-slate-100 text-right font-mono text-[10px]">
+
+                        <span class="text-drafting-blue font-semibold group-hover:underline">
+                            VIEW RESEARCH →
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RESEARCH 5 -->
+
+                <div
+                    onclick="openResearchModal('research-5')"
+                    class="arch-card rounded-lg p-4 cursor-pointer group flex flex-col justify-between"
+                >
+
+                    <div>
+
+                        <div class="h-52 bg-slate-100 border border-slate-200 rounded mb-3 overflow-hidden relative">
+
+                            <img
+                                src="images/research-thermal-01.jpg"
+                                alt="Elderly Thermal Perception"
+                                class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                                onerror="this.src='https://placehold.co/800x500/e8edf3/2c4a6f?text=Thermal+Comfort'"
+                            >
+
+                            <div class="absolute bottom-2 left-2 bg-navy-900/90 text-white text-[9px] font-mono px-2 py-0.5 rounded">
+                                THERMAL COMFORT
+                            </div>
+
+                        </div>
+
+                        <h4 class="font-bold text-navy-900 text-sm group-hover:text-drafting-blue font-heading transition">
+                            Appraising Indoor Thermal Perception of Elderly in Hot Climates
+                        </h4>
+
+                        <p class="text-[11px] text-slate-600 mt-2 font-sans leading-relaxed">
+                            An experimental field study investigating indoor thermal conditions,
+                            elderly residents' thermal perceptions, and adaptive behaviour in aged care homes in Colombo.
+                        </p>
+
+                        <div class="mt-3 flex flex-wrap gap-1">
+
+                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
+                                Thermal Comfort
+                            </span>
+
+                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
+                                Field Research
+                            </span>
+
+                            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
+                                Occupant Surveys
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="mt-4 pt-2 border-t border-slate-100 text-right font-mono text-[10px]">
+
+                        <span class="text-drafting-blue font-semibold group-hover:underline">
+                            VIEW RESEARCH →
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+                <!-- =================================================
+             03 BACKGROUND
+             ================================================= -->
+
+        <section id="background" class="space-y-6 scroll-mt-10">
+
+            <div class="border-b border-slate-200 pb-3">
+
+                <span class="text-navy-900 font-bold tracking-widest font-mono text-xs">
+                    03 — BACKGROUND & EXPERIENCE
+                </span>
+
+                <h3 class="text-xl font-bold font-heading text-navy-900 mt-0.5">
+                    Professional Timeline
+                </h3>
+
+            </div>
+
+
+            <div class="bg-slate-50/80 border border-slate-200 rounded-lg p-6 md:p-8">
+
+                <div class="relative pl-6 border-l-2 border-drafting-blue space-y-8">
+
+
+                    <div class="relative">
+
+                        <div class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-drafting-blue border-2 border-white"></div>
+
+                        <span class="font-mono text-[11px] text-drafting-dark font-bold">
+                            2023 — PRESENT
+                        </span>
+
+                        <h4 class="font-bold text-navy-900 text-base font-heading mt-0.5">
+                            Senior Urban Systems Researcher
+                        </h4>
+
+                        <p class="font-mono text-[11px] text-slate-500">
+                            Spatial Analytics Lab • Colombo
+                        </p>
+
+                        <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                            Leading research initiatives on climate resilience, spatial data pipelines,
+                            and landscape urbanism policy frameworks.
+                        </p>
+
+                    </div>
+
+
+                    <div class="relative">
+
+                        <div class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-slate-400 border-2 border-white"></div>
+
+                        <span class="font-mono text-[11px] text-drafting-dark font-bold">
+                            2021 — 2023
+                        </span>
+
+                        <h4 class="font-bold text-navy-900 text-base font-heading mt-0.5">
+                            Master of Urban Systems & Landscape Architecture
+                        </h4>
+
+                        <p class="font-mono text-[11px] text-slate-500">
+                            Graduate School of Design
+                        </p>
+
+                        <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                            Specialized in GIS spatial modeling, ecological restoration masterplanning,
+                            and resilient infrastructure design.
+                        </p>
+
+                    </div>
+
+
+                    <div class="relative">
+
+                        <div class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-slate-400 border-2 border-white"></div>
+
+                        <span class="font-mono text-[11px] text-slate-500 font-bold">
+                            2017 — 2021
+                        </span>
+
+                        <h4 class="font-bold text-navy-900 text-base font-heading mt-0.5">
+                            B.Sc. in Landscape Architecture & Spatial Planning
+                        </h4>
+
+                        <p class="font-mono text-[11px] text-slate-500">
+                            Faculty of Architecture
+                        </p>
+
+                        <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                            Foundational training in site planning, environmental design,
+                            cartography, and CAD/GIS workflows.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             04 AWARDS
+             ================================================= -->
+
+        <section id="awards" class="space-y-6 scroll-mt-10">
+
+            <div class="border-b border-slate-200 pb-3">
+
+                <span class="text-navy-900 font-bold tracking-widest font-mono text-xs">
+                    04 — PUBLICATIONS & AWARDS
+                </span>
+
+                <h3 class="text-xl font-bold font-heading text-navy-900 mt-0.5">
+                    Scholarly Works & Honors
+                </h3>
+
+            </div>
+
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <div class="arch-card rounded-lg p-5 space-y-3">
+
+                    <div class="font-mono text-[10px] text-drafting-dark font-bold tracking-wider">
+                        AWARDS & HONORS
+                    </div>
+
+                    <ul class="space-y-2 text-xs text-slate-700">
+
+                        <li class="flex items-start gap-2">
+
+                            <span class="text-drafting-blue font-bold">
+                                ▪
+                            </span>
+
+                            <div>
+                                <strong class="text-navy-900">
+                                    Excellence in Spatial Analysis Award (2025)
+                                </strong>
+                                — International GIS Research Symposium
+                            </div>
+
+                        </li>
+
+
+                        <li class="flex items-start gap-2">
+
+                            <span class="text-drafting-blue font-bold">
+                                ▪
+                            </span>
+
+                            <div>
+                                <strong class="text-navy-900">
+                                    Landscape Urbanism Design Grant (2023)
+                                </strong>
+                                — Urban Resilience Foundation
+                            </div>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="arch-card rounded-lg p-5 space-y-3">
+
+                    <div class="font-mono text-[10px] text-drafting-dark font-bold tracking-wider">
+                        SELECTED PUBLICATIONS
+                    </div>
+
+                    <ul class="space-y-2 text-xs text-slate-700">
+
+                        <li class="flex items-start gap-2">
+
+                            <span class="text-drafting-blue font-bold">
+                                ▪
+                            </span>
+
+                            <div>
+                                <em class="text-navy-900">
+                                    Sandamini, P. et al. (2025).
+                                </em>
+                                "Mapping Urban Resilience: GIS Applications in Coastal Metropolitan Zones."
+                                Journal of Spatial Systems.
+                            </div>
+
+                        </li>
+
+
+                        <li class="flex items-start gap-2">
+
+                            <span class="text-drafting-blue font-bold">
+                                ▪
+                            </span>
+
+                            <div>
+                                <em class="text-navy-900">
+                                    Sandamini, P. (2024).
+                                </em>
+                                "Ecological Networks in Fragmented Landscapes."
+                                Urban Design Quarterly.
+                            </div>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             05 CONTACT
+             ================================================= -->
+
+        <section id="contact" class="space-y-6 scroll-mt-10 pb-12">
+
+            <div class="border-b border-slate-200 pb-3">
+
+                <span class="text-navy-900 font-bold tracking-widest font-mono text-xs">
+                    05 — CONTACT
+                </span>
+
+                <h3 class="text-xl font-bold font-heading text-navy-900 mt-0.5">
+                    Get in Touch
+                </h3>
+
+            </div>
+
+
+            <div class="bg-slate-50/80 border border-slate-200 rounded-lg p-6 md:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+                <div class="lg:col-span-5 space-y-4">
+
+                    <h3 class="text-lg font-heading font-bold text-navy-900">
+                        Let's collaborate on spatial innovations
+                    </h3>
+
+                    <p class="text-slate-600 text-xs leading-relaxed">
+                        Whether you want to discuss urban research, landscape projects,
+                        or GIS spatial analysis consulting, feel free to send a message.
+                    </p>
+
+                    <div class="space-y-1.5 font-mono text-[11px] text-slate-600 pt-1">
+
+                        <div>
+                            EMAIL: prabuddhika.sandamini@github.io
+                        </div>
+
+                        <div>
+                            LOCATION: Colombo, Sri Lanka
+                        </div>
+
+                        <div>
+                            GITHUB: github.com/prabuddhika-sandamini
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="lg:col-span-7">
+
+                    <form
+                        onsubmit="handleContactSubmit(event)"
+                        class="space-y-3"
+                    >
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+
+                            <div>
+
+                                <label class="block font-mono text-[9px] text-slate-500 mb-1 uppercase">
+                                    Your Name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    required
+                                    class="w-full px-3 py-2 rounded bg-white border border-slate-300 text-xs text-navy-900 font-sans focus:outline-none focus:border-drafting-blue"
+                                >
+
+                            </div>
+
+
+                            <div>
+
+                                <label class="block font-mono text-[9px] text-slate-500 mb-1 uppercase">
+                                    Your Email
+                                </label>
+
+                                <input
+                                    type="email"
+                                    required
+                                    class="w-full px-3 py-2 rounded bg-white border border-slate-300 text-xs text-navy-900 font-sans focus:outline-none focus:border-drafting-blue"
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <div>
+
+                            <label class="block font-mono text-[9px] text-slate-500 mb-1 uppercase">
+                                Subject
+                            </label>
+
+                            <input
+                                type="text"
+                                required
+                                class="w-full px-3 py-2 rounded bg-white border border-slate-300 text-xs text-navy-900 font-sans focus:outline-none focus:border-drafting-blue"
+                            >
+
+                        </div>
+
+
+                        <div>
+
+                            <label class="block font-mono text-[9px] text-slate-500 mb-1 uppercase">
+                                Message
+                            </label>
+
+                            <textarea
+                                rows="3"
+                                required
+                                class="w-full px-3 py-2 rounded bg-white border border-slate-300 text-xs text-navy-900 font-sans focus:outline-none focus:border-drafting-blue"
+                            ></textarea>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="w-full py-2.5 bg-drafting-dark hover:bg-navy-900 text-white font-sans font-semibold text-xs transition rounded shadow-xs"
+                        >
+                            TRANSMIT MESSAGE →
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         DESIGN PROJECT MODAL
+         ===================================================== -->
+
+    <div
+        id="project-modal"
+        class="portfolio-modal"
+        aria-hidden="true"
+    >
+
+        <div class="portfolio-modal-window">
+
+            <button
+                onclick="closeDesignModal()"
+                class="modal-close"
+                aria-label="Close project"
             >
+                ✕
+            </button>
 
-            <div class="absolute bottom-2 left-2 bg-navy-900/90 text-white text-[9px] font-mono px-2 py-0.5 rounded">
-                RESIDENTIAL & HOSPITALITY
+            <div
+                id="project-modal-content"
+                class="portfolio-modal-inner"
+            >
+                <!-- Dynamic design project content -->
             </div>
-
-        </div>
-
-
-        <h4 class="font-bold text-navy-900 text-sm group-hover:text-drafting-blue font-heading transition">
-            Residential & Resort Landscapes
-        </h4>
-
-        <p class="text-[11px] text-slate-600 mt-1 font-sans">
-            Selected residential and resort landscape projects exploring outdoor living, planting, recreation, and the integration of landscape with architecture.
-        </p>
-
-
-        <div class="mt-3 flex flex-wrap gap-1">
-
-            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
-                Residential Design
-            </span>
-
-            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
-                Resort Landscapes
-            </span>
-
-            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
-                Planting Design
-            </span>
-
-            <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
-                Outdoor Spaces
-            </span>
 
         </div>
 
     </div>
 
 
-    <div class="mt-4 pt-2 border-t border-slate-100 text-right font-mono text-[10px]">
+    <!-- =====================================================
+         RESEARCH PROJECT MODAL
+         ===================================================== -->
 
-        <span class="text-drafting-blue font-semibold group-hover:underline">
-            VIEW PROJECT →
+    <div
+        id="research-modal"
+        class="portfolio-modal"
+        aria-hidden="true"
+    >
+
+        <div class="portfolio-modal-window">
+
+            <button
+                onclick="closeResearchModal()"
+                class="modal-close"
+                aria-label="Close research project"
+            >
+                ✕
+            </button>
+
+            <div
+                id="research-modal-content"
+                class="portfolio-modal-inner"
+            >
+                <!-- Dynamic research project content -->
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         NOTIFICATION
+         ===================================================== -->
+
+    <div
+        id="notification-box"
+        class="fixed bottom-6 right-6 z-50 bg-navy-900 text-white font-mono text-xs px-4 py-2.5 shadow-xl border border-drafting-blue rounded transform translate-y-20 opacity-0 transition-all duration-300"
+    >
+
+        <span id="notification-text">
+            Message successfully transmitted.
         </span>
 
     </div>
 
-</div>
 
-
-    </div>
-
-</section>
-        
-       <section id="research-projects" class="space-y-6 scroll-mt-10">
-
-    <div class="border-b border-slate-200 pb-3 flex items-center justify-between font-mono text-xs text-slate-500">
-
-        <div>
-            <span class="text-navy-900 font-bold tracking-widest">
-                02 — RESEARCH PROJECTS
-            </span>
-
-            <h3 class="text-xl font-bold font-heading text-navy-900 mt-0.5">
-                Spatial Analytics & Urban Research
-            </h3>
-        </div>
-
-    </div>
-
-
-    <p class="text-xs text-slate-600 font-sans">
-        Research projects exploring environmental conditions, urban systems, spatial analysis, human perception, and climate-responsive environments.
-    </p>
-
-
-    <!-- RESEARCH PROJECT CARDS -->
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-
-        <!-- RESEARCH PROJECT 1 — MSc THESIS -->
-
-        <div
-            onclick="openResearchModal('research-1')"
-            class="arch-card rounded-lg p-4 cursor-pointer group flex flex-col justify-between"
-        >
-
-            <div>
-
-                <div class="h-52 bg-slate-100 border border-slate-200 rounded mb-3 overflow-hidden relative">
-
-                    <img
-                        src="images/research-thesis-01.jpg"
-                        alt="MSc Thesis"
-                        class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-                        onerror="this.src='https://placehold.co/800x500/e8edf3/2c4a6f?text=MSc+Thesis'"
-                    >
-
-                    <div class="absolute bottom-2 left-2 bg-navy-900/90 text-white text-[9px] font-mono px-2 py-0.5 rounded">
-                        MSc THESIS
-                    </div>
-
-                </div>
-
-
-                <h4 class="font-bold text-navy-900 text-sm group-hover:text-drafting-blue font-heading transition">
-                    Assessing the Impact of the Spatial and Demographic Factors on Air Pollution in Urban Green Spaces: A Predictive Model for Sustainable Planning
-                </h4>
-
-                <p class="text-[11px] text-slate-600 mt-2 font-sans leading-relaxed">
-                    An environmental spatial analysis investigating how spatial and demographic factors influence particulate matter concentrations across urban green spaces in Debrecen.
-                </p>
-
-
-                <div class="mt-3 flex flex-wrap gap-1">
-
-                    <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
-                        GIS
-                    </span>
-
-                    <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
-                        Remote Sensing
-                    </span>
-
-                    <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
-                        Predictive Modelling
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <div class="mt-4 pt-2 border-t border-slate-100 text-right font-mono text-[10px]">
-
-                <span class="text-drafting-blue font-semibold group-hover:underline">
-                    VIEW RESEARCH →
-                </span>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- RESEARCH PROJECT 2 — OTDK -->
-
-        <div
-            onclick="openResearchModal('research-2')"
-            class="arch-card rounded-lg p-4 cursor-pointer group flex flex-col justify-between"
-        >
-
-            <div>
-
-                <div class="h-52 bg-slate-100 border border-slate-200 rounded mb-3 overflow-hidden relative">
-
-                    <img
-                        src="images/research-otdk-01.jpg"
-                        alt="Beira Lake Urban Renewal"
-                        class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-                        onerror="this.src='https://placehold.co/800x500/e8edf3/2c4a6f?text=OTDK+Research'"
-                    >
-
-                    <div class="absolute bottom-2 left-2 bg-navy-900/90 text-white text-[9px] font-mono px-2 py-0.5 rounded">
-                        OTDK RESEARCH
-                    </div>
-
-                </div>
-
-
-                <h4 class="font-bold text-navy-900 text-sm group-hover:text-drafting-blue font-heading transition">
-                    Urban Renewal of Beira Lake and Its Surrounding Areas
-                </h4>
-
-                <p class="text-[11px] text-slate-600 mt-2 font-sans leading-relaxed">
-                    An urban renewal study exploring blue-green infrastructure, pedestrian connectivity, and waterfront regeneration around Beira East Lake and Pettah.
-                </p>
-
-
-                <div class="mt-3 flex flex-wrap gap-1">
-
-                    <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
-                        Urban Renewal
-                    </span>
-
-                    <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
-                        Blue-Green Infrastructure
-                    </span>
-
-                    <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
-                        Waterfront Regeneration
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <div class="mt-4 pt-2 border-t border-slate-100 text-right font-mono text-[10px]">
-
-                <span class="text-drafting-blue font-semibold group-hover:underline">
-                    VIEW RESEARCH →
-                </span>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- RESEARCH PROJECT 3 — SPACE SYNTAX -->
-
-        <div
-            onclick="openResearchModal('research-3')"
-            class="arch-card rounded-lg p-4 cursor-pointer group flex flex-col justify-between"
-        >
-
-            <div>
-
-                <div class="h-52 bg-slate-100 border border-slate-200 rounded mb-3 overflow-hidden relative">
-
-                    <img
-                        src="images/research-space-syntax-01.jpg"
-                        alt="Colombo Space Syntax Analysis"
-                        class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-                        onerror="this.src='https://placehold.co/800x500/e8edf3/2c4a6f?text=Space+Syntax'"
-                    >
-
-                    <div class="absolute bottom-2 left-2 bg-navy-900/90 text-white text-[9px] font-mono px-2 py-0.5 rounded">
-                        SPATIAL ANALYSIS
-                    </div>
-
-                </div>
-
-
-                <h4 class="font-bold text-navy-900 text-sm group-hover:text-drafting-blue font-heading transition">
-                    Spatial Configuration and Urban Connectivity: A Space Syntax Analysis of Colombo
-                </h4>
-
-                <p class="text-[11px] text-slate-600 mt-2 font-sans leading-relaxed">
-                    A GIS and space syntax study examining Colombo's street network and comparing computational measures of connectivity with observed urban movement and activity.
-                </p>
-
-
-                <div class="mt-3 flex flex-wrap gap-1">
-
-                    <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
-                        GIS
-                    </span>
-
-                    <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
-                        Space Syntax
-                    </span>
-
-                    <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
-                        Network Analysis
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <div class="mt-4 pt-2 border-t border-slate-100 text-right font-mono text-[10px]">
-
-                <span class="text-drafting-blue font-semibold group-hover:underline">
-                    VIEW RESEARCH →
-                </span>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- RESEARCH PROJECT 4 — CITY BRANDING -->
-
-        <div
-            onclick="openResearchModal('research-4')"
-            class="arch-card rounded-lg p-4 cursor-pointer group flex flex-col justify-between"
-        >
-
-            <div>
-
-                <div class="h-52 bg-slate-100 border border-slate-200 rounded mb-3 overflow-hidden relative">
-
-                    <img
-                        src="images/research-city-branding-01.jpg"
-                        alt="City Form as a Strategy for City Branding"
-                        class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-                        onerror="this.src='https://placehold.co/800x500/e8edf3/2c4a6f?text=City+Branding'"
-                    >
-
-                    <div class="absolute bottom-2 left-2 bg-navy-900/90 text-white text-[9px] font-mono px-2 py-0.5 rounded">
-                        CITY BRANDING
-                    </div>
-
-                </div>
-
-
-                <h4 class="font-bold text-navy-900 text-sm group-hover:text-drafting-blue font-heading transition">
-                    City Form as a Strategy for City Branding
-                </h4>
-
-                <p class="text-[11px] text-slate-600 mt-2 font-sans leading-relaxed">
-                    A comparative study of Kandy and Galle examining how landmarks, parks, and streets influence the perception and identity of city brands.
-                </p>
-
-
-                <div class="mt-3 flex flex-wrap gap-1">
-
-                    <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
-                        Urban Form
-                    </span>
-
-                    <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
-                        User Perception
-                    </span>
-
-                    <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
-                        Comparative Study
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <div class="mt-4 pt-2 border-t border-slate-100 text-right font-mono text-[10px]">
-
-                <span class="text-drafting-blue font-semibold group-hover:underline">
-                    VIEW RESEARCH →
-                </span>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- RESEARCH PROJECT 5 — THERMAL COMFORT -->
-
-        <div
-            onclick="openResearchModal('research-5')"
-            class="arch-card rounded-lg p-4 cursor-pointer group flex flex-col justify-between"
-        >
-
-            <div>
-
-                <div class="h-52 bg-slate-100 border border-slate-200 rounded mb-3 overflow-hidden relative">
-
-                    <img
-                        src="images/research-thermal-01.jpg"
-                        alt="Elderly Thermal Perception"
-                        class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-                        onerror="this.src='https://placehold.co/800x500/e8edf3/2c4a6f?text=Thermal+Comfort'"
-                    >
-
-                    <div class="absolute bottom-2 left-2 bg-navy-900/90 text-white text-[9px] font-mono px-2 py-0.5 rounded">
-                        THERMAL COMFORT
-                    </div>
-
-                </div>
-
-
-                <h4 class="font-bold text-navy-900 text-sm group-hover:text-drafting-blue font-heading transition">
-                    Appraising Indoor Thermal Perception of Elderly in Hot Climates
-                </h4>
-
-                <p class="text-[11px] text-slate-600 mt-2 font-sans leading-relaxed">
-                    An experimental field study investigating indoor thermal conditions, elderly residents' thermal perceptions, and adaptive behaviour in aged care homes in Colombo.
-                </p>
-
-
-                <div class="mt-3 flex flex-wrap gap-1">
-
-                    <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
-                        Thermal Comfort
-                    </span>
-
-                    <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
-                        Field Research
-                    </span>
-
-                    <span class="text-[9px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
-                        Occupant Surveys
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <div class="mt-4 pt-2 border-t border-slate-100 text-right font-mono text-[10px]">
-
-                <span class="text-drafting-blue font-semibold group-hover:underline">
-                    VIEW RESEARCH →
-                </span>
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-        <section id="background" class="space-y-6 scroll-mt-10">
-            <div class="border-b border-slate-200 pb-3 flex items-center justify-between font-mono text-xs text-slate-500">
-                <div>
-                    <span class="text-navy-900 font-bold tracking-widest">03 — BACKGROUND & EXPERIENCE</span>
-                    <h3 class="text-xl font-bold font-heading text-navy-900 mt-0.5">Professional Timeline</h3>
-                </div>
-            </div>
-
-            <div class="bg-slate-50/80 border border-slate-200 rounded-lg p-6 md:p-8">
-                <div class="relative pl-6 border-l-2 border-drafting-blue space-y-8">
-                    <div class="relative">
-                        <div class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-drafting-blue border-2 border-white"></div>
-                        <span class="font-mono text-[11px] text-drafting-dark font-bold">2023 — PRESENT</span>
-                        <h4 class="font-bold text-navy-900 text-base font-heading mt-0.5">Senior Urban Systems Researcher</h4>
-                        <p class="font-mono text-[11px] text-slate-500">Spatial Analytics Lab • Colombo</p>
-                        <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">Leading research initiatives on climate resilience, spatial data pipelines, and landscape urbanism policy frameworks.</p>
-                    </div>
-
-                    <div class="relative">
-                        <div class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-slate-400 border-2 border-white"></div>
-                        <span class="font-mono text-[11px] text-drafting-dark font-bold">2021 — 2023</span>
-                        <h4 class="font-bold text-navy-900 text-base font-heading mt-0.5">Master of Urban Systems & Landscape Architecture</h4>
-                        <p class="font-mono text-[11px] text-slate-500">Graduate School of Design</p>
-                        <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">Specialized in GIS spatial modeling, ecological restoration masterplanning, and resilient infrastructure design.</p>
-                    </div>
-
-                    <div class="relative">
-                        <div class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-slate-400 border-2 border-white"></div>
-                        <span class="font-mono text-[11px] text-slate-500 font-bold">2017 — 2021</span>
-                        <h4 class="font-bold text-navy-900 text-base font-heading mt-0.5">B.Sc. in Landscape Architecture & Spatial Planning</h4>
-                        <p class="font-mono text-[11px] text-slate-500">Faculty of Architecture</p>
-                        <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">Foundational training in site planning, environmental design, cartography, and CAD/GIS workflows.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="awards" class="space-y-6 scroll-mt-10">
-            <div class="border-b border-slate-200 pb-3 flex items-center justify-between font-mono text-xs text-slate-500">
-                <div>
-                    <span class="text-navy-900 font-bold tracking-widest">04 — PUBLICATIONS & AWARDS</span>
-                    <h3 class="text-xl font-bold font-heading text-navy-900 mt-0.5">Scholarly Works & Honors</h3>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="arch-card rounded-lg p-5 space-y-3">
-                    <div class="font-mono text-[10px] text-drafting-dark font-bold tracking-wider">AWARDS & HONORS</div>
-                    <ul class="space-y-2 text-xs text-slate-700">
-                        <li class="flex items-start gap-2">
-                            <span class="text-drafting-blue font-bold">▪</span>
-                            <div><strong class="text-navy-900">Excellence in Spatial Analysis Award (2025)</strong> — International GIS Research Symposium</div>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-drafting-blue font-bold">▪</span>
-                            <div><strong class="text-navy-900">Landscape Urbanism Design Grant (2023)</strong> — Urban Resilience Foundation</div>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="arch-card rounded-lg p-5 space-y-3">
-                    <div class="font-mono text-[10px] text-drafting-dark font-bold tracking-wider">SELECTED PUBLICATIONS</div>
-                    <ul class="space-y-2 text-xs text-slate-700">
-                        <li class="flex items-start gap-2">
-                            <span class="text-drafting-blue font-bold">▪</span>
-                            <div><em class="text-navy-900">Sandamini, P. et al. (2025).</em> "Mapping Urban Resilience: GIS Applications in Coastal Metropolitan Zones." Journal of Spatial Systems.</div>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-drafting-blue font-bold">▪</span>
-                            <div><em class="text-navy-900">Sandamini, P. (2024).</em> "Ecological Networks in Fragmented Landscapes." Urban Design Quarterly.</div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="space-y-6 scroll-mt-10 pb-12">
-            <div class="border-b border-slate-200 pb-3 flex items-center justify-between font-mono text-xs text-slate-500">
-                <div>
-                    <span class="text-navy-900 font-bold tracking-widest">05 — CONTACT</span>
-                    <h3 class="text-xl font-bold font-heading text-navy-900 mt-0.5">Get in Touch</h3>
-                </div>
-            </div>
-
-            <div class="bg-slate-50/80 border border-slate-200 rounded-lg p-6 md:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
-                <div class="lg:col-span-5 space-y-4">
-                    <h3 class="text-lg font-heading font-bold text-navy-900">Let's collaborate on spatial innovations</h3>
-                    <p class="text-slate-600 text-xs leading-relaxed">
-                        Whether you want to discuss urban research, landscape projects, or GIS spatial analysis consulting, feel free to send a message.
-                    </p>
-                    <div class="space-y-1.5 font-mono text-[11px] text-slate-600 pt-1">
-                        <div>EMAIL: prabuddhika.sandamini@github.io</div>
-                        <div>LOCATION: Colombo, Sri Lanka</div>
-                        <div>GITHUB: github.com/prabuddhika-sandamini</div>
-                    </div>
-                </div>
-
-                <div class="lg:col-span-7">
-                    <form onsubmit="handleContactSubmit(event)" class="space-y-3">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                            <div>
-                                <label class="block font-mono text-[9px] text-slate-500 mb-1 uppercase">Your Name</label>
-                                <input type="text" required class="w-full px-3 py-2 rounded bg-white border border-slate-300 text-xs text-navy-900 font-sans focus:outline-none focus:border-drafting-blue">
-                            </div>
-                            <div>
-                                <label class="block font-mono text-[9px] text-slate-500 mb-1 uppercase">Your Email</label>
-                                <input type="email" required class="w-full px-3 py-2 rounded bg-white border border-slate-300 text-xs text-navy-900 font-sans focus:outline-none focus:border-drafting-blue">
-                            </div>
-                        </div>
-                        <div>
-                            <label class="block font-mono text-[9px] text-slate-500 mb-1 uppercase">Subject</label>
-                            <input type="text" required class="w-full px-3 py-2 rounded bg-white border border-slate-300 text-xs text-navy-900 font-sans focus:outline-none focus:border-drafting-blue">
-                        </div>
-                        <div>
-                            <label class="block font-mono text-[9px] text-slate-500 mb-1 uppercase">Message</label>
-                            <textarea rows="3" required class="w-full px-3 py-2 rounded bg-white border border-slate-300 text-xs text-navy-900 font-sans focus:outline-none focus:border-drafting-blue"></textarea>
-                        </div>
-                        <button type="submit" class="w-full py-2.5 bg-drafting-dark hover:bg-navy-900 text-white font-sans font-semibold text-xs transition rounded shadow-xs">
-                            TRANSMIT MESSAGE →
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-        <!-- RESEARCH MODAL -->
-
-<div
-    id="research-modal"
-    class="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs hidden items-center justify-center p-4"
->
-
-    <div
-        class="bg-white border-2 border-drafting-blue rounded-lg max-w-5xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative p-6 md:p-8"
-    >
-
-        <!-- CLOSE BUTTON -->
-        <button
-            onclick="closeResearchModal()"
-            class="absolute top-4 right-4 text-gray-500 hover:text-black text-2xl"
-        >
-            ×
-        </button>
-
-
-        <!-- IMAGE -->
-        <div class="mb-6">
-            <img
-                id="research-modal-image"
-                src=""
-                alt=""
-                class="w-full max-h-[500px] object-contain bg-slate-100 rounded"
-            >
-        </div>
-
-
-        <!-- TEXT -->
-        <p
-            id="research-modal-category"
-            class="text-xs font-mono tracking-widest text-slate-500 mb-2"
-        ></p>
-
-        <h2
-            id="research-modal-title"
-            class="text-2xl md:text-3xl font-bold font-heading text-navy-900 mb-5"
-        ></h2>
-
-        <div
-            id="research-modal-description"
-            class="text-sm text-slate-700 leading-relaxed space-y-4"
-        ></div>
-
-
-        <!-- INFORMATION -->
-
-        <div class="mt-8 pt-5 border-t border-slate-200 grid grid-cols-2 md:grid-cols-3 gap-5">
-
-            <div>
-                <p class="text-[9px] font-mono tracking-widest text-slate-400">
-                    PROJECT TYPE
-                </p>
-                <p id="research-modal-type" class="text-xs text-slate-700 mt-1"></p>
-            </div>
-
-            <div>
-                <p class="text-[9px] font-mono tracking-widest text-slate-400">
-                    YEAR
-                </p>
-                <p id="research-modal-year" class="text-xs text-slate-700 mt-1"></p>
-            </div>
-
-            <div>
-                <p class="text-[9px] font-mono tracking-widest text-slate-400">
-                    INSTITUTION
-                </p>
-                <p id="research-modal-institution" class="text-xs text-slate-700 mt-1"></p>
-            </div>
-
-            <div>
-                <p class="text-[9px] font-mono tracking-widest text-slate-400">
-                    LOCATION
-                </p>
-                <p id="research-modal-location" class="text-xs text-slate-700 mt-1"></p>
-            </div>
-
-            <div>
-                <p class="text-[9px] font-mono tracking-widest text-slate-400">
-                    ROLE
-                </p>
-                <p id="research-modal-role" class="text-xs text-slate-700 mt-1"></p>
-            </div>
-
-            <div>
-                <p class="text-[9px] font-mono tracking-widest text-slate-400">
-                    SUPERVISOR / PI
-                </p>
-                <p id="research-modal-supervisor" class="text-xs text-slate-700 mt-1"></p>
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-        
-    </main>
-
-    <div id="project-modal" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs hidden items-center justify-center p-4">
-        <div class="bg-white border-2 border-drafting-blue rounded-lg max-w-5xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative p-6 md:p-8">
-            <button onclick="closeModal()" class="absolute top-4 right-4 w-7 h-7 bg-slate-100 text-navy-900 font-mono rounded flex items-center justify-center text-xs hover:bg-drafting-dark hover:text-white border border-slate-300 transition">
-                ✕
-            </button>
-            <div id="modal-content" class="space-y-4">
-                <!-- Populated dynamically -->
-            </div>
-        </div>
-    </div>
-
-    <div id="notification-box" class="fixed bottom-6 right-6 z-50 bg-navy-900 text-white font-mono text-xs px-4 py-2.5 shadow-xl border border-drafting-blue rounded transform translate-y-20 opacity-0 transition-all duration-300">
-        <span id="notification-text">Message successfully transmitted.</span>
-    </div>
+    <!-- =====================================================
+         JAVASCRIPT STARTS IN PART 3
+         ===================================================== -->
 
     <script>
+
+/* =========================================================
+   DESIGN PROJECT DATA
+   ========================================================= */
+
 const projectData = {
 
     'project-1': {
@@ -1193,7 +2084,8 @@ const projectData = {
 
         title: 'Adaptive Waters',
 
-        subtitle: 'Community-based Artificial Lagoon and Beach Walk - Pilot Project at the Eastern Coast of Sri Lanka',
+        subtitle:
+            'Community-based Artificial Lagoon and Beach Walk - Pilot Project at the Eastern Coast of Sri Lanka',
 
         images: [
             'images/adaptive-waters-01.jpg',
@@ -1201,11 +2093,14 @@ const projectData = {
             'images/adaptive-waters-03.jpg'
         ],
 
-        summary: 'A coastal landscape proposal exploring the transformation of an unsuccessful harbour project into a resilient and self-sustaining public landscape. The project responds to declining local livelihoods, social isolation, coastal erosion, and ecological degradation by reimagining the waterfront as a multifunctional landscape that brings together ecological restoration, recreation, community spaces, and water-based environments.',
+        summary:
+            'A coastal landscape proposal exploring the transformation of an unsuccessful harbour project into a resilient and self-sustaining public landscape. The project responds to declining local livelihoods, social isolation, coastal erosion, and ecological degradation by reimagining the waterfront as a multifunctional landscape that brings together ecological restoration, recreation, community spaces, and water-based environments.',
 
-        approach: 'The design adaptively reuses existing harbour infrastructure and reorganises the fragmented waterfront into a connected sequence of landscape nodes. The approach is informed by research into coastal ecosystems, aquaculture, local livelihoods, and community needs, integrating these findings into the spatial organisation of the site. Fishing-related environments, recreation, ecological restoration, and community spaces are connected through blue-green corridors, pathways, planting, and water-based environments. The landscape is conceived as a mutually supportive system where ecological processes and community activities can coexist.',
+        approach:
+            'The design adaptively reuses existing harbour infrastructure and reorganises the fragmented waterfront into a connected sequence of landscape nodes. The approach is informed by research into coastal ecosystems, aquaculture, local livelihoods, and community needs, integrating these findings into the spatial organisation of the site. Fishing-related environments, recreation, ecological restoration, and community spaces are connected through blue-green corridors, pathways, planting, and water-based environments. The landscape is conceived as a mutually supportive system where ecological processes and community activities can coexist.',
 
-        response: 'The proposal creates a multifunctional coastal landscape where ecological restoration, recreation, community interaction, and local livelihoods are integrated rather than treated as separate functions. By reconnecting fragmented spaces and introducing productive blue-green environments, the former harbour landscape is transformed into a more resilient and socially active coastal system.',
+        response:
+            'The proposal creates a multifunctional coastal landscape where ecological restoration, recreation, community interaction, and local livelihoods are integrated rather than treated as separate functions. By reconnecting fragmented spaces and introducing productive blue-green environments, the former harbour landscape is transformed into a more resilient and socially active coastal system.',
 
         projectType: 'Conceptual Project',
 
@@ -1239,7 +2134,8 @@ const projectData = {
 
         title: 'Encountering Dynamism',
 
-        subtitle: 'Geotourism and Land-Reclamation Project',
+        subtitle:
+            'Geotourism and Land-Reclamation Project',
 
         images: [
             'images/encountering-dynamism-01.jpg',
@@ -1247,11 +2143,14 @@ const projectData = {
             'images/encountering-dynamism-03.jpg'
         ],
 
-        summary: 'A landscape reclamation proposal exploring the transformation of the Aruwakkalu quarry into a new landscape experience shaped by its geological and industrial history. The project responds to a site where fossil beds, limestone formations, vegetation, and quarrying have created a highly dynamic and evolving landscape.',
+        summary:
+            'A landscape reclamation proposal exploring the transformation of the Aruwakkalu quarry into a new landscape experience shaped by its geological and industrial history. The project responds to a site where fossil beds, limestone formations, vegetation, and quarrying have created a highly dynamic and evolving landscape.',
 
-        approach: 'The design explores the idea of revealing the hidden dynamism of the site rather than attempting to recreate its former condition. Research into the site’s geological history, fossil evidence, landform, vegetation, and industrial processes informs the spatial experience, translating geological narratives from the scale of fossils and soil to quarry formations and larger landforms. Natural succession is recognised as an important process in the transformation of the reclaimed landscape, allowing the site to continue changing and developing over time. Rather than fixing the landscape to a single designed condition, the proposal establishes a framework within which ecological processes can gradually shape the character of the place. In this sense, the landscape envisioned today may be significantly different in 50 years, reflecting an evolving relationship between design, ecological processes, and time. Planting is used to support ecological recovery while defining movement, views, and spaces for interpretation.',
+        approach:
+            'The design explores the idea of revealing the hidden dynamism of the site rather than attempting to recreate its former condition. Research into the site’s geological history, fossil evidence, landform, vegetation, and industrial processes informs the spatial experience, translating geological narratives from the scale of fossils and soil to quarry formations and larger landforms. Natural succession is recognised as an important process in the transformation of the reclaimed landscape, allowing the site to continue changing and developing over time. Rather than fixing the landscape to a single designed condition, the proposal establishes a framework within which ecological processes can gradually shape the character of the place. In this sense, the landscape envisioned today may be significantly different in 50 years, reflecting an evolving relationship between design, ecological processes, and time. Planting is used to support ecological recovery while defining movement, views, and spaces for interpretation.',
 
-        response: 'The proposal establishes a geotourism landscape that allows visitors to experience and interpret the site’s geological, ecological, and industrial processes. By working with the transformed quarry landscape rather than concealing its industrial history, the project creates a new relationship between people and a changing geological environment while encouraging greater ecological awareness of the processes through which landscapes are formed and transformed.',
+        response:
+            'The proposal establishes a geotourism landscape that allows visitors to experience and interpret the site’s geological, ecological, and industrial processes. By working with the transformed quarry landscape rather than concealing its industrial history, the project creates a new relationship between people and a changing geological environment while encouraging greater ecological awareness of the processes through which landscapes are formed and transformed.',
 
         projectType: 'Conceptual Project',
 
@@ -1285,18 +2184,22 @@ const projectData = {
 
         title: 'River Threads',
 
-        subtitle: 'River Restoration and Revitalisation Project',
+        subtitle:
+            'River Restoration and Revitalisation Project',
 
         images: [
             'images/river-threads-01.jpg',
-            'images/river-threads-02.jpg',
+            'images/river-threads-02.jpg'
         ],
 
-        summary: 'A river restoration proposal exploring the ecological rehabilitation of the Maha Oya landscape following extensive sand and clay mining. The project responds to disrupted river systems, altered sediment movement, eroded riverbanks, excavation pits, and fragmented ecological habitats across the river basin.',
+        summary:
+            'A river restoration proposal exploring the ecological rehabilitation of the Maha Oya landscape following extensive sand and clay mining. The project responds to disrupted river systems, altered sediment movement, eroded riverbanks, excavation pits, and fragmented ecological habitats across the river basin.',
 
-        approach: 'The design is informed by research into natural succession, river processes, habitat connectivity, and the relationship between waterways and surrounding landscapes. Fragmented ecological patches are reconnected through ecological corridors, regenerated vegetation, restored waterways, retention areas, and wetlands. These interventions are organised as a continuous landscape network that links the river, surrounding habitats, and community spaces.',
+        approach:
+            'The design is informed by research into natural succession, river processes, habitat connectivity, and the relationship between waterways and surrounding landscapes. Fragmented ecological patches are reconnected through ecological corridors, regenerated vegetation, restored waterways, retention areas, and wetlands. These interventions are organised as a continuous landscape network that links the river, surrounding habitats, and community spaces.',
 
-        response: 'The proposal establishes a connected river landscape where ecological recovery and community experience are brought together. By restoring waterways, reconnecting habitats, and allowing natural succession to guide landscape regeneration, the project transforms a degraded post-mining environment into a more continuous and resilient ecological system. The restored landscape also helps mitigate the risk of future mining events by strengthening ecological connectivity, stabilising vulnerable areas, and establishing a more resilient relationship between the river and its surrounding landscape.',
+        response:
+            'The proposal establishes a connected river landscape where ecological recovery and community experience are brought together. By restoring waterways, reconnecting habitats, and allowing natural succession to guide landscape regeneration, the project transforms a degraded post-mining environment into a more continuous and resilient ecological system. The restored landscape also helps mitigate the risk of future mining events by strengthening ecological connectivity, stabilising vulnerable areas, and establishing a more resilient relationship between the river and its surrounding landscape.',
 
         projectType: 'Conceptual Project',
 
@@ -1331,7 +2234,8 @@ const projectData = {
 
         title: 'Coastal Corridor',
 
-        subtitle: 'Beachfront Development Project',
+        subtitle:
+            'Beachfront Development Project',
 
         images: [
             'images/coastal-corridor-01.jpg',
@@ -1339,11 +2243,14 @@ const projectData = {
             'images/coastal-corridor-03.jpg'
         ],
 
-        summary: 'A landscape development proposal for a 6.2 km stretch of coastline between Colpetty and Dehiwala in Colombo. Covering approximately 85 hectares, the project explores the transformation of the fragmented coastal edge into a continuous public waterfront connecting the city, beach, and sea through recreation, open space, and diverse waterfront experiences. By strengthening the relationship between the city and its coastline, the project also explores the potential of the waterfront to contribute to Colombo’s wider recreational and economic base.',
+        summary:
+            'A landscape development proposal for a 6.2 km stretch of coastline between Colpetty and Dehiwala in Colombo. Covering approximately 85 hectares, the project explores the transformation of the fragmented coastal edge into a continuous public waterfront connecting the city, beach, and sea through recreation, open space, and diverse waterfront experiences. By strengthening the relationship between the city and its coastline, the project also explores the potential of the waterfront to contribute to Colombo’s wider recreational and economic base.',
 
-        approach: 'The design develops the coastline as a connected public landscape rather than a series of isolated waterfront spaces. The existing coastal conditions are translated into a sequence of recreational and landscape experiences, supported by spatial planning, landscape interventions, and visual connections to the sea. The project was developed through conceptualisation, landscape design, and 3D visualisation of existing and proposed conditions.',
+        approach:
+            'The design develops the coastline as a connected public landscape rather than a series of isolated waterfront spaces. The existing coastal conditions are translated into a sequence of recreational and landscape experiences, supported by spatial planning, landscape interventions, and visual connections to the sea. The project was developed through conceptualisation, landscape design, and 3D visualisation of existing and proposed conditions.',
 
-        response: 'The proposal establishes a continuous waterfront landscape that expands public access to the coast while creating a range of recreational and open-space experiences. The 6.2 km corridor is conceived as a major public landscape connecting different coastal environments and strengthening the relationship between Colombo and its waterfront.',
+        response:
+            'The proposal establishes a continuous waterfront landscape that expands public access to the coast while creating a range of recreational and open-space experiences. The 6.2 km corridor is conceived as a major public landscape connecting different coastal environments and strengthening the relationship between Colombo and its waterfront.',
 
         projectType: 'Internship Project',
 
@@ -1371,495 +2278,51 @@ const projectData = {
 
     'project-5': {
 
-    category: 'RESIDENTIAL & HOSPITALITY',
-
-    title: 'Residential & Resort Landscapes',
-
-    subtitle: 'Selected Residential and Resort Landscape Projects',
-
-    images: [
-        'images/residential-01.jpg',
-        'images/residential-02.jpg',
-        'images/residential-03.jpg',
-        'images/residential-04.jpg',
-    ],
-
-    summary: 'A selection of residential and resort landscape projects exploring the relationship between architecture, outdoor living, planting, and the surrounding landscape. The collection brings together projects that range from private residential gardens to hospitality-oriented outdoor environments, with an emphasis on creating functional, comfortable, and visually cohesive landscapes.',
-
-    approach: 'The projects explore landscape as an extension of the built environment, using planting, spatial organisation, circulation, outdoor amenities, and landscape elements to shape the experience of exterior spaces. Each project responds to its particular setting and programme, balancing functional requirements with planting, atmosphere, and the integration of landscape with architecture.',
-
-    response: 'Across the collection, landscape is used to create outdoor environments that support everyday living, recreation, relaxation, and social experience. The projects demonstrate an approach that combines functional landscape planning with planting, spatial character, and a considered relationship between built and natural elements.',
-
-    projectType: 'Selected Works',
-
-    year: 'Various',
-
-    location: 'Various',
-
-    scope: [
-        'Residential Landscape Design',
-        'Resort Landscape Design',
-        'Outdoor Space Planning',
-        'Planting Design',
-        'Landscape Visualisation'
-    ],
-
-    keyElements: [
-        'Outdoor Living',
-        'Planting Design',
-        'Recreational Spaces',
-        'Landscape Structure',
-        'Garden Spaces',
-        'Architectural Integration'
-    ]
-
-}
-
-};
-
-   
-/* =========================================================
-   IMAGE SLIDER
-   ========================================================= */
-
-let currentProjectImage = 0;
-let currentProjectImages = [];
-
-
-/* =========================================================
-   OPEN PROJECT
-   ========================================================= */
-
-function openModal(projectId) {
-
-    const data = projectData[projectId];
-
-    if (!data) return;
-
-    const modalContent = document.getElementById('modal-content');
-
-    modalContent.innerHTML = `
-
-        <div class="font-sans">
-
-            <!-- CATEGORY -->
-            <div class="font-mono text-[10px] text-drafting-blue tracking-widest mb-2">
-                ${data.category}
-            </div>
-
-
-            <!-- TITLE -->
-            <div class="mb-5">
-
-                <h3 class="text-2xl md:text-3xl font-bold font-heading text-navy-900 leading-tight">
-                    ${data.title}
-                </h3>
-
-                <p class="font-mono text-[11px] md:text-xs text-slate-500 mt-2 leading-relaxed">
-                    ${data.subtitle}
-                </p>
-
-            </div>
-
-
-            <!-- IMAGE SLIDER -->
-            <div class="relative border border-slate-300 bg-slate-100 rounded overflow-hidden">
-
-                <div class="h-64 md:h-80 flex items-center justify-center bg-slate-50">
-
-    <img
-        id="modal-project-image"
-        src="${data.images[0]}"
-        alt="${data.title}"
-        class="max-w-full max-h-full object-contain transition-opacity duration-300"
-    >
-
-</div>
-
-
-                <button
-                    onclick="changeProjectImage(-1)"
-                    class="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 bg-white/90 border border-slate-300 text-navy-900 rounded-full flex items-center justify-center text-sm hover:bg-drafting-dark hover:text-white transition"
-                >
-                    ‹
-                </button>
-
-
-                <button
-                    onclick="changeProjectImage(1)"
-                    class="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 bg-white/90 border border-slate-300 text-navy-900 rounded-full flex items-center justify-center text-sm hover:bg-drafting-dark hover:text-white transition"
-                >
-                    ›
-                </button>
-
-            </div>
-
-
-            <!-- IMAGE DOTS -->
-            <div class="flex justify-center gap-2 mt-3 mb-7">
-
-                ${data.images.map((_, index) => `
-
-                    <button
-                        onclick="showProjectImage(${index})"
-                        class="modal-image-dot w-1.5 h-1.5 rounded-full bg-slate-300 hover:bg-drafting-blue transition"
-                        data-index="${index}"
-                    ></button>
-
-                `).join('')}
-
-            </div>
-
-
-            <!-- MAIN CONTENT + PROJECT INFORMATION -->
-            <div class="grid grid-cols-1 md:grid-cols-[1fr_150px] gap-7">
-
-
-                <!-- LEFT -->
-                <div class="space-y-7 text-justify">
-
-
-                    <section>
-
-                        <h4 class="font-mono text-[11px] font-bold text-navy-900 tracking-wider mb-2">
-                            PROJECT SUMMARY
-                        </h4>
-
-                        <p class="text-xs md:text-[13px] text-slate-700 leading-relaxed">
-                            ${data.summary}
-                        </p>
-
-                    </section>
-
-
-                    <section>
-
-                      <h4 class="font-mono text-[11px] font-bold text-navy-900 tracking-wider mb-2">
-    ${projectId.startsWith('research-') ? 'RESEARCH APPROACH' : 'DESIGN APPROACH'}
-</h4>
-
-                        <p class="text-xs md:text-[13px] text-slate-700 leading-relaxed">
-                            ${data.approach}
-                        </p>
-
-                    </section>
-
-
-                    ${
-                        data.response
-                        ? `
-
-                            <section>
-
-                                <h4 class="font-mono text-[11px] font-bold text-navy-900 tracking-wider mb-2">
-                                    PROJECT RESPONSE
-                                </h4>
-
-                                <p class="text-xs md:text-[13px] text-slate-700 leading-relaxed">
-                                    ${data.response}
-                                </p>
-
-                            </section>
-
-                        `
-                        : ''
-                    }
-
-                </div>
-
-
-                <!-- RIGHT -->
-                <aside class="border-l border-slate-200 pl-4">
-
-                    <div class="space-y-5">
-
-
-                        <div>
-
-                            <div class="font-mono text-[9px] tracking-widest text-slate-400 mb-1">
-                                PROJECT TYPE
-                            </div>
-
-                            <div class="font-mono text-[10px] text-navy-900 leading-relaxed">
-                                ${data.projectType}
-                            </div>
-
-                        </div>
-
-${data.institution ? `
-
-    <div>
-
-        <div class="font-mono text-[9px] tracking-widest text-slate-400 mb-1">
-            INSTITUTION
-        </div>
-
-        <div class="font-mono text-[10px] text-navy-900 leading-relaxed">
-            ${data.institution}
-        </div>
-
-    </div>
-
-` : ''}
-
-
-${data.supervisor ? `
-
-    <div>
-
-        <div class="font-mono text-[9px] tracking-widest text-slate-400 mb-1">
-            SUPERVISOR
-        </div>
-
-        <div class="font-mono text-[10px] text-navy-900 leading-relaxed">
-            ${data.supervisor}
-        </div>
-
-    </div>
-
-` : ''}
-
-
-${data.principalInvestigator ? `
-
-    <div>
-
-        <div class="font-mono text-[9px] tracking-widest text-slate-400 mb-1">
-            PRINCIPAL INVESTIGATOR
-        </div>
-
-        <div class="font-mono text-[10px] text-navy-900 leading-relaxed">
-            ${data.principalInvestigator}
-        </div>
-
-    </div>
-
-` : ''}
-
-
-${data.role ? `
-
-    <div>
-
-        <div class="font-mono text-[9px] tracking-widest text-slate-400 mb-1">
-            ROLE
-        </div>
-
-        <div class="font-mono text-[10px] text-navy-900 leading-relaxed">
-            ${data.role}
-        </div>
-
-    </div>
-
-` : ''}
-                        <div>
-
-                            <div class="font-mono text-[9px] tracking-widest text-slate-400 mb-1">
-                                YEAR
-                            </div>
-
-                            <div class="font-mono text-[10px] text-navy-900">
-                                ${data.year}
-                            </div>
-
-                        </div>
-
-
-                        <div>
-
-                            <div class="font-mono text-[9px] tracking-widest text-slate-400 mb-1">
-                                LOCATION
-                            </div>
-
-                            <div class="font-mono text-[10px] text-navy-900 leading-relaxed">
-                                ${data.location}
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </aside>
-
-            </div>
-
-${data.contribution ? `
-
-    <div class="border-t border-slate-200 mt-7 pt-5">
-
-        <h4 class="font-mono text-[10px] font-bold text-navy-900 tracking-wider mb-2">
-            CONTRIBUTION
-        </h4>
-
-        <p class="text-xs md:text-[13px] text-slate-700 leading-relaxed text-justify">
-            ${data.contribution}
-        </p>
-
-    </div>
-
-` : ''}
-
-            <!-- SCOPE -->
-            <div class="border-t border-slate-200 mt-7 pt-5">
-
-                <h4 class="font-mono text-[10px] font-bold text-navy-900 tracking-wider mb-2">
-                    SCOPE
-                </h4>
-
-                <div class="flex flex-wrap gap-x-2 gap-y-1">
-
-                    ${data.scope.map(item => `
-
-                        <span class="font-mono text-[10px] text-slate-500">
-                            ${item}
-                        </span>
-
-                    `).join(' · ')}
-
-                </div>
-
-            </div>
-
-
-            <!-- KEY ELEMENTS -->
-            <div class="mt-5">
-
-                <h4 class="font-mono text-[10px] font-bold text-navy-900 tracking-wider mb-2">
-                    KEY ELEMENTS
-                </h4>
-
-                <div class="flex flex-wrap gap-x-2 gap-y-1">
-
-                    ${data.keyElements.map(item => `
-
-                        <span class="font-mono text-[10px] text-slate-500">
-                            ${item}
-                        </span>
-
-                    `).join(' · ')}
-
-                </div>
-
-            </div>
-
-        </div>
-
-    `;
-
-
-    currentProjectImage = 0;
-
-    currentProjectImages = data.images;
-
-    updateProjectImage();
-
-
-    const modal = document.getElementById('project-modal');
-
-    modal.classList.remove('hidden');
-
-    modal.classList.add('flex');
-
-    document.body.style.overflow = 'hidden';
-
-}
-
-
-/* =========================================================
-   UPDATE IMAGE
-   ========================================================= */
-
-function updateProjectImage() {
-
-    const image = document.getElementById('modal-project-image');
-
-    if (!image) return;
-
-    image.src = currentProjectImages[currentProjectImage];
-
-
-    const dots = document.querySelectorAll('.modal-image-dot');
-
-
-    dots.forEach((dot, index) => {
-
-        if (index === currentProjectImage) {
-
-            dot.classList.remove('bg-slate-300');
-
-            dot.classList.add('bg-drafting-blue');
-
-        } else {
-
-            dot.classList.remove('bg-drafting-blue');
-
-            dot.classList.add('bg-slate-300');
-
-        }
-
-    });
-
-}
-
-
-/* =========================================================
-   CHANGE IMAGE
-   ========================================================= */
-
-function changeProjectImage(direction) {
-
-    if (!currentProjectImages.length) return;
-
-    currentProjectImage =
-        (currentProjectImage + direction + currentProjectImages.length)
-        % currentProjectImages.length;
-
-    updateProjectImage();
-
-}
-
-
-/* =========================================================
-   SELECT IMAGE
-   ========================================================= */
-
-function showProjectImage(index) {
-
-    currentProjectImage = index;
-
-    updateProjectImage();
-
-}
-
-
-/* =========================================================
-   CLOSE MODAL
-   ========================================================= */
-
-function closeModal() {
-
-    const modal = document.getElementById('project-modal');
-
-    modal.classList.add('hidden');
-
-    modal.classList.remove('flex');
-
-    document.body.style.overflow = 'auto';
-
-}
-
-
-/* =========================================================
-   CLOSE WHEN CLICKING OUTSIDE
-   ========================================================= */
-
-window.onclick = function(event) {
-
-    const modal = document.getElementById('project-modal');
-
-    if (event.target === modal) {
-
-        closeModal();
+        category: 'RESIDENTIAL & HOSPITALITY',
+
+        title: 'Residential & Resort Landscapes',
+
+        subtitle:
+            'Selected Residential and Resort Landscape Projects',
+
+        images: [
+            'images/residential-01.jpg',
+            'images/residential-02.jpg',
+            'images/residential-03.jpg',
+            'images/residential-04.jpg'
+        ],
+
+        summary:
+            'A selection of residential and resort landscape projects exploring the relationship between architecture, outdoor living, planting, and the surrounding landscape. The collection brings together projects that range from private residential gardens to hospitality-oriented outdoor environments, with an emphasis on creating functional, comfortable, and visually cohesive landscapes.',
+
+        approach:
+            'The projects explore landscape as an extension of the built environment, using planting, spatial organisation, circulation, outdoor amenities, and landscape elements to shape the experience of exterior spaces. Each project responds to its particular setting and programme, balancing functional requirements with planting, atmosphere, and the integration of landscape with architecture.',
+
+        response:
+            'Across the collection, landscape is used to create outdoor environments that support everyday living, recreation, relaxation, and social experience. The projects demonstrate an approach that combines functional landscape planning with planting, spatial character, and a considered relationship between built and natural elements.',
+
+        projectType: 'Selected Works',
+
+        year: 'Various',
+
+        location: 'Various',
+
+        scope: [
+            'Residential Landscape Design',
+            'Resort Landscape Design',
+            'Outdoor Space Planning',
+            'Planting Design',
+            'Landscape Visualisation'
+        ],
+
+        keyElements: [
+            'Outdoor Living',
+            'Planting Design',
+            'Recreational Spaces',
+            'Landscape Structure',
+            'Garden Spaces',
+            'Architectural Integration'
+        ]
 
     }
 
@@ -1867,78 +2330,19 @@ window.onclick = function(event) {
 
 
 /* =========================================================
-   MOBILE MENU
+   RESEARCH PROJECT DATA
    ========================================================= */
 
-const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-
-const mobileDrawer = document.getElementById('mobile-drawer');
-
-const closeDrawer = document.getElementById('close-drawer');
-
-const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-
-
-mobileMenuBtn.addEventListener('click', () => {
-
-    mobileDrawer.classList.remove('hidden');
-
-});
-
-
-closeDrawer.addEventListener('click', () => {
-
-    mobileDrawer.classList.add('hidden');
-
-});
-
-
-mobileNavLinks.forEach(link => {
-
-    link.addEventListener('click', () => {
-
-        mobileDrawer.classList.add('hidden');
-
-    });
-
-});
-
-
-/* =========================================================
-   CONTACT FORM
-   ========================================================= */
-
-function handleContactSubmit(event) {
-
-    event.preventDefault();
-
-    const notification = document.getElementById('notification-box');
-
-    notification.classList.remove(
-        'translate-y-20',
-        'opacity-0'
-    );
-
-    event.target.reset();
-
-
-    setTimeout(() => {
-
-        notification.classList.add(
-            'translate-y-20',
-            'opacity-0'
-        );
-
-    }, 4000);
-
-}
-
-       const researchData = {
+const researchData = {
 
     "research-1": {
-        title: "Assessing the Impact of the Spatial and Demographic Factors on Air Pollution in Urban Green Spaces: A Predictive Model for Sustainable Planning",
-        category: "MSc THESIS",
-        
+
+        title:
+            "Assessing the Impact of the Spatial and Demographic Factors on Air Pollution in Urban Green Spaces: A Predictive Model for Sustainable Planning",
+
+        category:
+            "MSc THESIS",
+
         images: [
             "images/research-thesis-01.jpg",
             "images/research-thesis-02.jpg",
@@ -1946,15 +2350,29 @@ function handleContactSubmit(event) {
             "images/research-thesis-04.jpg"
         ],
 
-        type: "MSc Thesis",
-        year: "2025",
-        institution: "University of Debrecen",
-        location: "Debrecen, Hungary",
-        role: "Researcher",
-        supervisor: "Dr. György Csomós",
-        focus: "Urban Air Pollution · GIS · Remote Sensing · Spatial Analysis",
+        type:
+            "MSc Thesis",
 
-        intro: "A GIS-based investigation of how spatial and demographic characteristics influence particulate matter concentrations across urban green spaces.",
+        year:
+            "2025",
+
+        institution:
+            "University of Debrecen",
+
+        location:
+            "Debrecen, Hungary",
+
+        role:
+            "Researcher",
+
+        supervisor:
+            "Dr. György Csomós",
+
+        focus:
+            "Urban Air Pollution · GIS · Remote Sensing · Spatial Analysis",
+
+        intro:
+            "A GIS-based investigation of how spatial and demographic characteristics influence particulate matter concentrations across urban green spaces.",
 
         summary: `
             <p>
@@ -2004,8 +2422,12 @@ function handleContactSubmit(event) {
 
 
     "research-2": {
-        title: "Urban Renewal of Beira Lake and Its Surrounding Areas",
-        category: "OTDK RESEARCH",
+
+        title:
+            "Urban Renewal of Beira Lake and Its Surrounding Areas",
+
+        category:
+            "OTDK RESEARCH",
 
         images: [
             "images/research-otdk-01.jpg",
@@ -2014,15 +2436,29 @@ function handleContactSubmit(event) {
             "images/research-otdk-04.jpg"
         ],
 
-        type: "OTDK Conference Research Project",
-        year: "2025",
-        institution: "University of Moratuwa",
-        location: "Colombo, Sri Lanka",
-        role: "Researcher",
-        supervisor: "Dr. Lovra Eva",
-        focus: "Urban Renewal · Blue-Green Infrastructure · Waterfront Regeneration · Connectivity",
+        type:
+            "OTDK Conference Research Project",
 
-        intro: "An urban renewal study exploring how Beira Lake and its surrounding areas can be reconnected through landscape, mobility and blue-green infrastructure.",
+        year:
+            "2025",
+
+        institution:
+            "University of Moratuwa",
+
+        location:
+            "Colombo, Sri Lanka",
+
+        role:
+            "Researcher",
+
+        supervisor:
+            "Dr. Lovra Eva",
+
+        focus:
+            "Urban Renewal · Blue-Green Infrastructure · Waterfront Regeneration · Connectivity",
+
+        intro:
+            "An urban renewal study exploring how Beira Lake and its surrounding areas can be reconnected through landscape, mobility and blue-green infrastructure.",
 
         summary: `
             <p>
@@ -2066,8 +2502,12 @@ function handleContactSubmit(event) {
 
 
     "research-3": {
-        title: "Spatial Configuration and Urban Connectivity: A Space Syntax Analysis of Colombo",
-        category: "SPATIAL ANALYSIS",
+
+        title:
+            "Spatial Configuration and Urban Connectivity: A Space Syntax Analysis of Colombo",
+
+        category:
+            "SPATIAL ANALYSIS",
 
         images: [
             "images/research-space-syntax-01.jpg",
@@ -2076,15 +2516,29 @@ function handleContactSubmit(event) {
             "images/research-space-syntax-04.jpg"
         ],
 
-        type: "Research Project",
-        year: "2024",
-        institution: "University of Debrecen",
-        location: "Colombo, Sri Lanka",
-        role: "Researcher",
-        supervisor: "Dr. Bereczki Zoltán",
-        focus: "Space Syntax · GIS · Urban Connectivity · Spatial Analysis",
+        type:
+            "Research Project",
 
-        intro: "A spatial analysis of Colombo examining how street-network configuration influences urban connectivity and movement potential.",
+        year:
+            "2024",
+
+        institution:
+            "University of Debrecen",
+
+        location:
+            "Colombo, Sri Lanka",
+
+        role:
+            "Researcher",
+
+        supervisor:
+            "Dr. Bereczki Zoltán",
+
+        focus:
+            "Space Syntax · GIS · Urban Connectivity · Spatial Analysis",
+
+        intro:
+            "A spatial analysis of Colombo examining how street-network configuration influences urban connectivity and movement potential.",
 
         summary: `
             <p>
@@ -2126,8 +2580,12 @@ function handleContactSubmit(event) {
 
 
     "research-4": {
-        title: "City Form as a Strategy for City Branding: A Comparative Study of Kandy and Galle",
-        category: "CITY BRANDING",
+
+        title:
+            "City Form as a Strategy for City Branding: A Comparative Study of Kandy and Galle",
+
+        category:
+            "CITY BRANDING",
 
         images: [
             "images/research-city-branding-01.jpg",
@@ -2135,15 +2593,29 @@ function handleContactSubmit(event) {
             "images/research-city-branding-03.jpg"
         ],
 
-        type: "FARU Conference Research Paper",
-        year: "2019",
-        institution: "University of Moratuwa",
-        location: "Kandy & Galle, Sri Lanka",
-        role: "Co-author / Researcher",
-        supervisor: "—",
-        focus: "City Branding · Urban Form · Place Identity · User Perception",
+        type:
+            "FARU Conference Research Paper",
 
-        intro: "A comparative study examining how physical characteristics of Kandy and Galle contribute to city identity and people's perception of place.",
+        year:
+            "2019",
+
+        institution:
+            "University of Moratuwa",
+
+        location:
+            "Kandy & Galle, Sri Lanka",
+
+        role:
+            "Co-author / Researcher",
+
+        supervisor:
+            "—",
+
+        focus:
+            "City Branding · Urban Form · Place Identity · User Perception",
+
+        intro:
+            "A comparative study examining how physical characteristics of Kandy and Galle contribute to city identity and people's perception of place.",
 
         summary: `
             <p>
@@ -2187,8 +2659,12 @@ function handleContactSubmit(event) {
 
 
     "research-5": {
-        title: "Appraising Indoor Thermal Perception of Elderly in Hot Climates",
-        category: "THERMAL COMFORT",
+
+        title:
+            "Appraising Indoor Thermal Perception of Elderly in Hot Climates",
+
+        category:
+            "THERMAL COMFORT",
 
         images: [
             "images/research-thermal-01.jpg",
@@ -2197,15 +2673,29 @@ function handleContactSubmit(event) {
             "images/research-thermal-04.jpg"
         ],
 
-        type: "Research Grant",
-        year: "2021",
-        institution: "University of Moratuwa",
-        location: "Colombo, Sri Lanka",
-        role: "Research Assistant",
-        supervisor: "Indrika Rajapaksha",
-        focus: "Thermal Comfort · Elderly Occupants · Hot Climates · Field Monitoring",
+        type:
+            "Research Grant",
 
-        intro: "A field-based investigation of indoor thermal conditions, elderly occupants' thermal perception and adaptive behaviour in residential aged care homes in Colombo.",
+        year:
+            "2021",
+
+        institution:
+            "University of Moratuwa",
+
+        location:
+            "Colombo, Sri Lanka",
+
+        role:
+            "Research Assistant",
+
+        supervisor:
+            "Indrika Rajapaksha",
+
+        focus:
+            "Thermal Comfort · Elderly Occupants · Hot Climates · Field Monitoring",
+
+        intro:
+            "A field-based investigation of indoor thermal conditions, elderly occupants' thermal perception and adaptive behaviour in residential aged care homes in Colombo.",
 
         summary: `
             <p>
@@ -2260,228 +2750,257 @@ function handleContactSubmit(event) {
 
 };
 
-function openResearchModal(id) {
 
-    const project = researchData[id];
+/* =========================================================
+   DESIGN IMAGE STATE
+   ========================================================= */
+
+let currentDesignImage = 0;
+let currentDesignImages = [];
+
+
+/* =========================================================
+   RESEARCH IMAGE STATE
+   ========================================================= */
+
+let currentResearchImage = 0;
+let currentResearchImages = [];
+
+
+/* =========================================================
+   BUILD DESIGN POPUP
+   ========================================================= */
+
+function openDesignModal(projectId) {
+
+    const project = projectData[projectId];
 
     if (!project) return;
 
-    const modal = document.getElementById("research-modal");
+    const modal = document.getElementById('project-modal');
 
-    const content = document.getElementById("research-modal-description");
+    const content = document.getElementById('project-modal-content');
 
-    document.getElementById("research-modal-category").textContent =
-        project.category;
-
-    document.getElementById("research-modal-title").textContent =
-        project.title;
-
-    /*
-    =========================================================
-    RESEARCH POPUP CONTENT
-    =========================================================
-    */
 
     content.innerHTML = `
 
-        <!-- SHORT INTRO -->
-        <div class="mb-8">
-            <p class="text-gray-600 text-base md:text-lg leading-relaxed max-w-4xl">
-                ${project.intro}
+        <!-- ===============================================
+             HEADER
+             =============================================== -->
+
+        <div>
+
+            <div class="modal-category">
+                ${project.category}
+            </div>
+
+            <h2 class="modal-title">
+                ${project.title}
+            </h2>
+
+            <p class="modal-subtitle">
+                ${project.subtitle}
             </p>
-        </div>
-
-
-        <!-- IMAGE SLIDER -->
-        <div class="relative mb-10">
-
-            <div class="relative overflow-hidden rounded-xl bg-gray-100">
-
-                <img
-                    id="research-slider-image"
-                    src="${project.images[0]}"
-                    alt="${project.title}"
-                    class="w-full h-[280px] md:h-[430px] object-cover transition-opacity duration-300"
-                >
-
-                <!-- LEFT ARROW -->
-                <button
-                    onclick="changeResearchImage(-1)"
-                    class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 shadow flex items-center justify-center hover:bg-white transition"
-                    aria-label="Previous image"
-                >
-                    &#8592;
-                </button>
-
-                <!-- RIGHT ARROW -->
-                <button
-                    onclick="changeResearchImage(1)"
-                    class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 shadow flex items-center justify-center hover:bg-white transition"
-                    aria-label="Next image"
-                >
-                    &#8594;
-                </button>
-
-            </div>
-
-            <!-- IMAGE COUNTER -->
-            <div class="text-center text-sm text-gray-500 mt-3">
-                <span id="research-image-counter">1</span>
-                / ${project.images.length}
-            </div>
 
         </div>
 
 
-        <!-- TWO COLUMN CONTENT -->
-        <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_260px] gap-10 lg:gap-14">
+        <!-- ===============================================
+             IMAGE
+             =============================================== -->
+
+        <div class="modal-image-frame">
+
+            <img
+                id="design-slider-image"
+                src="${project.images[0]}"
+                alt="${project.title}"
+            >
+
+            <button
+                onclick="changeDesignImage(-1)"
+                class="modal-image-arrow left"
+                aria-label="Previous image"
+            >
+                ‹
+            </button>
+
+            <button
+                onclick="changeDesignImage(1)"
+                class="modal-image-arrow right"
+                aria-label="Next image"
+            >
+                ›
+            </button>
+
+        </div>
 
 
-            <!-- LEFT: RESEARCH CONTENT -->
-            <div class="space-y-9">
+        <div class="modal-image-counter">
 
-                <!-- RESEARCH SUMMARY -->
-                <section>
-                    <h3 class="text-xs font-semibold tracking-[0.18em] text-gray-500 uppercase mb-3">
-                        Research Summary
+            <span id="design-image-counter">
+                1
+            </span>
+
+            /
+
+            ${project.images.length}
+
+        </div>
+
+
+        <!-- ===============================================
+             MAIN CONTENT
+             =============================================== -->
+
+        <div class="modal-main-grid">
+
+
+            <!-- ===========================================
+                 LEFT TEXT
+                 =========================================== -->
+
+            <div class="modal-text-column">
+
+
+                <!-- SUMMARY -->
+
+                <section class="modal-text-section">
+
+                    <h3 class="modal-section-heading">
+                        Project Summary
                     </h3>
 
-                    <div class="text-gray-700 leading-7 text-[15px]">
+                    <p class="modal-body-text">
                         ${project.summary}
-                    </div>
+                    </p>
+
                 </section>
 
 
-                <!-- METHODOLOGY -->
-                <section>
-                    <h3 class="text-xs font-semibold tracking-[0.18em] text-gray-500 uppercase mb-3">
-                        Methodology
+                <!-- APPROACH -->
+
+                <section class="modal-text-section">
+
+                    <h3 class="modal-section-heading">
+                        Design Approach
                     </h3>
 
-                    <div class="text-gray-700 leading-7 text-[15px]">
-                        ${project.methodology}
-                    </div>
+                    <p class="modal-body-text">
+                        ${project.approach}
+                    </p>
+
                 </section>
 
 
-                <!-- KEY FINDINGS -->
-                <section>
-                    <h3 class="text-xs font-semibold tracking-[0.18em] text-gray-500 uppercase mb-3">
-                        Key Findings
+                <!-- RESPONSE -->
+
+                <section class="modal-text-section">
+
+                    <h3 class="modal-section-heading">
+                        Project Response
                     </h3>
 
-                    <div class="text-gray-700 leading-7 text-[15px]">
-                        ${project.findings}
-                    </div>
+                    <p class="modal-body-text">
+                        ${project.response}
+                    </p>
+
                 </section>
 
 
-                <!-- RESEARCH INSIGHT -->
-                <section>
-                    <h3 class="text-xs font-semibold tracking-[0.18em] text-gray-500 uppercase mb-3">
-                        Research Insight
+                <!-- SCOPE -->
+
+                <section class="modal-tag-section">
+
+                    <h3 class="modal-section-heading">
+                        Scope
                     </h3>
 
-                    <div class="text-gray-700 leading-7 text-[15px]">
-                        ${project.insight}
+                    <div class="modal-tags">
+
+                        ${project.scope.map(item => `
+
+                            <span class="modal-tag">
+                                ${item}
+                            </span>
+
+                        `).join('')}
+
                     </div>
+
+                </section>
+
+
+                <!-- KEY ELEMENTS -->
+
+                <section class="modal-tag-section">
+
+                    <h3 class="modal-section-heading">
+                        Key Elements
+                    </h3>
+
+                    <div class="modal-tags">
+
+                        ${project.keyElements.map(item => `
+
+                            <span class="modal-tag">
+                                ${item}
+                            </span>
+
+                        `).join('')}
+
+                    </div>
+
                 </section>
 
             </div>
 
 
-            <!-- RIGHT: PROJECT INFORMATION -->
-            <aside class="lg:border-l lg:border-gray-200 lg:pl-8">
+            <!-- ===========================================
+                 RIGHT INFORMATION
+                 =========================================== -->
 
-                <h3 class="text-xs font-semibold tracking-[0.18em] text-gray-500 uppercase mb-6">
+            <aside class="modal-info-column">
+
+                <h3 class="modal-info-heading">
                     Project Information
                 </h3>
 
 
-                <div class="space-y-6">
+                <div class="modal-info-item">
 
-
-                    <!-- TYPE -->
-                    <div>
-                        <p class="text-[10px] tracking-[0.15em] text-gray-400 uppercase mb-1">
-                            Project Type
-                        </p>
-
-                        <p class="text-sm text-gray-700">
-                            ${project.type}
-                        </p>
+                    <div class="modal-info-label">
+                        Project Type
                     </div>
 
-
-                    <!-- YEAR -->
-                    <div>
-                        <p class="text-[10px] tracking-[0.15em] text-gray-400 uppercase mb-1">
-                            Year
-                        </p>
-
-                        <p class="text-sm text-gray-700">
-                            ${project.year}
-                        </p>
+                    <div class="modal-info-value">
+                        ${project.projectType}
                     </div>
 
+                </div>
 
-                    <!-- INSTITUTION -->
-                    <div>
-                        <p class="text-[10px] tracking-[0.15em] text-gray-400 uppercase mb-1">
-                            Institution
-                        </p>
 
-                        <p class="text-sm text-gray-700">
-                            ${project.institution}
-                        </p>
+                <div class="modal-info-item">
+
+                    <div class="modal-info-label">
+                        Year
                     </div>
 
-
-                    <!-- LOCATION -->
-                    <div>
-                        <p class="text-[10px] tracking-[0.15em] text-gray-400 uppercase mb-1">
-                            Location
-                        </p>
-
-                        <p class="text-sm text-gray-700">
-                            ${project.location}
-                        </p>
+                    <div class="modal-info-value">
+                        ${project.year}
                     </div>
 
+                </div>
 
-                    <!-- ROLE -->
-                    <div>
-                        <p class="text-[10px] tracking-[0.15em] text-gray-400 uppercase mb-1">
-                            Role
-                        </p>
 
-                        <p class="text-sm text-gray-700">
-                            ${project.role}
-                        </p>
+                <div class="modal-info-item">
+
+                    <div class="modal-info-label">
+                        Location
                     </div>
 
-
-                    <!-- SUPERVISOR -->
-                    <div>
-                        <p class="text-[10px] tracking-[0.15em] text-gray-400 uppercase mb-1">
-                            Supervisor / PI
-                        </p>
-
-                        <p class="text-sm text-gray-700">
-                            ${project.supervisor}
-                        </p>
-                    </div>
-
-
-                    <!-- RESEARCH FOCUS -->
-                    <div>
-                        <p class="text-[10px] tracking-[0.15em] text-gray-400 uppercase mb-1">
-                            Research Focus
-                        </p>
-
-                        <p class="text-sm text-gray-700 leading-6">
-                            ${project.focus}
-                        </p>
+                    <div class="modal-info-value">
+                        ${project.location}
                     </div>
 
                 </div>
@@ -2489,76 +3008,610 @@ function openResearchModal(id) {
             </aside>
 
         </div>
+
     `;
 
 
-    /*
-    =========================================================
-    INITIALISE RESEARCH IMAGE SLIDER
-    =========================================================
-    */
+    currentDesignImage = 0;
+
+    currentDesignImages = project.images;
+
+    updateDesignImage();
+
+
+    modal.classList.add('active');
+
+    modal.setAttribute('aria-hidden', 'false');
+
+    document.body.style.overflow = 'hidden';
+
+}
+
+
+/* =========================================================
+   UPDATE DESIGN IMAGE
+   ========================================================= */
+
+function updateDesignImage() {
+
+    const image =
+        document.getElementById('design-slider-image');
+
+    const counter =
+        document.getElementById('design-image-counter');
+
+
+    if (!image || !currentDesignImages.length) return;
+
+
+    image.src =
+        currentDesignImages[currentDesignImage];
+
+
+    if (counter) {
+
+        counter.textContent =
+            currentDesignImage + 1;
+
+    }
+
+}
+
+
+/* =========================================================
+   CHANGE DESIGN IMAGE
+   ========================================================= */
+
+function changeDesignImage(direction) {
+
+    if (!currentDesignImages.length) return;
+
+
+    currentDesignImage =
+        (
+            currentDesignImage +
+            direction +
+            currentDesignImages.length
+        ) %
+        currentDesignImages.length;
+
+
+    updateDesignImage();
+
+}
+
+
+/* =========================================================
+   CLOSE DESIGN MODAL
+   ========================================================= */
+
+function closeDesignModal() {
+
+    const modal =
+        document.getElementById('project-modal');
+
+
+    modal.classList.remove('active');
+
+    modal.setAttribute('aria-hidden', 'true');
+
+    document.body.style.overflow = '';
+
+}
+
+
+/* =========================================================
+   BUILD RESEARCH POPUP
+   ========================================================= */
+
+function openResearchModal(id) {
+
+    const project = researchData[id];
+
+    if (!project) return;
+
+
+    const modal =
+        document.getElementById('research-modal');
+
+    const content =
+        document.getElementById('research-modal-content');
+
+
+    content.innerHTML = `
+
+        <!-- ===============================================
+             HEADER
+             =============================================== -->
+
+        <div>
+
+            <div class="modal-category">
+                ${project.category}
+            </div>
+
+            <h2 class="modal-title">
+                ${project.title}
+            </h2>
+
+            <p class="modal-subtitle">
+                ${project.intro}
+            </p>
+
+        </div>
+
+
+        <!-- ===============================================
+             IMAGE
+             =============================================== -->
+
+        <div class="modal-image-frame">
+
+            <img
+                id="research-slider-image"
+                src="${project.images[0]}"
+                alt="${project.title}"
+            >
+
+            <button
+                onclick="changeResearchImage(-1)"
+                class="modal-image-arrow left"
+                aria-label="Previous image"
+            >
+                ‹
+            </button>
+
+            <button
+                onclick="changeResearchImage(1)"
+                class="modal-image-arrow right"
+                aria-label="Next image"
+            >
+                ›
+            </button>
+
+        </div>
+
+
+        <div class="modal-image-counter">
+
+            <span id="research-image-counter">
+                1
+            </span>
+
+            /
+
+            ${project.images.length}
+
+        </div>
+
+
+        <!-- ===============================================
+             MAIN CONTENT
+             =============================================== -->
+
+        <div class="modal-main-grid">
+
+
+            <!-- ===========================================
+                 LEFT RESEARCH TEXT
+                 =========================================== -->
+
+            <div class="modal-text-column">
+
+
+                <!-- SUMMARY -->
+
+                <section class="modal-text-section">
+
+                    <h3 class="modal-section-heading">
+                        Research Summary
+                    </h3>
+
+                    <div class="modal-body-text">
+                        ${project.summary}
+                    </div>
+
+                </section>
+
+
+                <!-- METHODOLOGY -->
+
+                <section class="modal-text-section">
+
+                    <h3 class="modal-section-heading">
+                        Methodology
+                    </h3>
+
+                    <div class="modal-body-text">
+                        ${project.methodology}
+                    </div>
+
+                </section>
+
+
+                <!-- FINDINGS -->
+
+                <section class="modal-text-section">
+
+                    <h3 class="modal-section-heading">
+                        Key Findings
+                    </h3>
+
+                    <div class="modal-body-text">
+                        ${project.findings}
+                    </div>
+
+                </section>
+
+
+                <!-- INSIGHT -->
+
+                <section class="modal-text-section">
+
+                    <h3 class="modal-section-heading">
+                        Research Insight
+                    </h3>
+
+                    <div class="modal-body-text">
+                        ${project.insight}
+                    </div>
+
+                </section>
+
+
+                <!-- RESEARCH FOCUS -->
+
+                <section class="modal-tag-section">
+
+                    <h3 class="modal-section-heading">
+                        Research Focus
+                    </h3>
+
+                    <div class="modal-tags">
+
+                        ${project.focus
+                            .split(' · ')
+                            .map(item => `
+
+                                <span class="modal-tag">
+                                    ${item}
+                                </span>
+
+                            `)
+                            .join('')
+                        }
+
+                    </div>
+
+                </section>
+
+            </div>
+
+
+            <!-- ===========================================
+                 RIGHT INFORMATION
+                 =========================================== -->
+
+            <aside class="modal-info-column">
+
+                <h3 class="modal-info-heading">
+                    Project Information
+                </h3>
+
+
+                <div class="modal-info-item">
+
+                    <div class="modal-info-label">
+                        Project Type
+                    </div>
+
+                    <div class="modal-info-value">
+                        ${project.type}
+                    </div>
+
+                </div>
+
+
+                <div class="modal-info-item">
+
+                    <div class="modal-info-label">
+                        Year
+                    </div>
+
+                    <div class="modal-info-value">
+                        ${project.year}
+                    </div>
+
+                </div>
+
+
+                <div class="modal-info-item">
+
+                    <div class="modal-info-label">
+                        Institution
+                    </div>
+
+                    <div class="modal-info-value">
+                        ${project.institution}
+                    </div>
+
+                </div>
+
+
+                <div class="modal-info-item">
+
+                    <div class="modal-info-label">
+                        Location
+                    </div>
+
+                    <div class="modal-info-value">
+                        ${project.location}
+                    </div>
+
+                </div>
+
+
+                <div class="modal-info-item">
+
+                    <div class="modal-info-label">
+                        Role
+                    </div>
+
+                    <div class="modal-info-value">
+                        ${project.role}
+                    </div>
+
+                </div>
+
+
+                <div class="modal-info-item">
+
+                    <div class="modal-info-label">
+                        Supervisor / PI
+                    </div>
+
+                    <div class="modal-info-value">
+                        ${project.supervisor}
+                    </div>
+
+                </div>
+
+            </aside>
+
+        </div>
+
+    `;
+
 
     currentResearchImage = 0;
-    currentResearchImages = project.images;
 
+    currentResearchImages = project.images;
 
     updateResearchImage();
 
 
-    /*
-    =========================================================
-    OPEN MODAL
-    =========================================================
-    */
+    modal.classList.add('active');
 
-    modal.classList.remove("hidden");
-    modal.classList.add("flex");
+    modal.setAttribute('aria-hidden', 'false');
 
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow = 'hidden';
+
 }
-        let currentResearchImage = 0;
-let currentResearchImages = [];
 
+
+/* =========================================================
+   UPDATE RESEARCH IMAGE
+   ========================================================= */
 
 function updateResearchImage() {
 
-    const image = document.getElementById("research-slider-image");
-    const counter = document.getElementById("research-image-counter");
+    const image =
+        document.getElementById('research-slider-image');
+
+    const counter =
+        document.getElementById('research-image-counter');
+
 
     if (!image || !currentResearchImages.length) return;
 
-    image.src = currentResearchImages[currentResearchImage];
 
-    counter.textContent = currentResearchImage + 1;
+    image.src =
+        currentResearchImages[currentResearchImage];
+
+
+    if (counter) {
+
+        counter.textContent =
+            currentResearchImage + 1;
+
+    }
+
 }
 
+
+/* =========================================================
+   CHANGE RESEARCH IMAGE
+   ========================================================= */
 
 function changeResearchImage(direction) {
 
     if (!currentResearchImages.length) return;
 
+
     currentResearchImage += direction;
 
+
     if (currentResearchImage < 0) {
-        currentResearchImage = currentResearchImages.length - 1;
+
+        currentResearchImage =
+            currentResearchImages.length - 1;
+
     }
 
-    if (currentResearchImage >= currentResearchImages.length) {
+
+    if (
+        currentResearchImage >=
+        currentResearchImages.length
+    ) {
+
         currentResearchImage = 0;
+
     }
+
 
     updateResearchImage();
+
 }
+
+
+/* =========================================================
+   CLOSE RESEARCH MODAL
+   ========================================================= */
 
 function closeResearchModal() {
 
-    const modal = document.getElementById("research-modal");
+    const modal =
+        document.getElementById('research-modal');
 
-    modal.classList.add("hidden");
-    modal.classList.remove("flex");
 
-    document.body.style.overflow = "";
+    modal.classList.remove('active');
+
+    modal.setAttribute('aria-hidden', 'true');
+
+    document.body.style.overflow = '';
+
 }
-    </script>
+
+
+/* =========================================================
+   CLOSE MODALS WHEN CLICKING OUTSIDE
+   ========================================================= */
+
+document.addEventListener('click', function(event) {
+
+    const designModal =
+        document.getElementById('project-modal');
+
+    const researchModal =
+        document.getElementById('research-modal');
+
+
+    if (event.target === designModal) {
+
+        closeDesignModal();
+
+    }
+
+
+    if (event.target === researchModal) {
+
+        closeResearchModal();
+
+    }
+
+});
+
+
+/* =========================================================
+   ESCAPE KEY
+   ========================================================= */
+
+document.addEventListener('keydown', function(event) {
+
+    if (event.key !== 'Escape') return;
+
+
+    closeDesignModal();
+
+    closeResearchModal();
+
+});
+
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
+const mobileMenuBtn =
+    document.getElementById('mobile-menu-btn');
+
+const mobileDrawer =
+    document.getElementById('mobile-drawer');
+
+const closeDrawer =
+    document.getElementById('close-drawer');
+
+const mobileNavLinks =
+    document.querySelectorAll('.mobile-nav-link');
+
+
+if (mobileMenuBtn) {
+
+    mobileMenuBtn.addEventListener('click', () => {
+
+        mobileDrawer.classList.remove('hidden');
+
+    });
+
+}
+
+
+if (closeDrawer) {
+
+    closeDrawer.addEventListener('click', () => {
+
+        mobileDrawer.classList.add('hidden');
+
+    });
+
+}
+
+
+mobileNavLinks.forEach(link => {
+
+    link.addEventListener('click', () => {
+
+        mobileDrawer.classList.add('hidden');
+
+    });
+
+});
+
+
+/* =========================================================
+   CONTACT FORM
+   ========================================================= */
+
+function handleContactSubmit(event) {
+
+    event.preventDefault();
+
+
+    const notification =
+        document.getElementById('notification-box');
+
+
+    notification.classList.remove(
+        'translate-y-20',
+        'opacity-0'
+    );
+
+
+    event.target.reset();
+
+
+    setTimeout(() => {
+
+        notification.classList.add(
+            'translate-y-20',
+            'opacity-0'
+        );
+
+    }, 4000);
+
+}
+
+</script>
+
 </body>
 </html>
