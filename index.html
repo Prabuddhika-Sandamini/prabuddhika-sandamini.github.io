@@ -1933,12 +1933,18 @@ function handleContactSubmit(event) {
 
 }
 
-        const researchData = {
+       const researchData = {
 
     "research-1": {
         title: "Assessing the Impact of the Spatial and Demographic Factors on Air Pollution in Urban Green Spaces: A Predictive Model for Sustainable Planning",
         category: "MSc THESIS",
-        image: "images/research-thesis-01.jpg",
+        
+        images: [
+            "images/research-thesis-01.jpg",
+            "images/research-thesis-02.jpg",
+            "images/research-thesis-03.jpg",
+            "images/research-thesis-04.jpg"
+        ],
 
         type: "MSc Thesis",
         year: "2025",
@@ -1946,39 +1952,52 @@ function handleContactSubmit(event) {
         location: "Debrecen, Hungary",
         role: "Researcher",
         supervisor: "Dr. György Csomós",
+        focus: "Urban Air Pollution · GIS · Remote Sensing · Spatial Analysis",
 
-        description: `
+        intro: "A GIS-based investigation of how spatial and demographic characteristics influence particulate matter concentrations across urban green spaces.",
+
+        summary: `
             <p>
                 This research investigates how spatial and demographic factors influence
-                particulate matter concentrations across eight urban green spaces in
-                Debrecen, Hungary. The study examines the relationship between air
-                pollution and characteristics of urban green spaces, surrounding land
-                use, population density, street density, traffic, and proximity to roads.
+                PM2.5 and PM10 concentrations across eight urban green spaces in
+                Debrecen, Hungary. The study examines how vegetation, surrounding
+                urban form, population density, street density, traffic, green-space
+                characteristics and road proximity relate to measured particulate
+                matter concentrations.
             </p>
+        `,
 
+        methodology: `
             <p>
-                Field measurements of PM2.5 and PM10 were conducted across selected
-                urban green spaces, including Sziget-kék Playground, Vénkerti
-                Játszótér–Sinai Miklós utca, Csapó Utca Playground, Nagyerdei Park,
-                Kossuth Square, Tocóskert, Petőfi Square, and Arany János Square.
+                Field measurements of PM2.5 and PM10 were conducted across eight
+                selected urban green spaces using a PCE-MPC 10 particulate matter
+                counter. Spatial variables were developed and analysed using QGIS,
+                Google Earth Engine, Google Earth Pro, OpenStreetMap and Excel.
+                NDVI was used to represent vegetation conditions, while spatial
+                buffers and demographic and road-network variables were integrated
+                into multiple regression models.
             </p>
+        `,
 
+        findings: `
             <p>
-                Spatial analysis was carried out using QGIS, Google Earth Engine,
-                Google Earth Pro, OpenStreetMap, and Excel. NDVI was derived from
-                satellite imagery to represent vegetation conditions, while spatial
-                and demographic variables were analysed in relation to measured
-                particulate matter concentrations.
+                The PM2.5 model produced an R² of <strong>0.640</strong> with an
+                adjusted R² of <strong>0.160</strong>, while the PM10 model achieved
+                an R² of <strong>0.834</strong> and an adjusted R² of
+                <strong>0.613</strong>. The results indicate stronger explanatory
+                performance for PM10. Vegetation represented by NDVI showed a
+                negative relationship with particulate matter, while traffic showed
+                a positive relationship.
             </p>
+        `,
 
+        insight: `
             <p>
-                Multiple regression models were developed as a pilot predictive
-                approach to examine how combinations of spatial and demographic
-                factors may explain variations in PM2.5 and PM10 concentrations
-                within urban green spaces. The study demonstrates the potential of
-                combining field measurements, remote sensing, and GIS-based spatial
-                analysis to support evidence-based planning of healthier urban
-                green spaces.
+                The research demonstrates the potential of combining field monitoring,
+                remote sensing and GIS-based spatial analysis to support evidence-based
+                planning of healthier urban green spaces. The study provides a pilot
+                predictive approach for understanding how the spatial context of green
+                spaces may influence local air-pollution conditions.
             </p>
         `
     },
@@ -1987,7 +2006,13 @@ function handleContactSubmit(event) {
     "research-2": {
         title: "Urban Renewal of Beira Lake and Its Surrounding Areas",
         category: "OTDK RESEARCH",
-        image: "images/research-otdk-01.jpg",
+
+        images: [
+            "images/research-otdk-01.jpg",
+            "images/research-otdk-02.jpg",
+            "images/research-otdk-03.jpg",
+            "images/research-otdk-04.jpg"
+        ],
 
         type: "OTDK Conference Research Project",
         year: "2025",
@@ -1995,28 +2020,46 @@ function handleContactSubmit(event) {
         location: "Colombo, Sri Lanka",
         role: "Researcher",
         supervisor: "Dr. Lovra Eva",
+        focus: "Urban Renewal · Blue-Green Infrastructure · Waterfront Regeneration · Connectivity",
 
-        description: `
+        intro: "An urban renewal study exploring how Beira Lake and its surrounding areas can be reconnected through landscape, mobility and blue-green infrastructure.",
+
+        summary: `
             <p>
                 This research explores the urban renewal of Beira Lake and its
-                surrounding areas in Colombo through the integration of blue-green
-                infrastructure, pedestrian connectivity, and waterfront regeneration.
+                surrounding areas in Colombo, focusing on the relationship between
+                the lake, surrounding urban fabric, public spaces and pedestrian
+                movement. The study considers the waterfront as an interconnected
+                urban and ecological system rather than an isolated water body.
             </p>
+        `,
 
+        methodology: `
             <p>
-                The study examines the relationship between the lake, surrounding
-                urban fabric, public spaces, pedestrian movement, and existing
-                environmental conditions. Particular attention is given to the
-                potential of the waterfront to function as a connected public and
-                ecological system rather than as an isolated water body.
+                The study examined existing urban structure, pedestrian connections,
+                waterfront conditions and relationships between key urban areas
+                surrounding Beira Lake. The analysis was used to identify fragmented
+                connections and opportunities for blue-green infrastructure and
+                waterfront regeneration.
             </p>
+        `,
 
+        findings: `
             <p>
-                The research proposes strategies for reconnecting fragmented urban
-                spaces around Beira Lake through improved pedestrian networks,
-                landscape interventions, public spaces, and blue-green infrastructure.
-                The study considers how these interventions can contribute to a more
-                connected, accessible, and resilient urban waterfront.
+                The analysis identified opportunities to improve pedestrian
+                connectivity between surrounding urban areas, transport nodes,
+                public spaces and the lake edge. Fragmented waterfront spaces and
+                weak connections were identified as important areas for intervention.
+            </p>
+        `,
+
+        insight: `
+            <p>
+                The research highlights the potential of Beira Lake to function as
+                a connected public, ecological and mobility system within Colombo.
+                Integrating blue-green infrastructure with pedestrian networks and
+                waterfront spaces can contribute to a more connected and resilient
+                urban environment.
             </p>
         `
     },
@@ -2025,7 +2068,13 @@ function handleContactSubmit(event) {
     "research-3": {
         title: "Spatial Configuration and Urban Connectivity: A Space Syntax Analysis of Colombo",
         category: "SPATIAL ANALYSIS",
-        image: "images/research-space-syntax-01.jpg",
+
+        images: [
+            "images/research-space-syntax-01.jpg",
+            "images/research-space-syntax-02.jpg",
+            "images/research-space-syntax-03.jpg",
+            "images/research-space-syntax-04.jpg"
+        ],
 
         type: "Research Project",
         year: "2024",
@@ -2033,29 +2082,44 @@ function handleContactSubmit(event) {
         location: "Colombo, Sri Lanka",
         role: "Researcher",
         supervisor: "Dr. Bereczki Zoltán",
+        focus: "Space Syntax · GIS · Urban Connectivity · Spatial Analysis",
 
-        description: `
+        intro: "A spatial analysis of Colombo examining how street-network configuration influences urban connectivity and movement potential.",
+
+        summary: `
             <p>
-                This research investigates the spatial configuration and urban
-                connectivity of Colombo using GIS and Space Syntax methods. The study
-                examines how the configuration of the street network influences
-                connectivity and spatial relationships within the urban structure.
+                This research examines the spatial configuration and connectivity
+                of Colombo through a combination of GIS and Space Syntax analysis.
+                The study investigates how the structure of the urban street network
+                influences spatial relationships and patterns of connectivity.
             </p>
+        `,
 
+        methodology: `
             <p>
                 OpenStreetMap data were processed using QGIS and QuickOSM to develop
-                the spatial dataset, while additional network information was prepared
-                for Space Syntax analysis. The study uses axial and segment-based
-                approaches to examine patterns of movement potential and spatial
-                integration.
+                the street-network dataset. Spatial data were prepared for Space
+                Syntax analysis and analysed using DepthmapX, including Angular
+                Segment Analysis to examine relationships within Colombo's urban
+                network.
             </p>
+        `,
 
+        findings: `
             <p>
-                Angular Segment Analysis was conducted using DepthmapX to evaluate
-                relationships within Colombo's street network. The research combines
-                GIS-based spatial analysis with Space Syntax to understand how urban
-                configuration can influence accessibility and connectivity at the
-                city scale.
+                The analysis revealed variations in spatial integration and
+                connectivity across Colombo's street network, demonstrating how
+                different configurations of streets create different levels of
+                movement potential and accessibility within the urban structure.
+            </p>
+        `,
+
+        insight: `
+            <p>
+                The research demonstrates how GIS and Space Syntax can provide
+                spatial evidence for understanding urban connectivity. Such analysis
+                can support urban planning and design decisions related to movement,
+                accessibility and the configuration of public-space networks.
             </p>
         `
     },
@@ -2064,7 +2128,12 @@ function handleContactSubmit(event) {
     "research-4": {
         title: "City Form as a Strategy for City Branding: A Comparative Study of Kandy and Galle",
         category: "CITY BRANDING",
-        image: "images/research-city-branding-01.jpg",
+
+        images: [
+            "images/research-city-branding-01.jpg",
+            "images/research-city-branding-02.jpg",
+            "images/research-city-branding-03.jpg"
+        ],
 
         type: "FARU Conference Research Paper",
         year: "2019",
@@ -2072,37 +2141,61 @@ function handleContactSubmit(event) {
         location: "Kandy & Galle, Sri Lanka",
         role: "Co-author / Researcher",
         supervisor: "—",
+        focus: "City Branding · Urban Form · Place Identity · User Perception",
 
-        description: `
+        intro: "A comparative study examining how physical characteristics of Kandy and Galle contribute to city identity and people's perception of place.",
+
+        summary: `
             <p>
-                This research examines the relationship between urban form and city
-                branding through a comparative study of Kandy and Galle, Sri Lanka.
-                The study investigates how physical elements of the city contribute
-                to the perception, identity, and image associated with each place.
+                This research investigates the relationship between urban form and
+                city branding through a comparative study of Kandy and Galle.
+                It examines how identifiable elements of the urban environment,
+                including landmarks, parks and streets, contribute to the image and
+                identity associated with each city.
             </p>
+        `,
 
+        methodology: `
             <p>
-                The research focuses on urban elements including landmarks, parks,
-                streets, and other identifiable components of the city environment.
-                These elements were examined in relation to how users perceive and
-                experience the identity of the two cities.
+                The study used comparative case-study analysis together with
+                questionnaire-based research to examine people's perceptions of
+                selected urban elements. The research considered how physical
+                characteristics of the two cities influence users' understanding
+                and perception of place.
             </p>
+        `,
 
+        findings: `
             <p>
-                A combination of comparative case-study analysis and questionnaire-
-                based research was used to investigate people's perceptions of the
-                urban environments. The findings explore how characteristics of city
-                form can contribute to place identity and potentially support
-                strategies for city branding.
+                The study identified relationships between recognisable urban
+                elements and people's perceptions of city identity. Landmarks,
+                public spaces and streets were found to play an important role in
+                shaping the visual and experiential character through which cities
+                are perceived.
+            </p>
+        `,
+
+        insight: `
+            <p>
+                The research highlights the potential of urban form to contribute
+                to city branding and place identity. Understanding how people
+                perceive physical elements of a city can support more context-
+                sensitive approaches to urban design and place-making.
             </p>
         `
     },
 
 
     "research-5": {
-        title: "Appraising Indoor Thermal Perception of Elderly in Hot Climates: An Experimental Investigation of Free-Running Residential Aged Care Homes in Colombo",
+        title: "Appraising Indoor Thermal Perception of Elderly in Hot Climates",
         category: "THERMAL COMFORT",
-        image: "images/research-thermal-01.jpg",
+
+        images: [
+            "images/research-thermal-01.jpg",
+            "images/research-thermal-02.jpg",
+            "images/research-thermal-03.jpg",
+            "images/research-thermal-04.jpg"
+        ],
 
         type: "Research Grant",
         year: "2021",
@@ -2110,29 +2203,57 @@ function handleContactSubmit(event) {
         location: "Colombo, Sri Lanka",
         role: "Research Assistant",
         supervisor: "Indrika Rajapaksha",
+        focus: "Thermal Comfort · Elderly Occupants · Hot Climates · Field Monitoring",
 
-        description: `
+        intro: "A field-based investigation of indoor thermal conditions, elderly occupants' thermal perception and adaptive behaviour in residential aged care homes in Colombo.",
+
+        summary: `
             <p>
-                This field-based research investigates indoor thermal conditions,
-                thermal perception, and adaptive behaviour among elderly residents
-                living in free-running residential aged care homes in Colombo,
-                Sri Lanka.
+                This research investigates the indoor thermal perception of elderly
+                residents living in free-running residential aged care homes in
+                Colombo. The study examines the relationship between indoor
+                environmental conditions and the thermal perceptions and adaptive
+                behaviour of elderly occupants living in hot climatic conditions.
+            </p>
+        `,
+
+        methodology: `
+            <p>
+                The study used simultaneous field telemetry and structured
+                questionnaire surveys across seven randomly selected authorised
+                residential aged care homes in the Colombo District. Field
+                investigations were conducted during the peak hot season from
+                June to August 2018, involving 156 elderly residents aged 60 years
+                and above.
+            </p>
+        `,
+
+        findings: `
+            <p>
+                Indoor air temperatures ranged from 31.02°C to 33.51°C, while
+                relative humidity ranged from 58% to 71% and air velocity from
+                0.10 to 0.29 m/s. Approximately 71.7% of participants reported
+                their thermal environment as unacceptable, while 70.1% experienced
+                conditions warmer than their neutral preference. The mean Thermal
+                Sensation Vote was <strong>+1.6</strong>.
             </p>
 
             <p>
-                The study involved field investigations across seven residential
-                aged care homes during the hot season, with data collected from
-                elderly residents to examine their thermal experiences in naturally
-                ventilated environments.
+                Approximately 83.7% of participants reported seeking relief by
+                moving to alternative spaces. Dormitories were the most frequently
+                preferred alternative spaces, followed by corridors, verandahs and
+                outdoor areas.
             </p>
+        `,
 
+        insight: `
             <p>
-                My contribution as a Research Assistant included literature review,
-                research analysis, and the preparation of graphs and visual
-                representations of the findings. The research examined relationships
-                between environmental conditions and the thermal perceptions of
-                elderly occupants in order to better understand thermal comfort in
-                hot-climate residential care environments.
+                The research highlights the vulnerability of elderly residents to
+                thermal discomfort in hot climatic conditions and demonstrates the
+                importance of considering both environmental conditions and
+                occupant characteristics when evaluating aged-care environments.
+                Access to alternative spaces also emerged as an important component
+                of adaptive behaviour and thermal comfort.
             </p>
         `
     }
@@ -2145,29 +2266,289 @@ function openResearchModal(id) {
 
     if (!project) return;
 
-    document.getElementById("research-modal-title").textContent = project.title;
-    document.getElementById("research-modal-category").textContent = project.category;
-
-    document.getElementById("research-modal-image").src = project.image;
-    document.getElementById("research-modal-image").alt = project.title;
-
-    document.getElementById("research-modal-description").innerHTML = project.description;
-
-    document.getElementById("research-modal-type").textContent = project.type;
-    document.getElementById("research-modal-year").textContent = project.year;
-    document.getElementById("research-modal-institution").textContent = project.institution;
-    document.getElementById("research-modal-location").textContent = project.location;
-    document.getElementById("research-modal-role").textContent = project.role;
-    document.getElementById("research-modal-supervisor").textContent = project.supervisor;
-
     const modal = document.getElementById("research-modal");
+
+    const content = document.getElementById("research-modal-description");
+
+    document.getElementById("research-modal-category").textContent =
+        project.category;
+
+    document.getElementById("research-modal-title").textContent =
+        project.title;
+
+    /*
+    =========================================================
+    RESEARCH POPUP CONTENT
+    =========================================================
+    */
+
+    content.innerHTML = `
+
+        <!-- SHORT INTRO -->
+        <div class="mb-8">
+            <p class="text-gray-600 text-base md:text-lg leading-relaxed max-w-4xl">
+                ${project.intro}
+            </p>
+        </div>
+
+
+        <!-- IMAGE SLIDER -->
+        <div class="relative mb-10">
+
+            <div class="relative overflow-hidden rounded-xl bg-gray-100">
+
+                <img
+                    id="research-slider-image"
+                    src="${project.images[0]}"
+                    alt="${project.title}"
+                    class="w-full h-[280px] md:h-[430px] object-cover transition-opacity duration-300"
+                >
+
+                <!-- LEFT ARROW -->
+                <button
+                    onclick="changeResearchImage(-1)"
+                    class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 shadow flex items-center justify-center hover:bg-white transition"
+                    aria-label="Previous image"
+                >
+                    &#8592;
+                </button>
+
+                <!-- RIGHT ARROW -->
+                <button
+                    onclick="changeResearchImage(1)"
+                    class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 shadow flex items-center justify-center hover:bg-white transition"
+                    aria-label="Next image"
+                >
+                    &#8594;
+                </button>
+
+            </div>
+
+            <!-- IMAGE COUNTER -->
+            <div class="text-center text-sm text-gray-500 mt-3">
+                <span id="research-image-counter">1</span>
+                / ${project.images.length}
+            </div>
+
+        </div>
+
+
+        <!-- TWO COLUMN CONTENT -->
+        <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_260px] gap-10 lg:gap-14">
+
+
+            <!-- LEFT: RESEARCH CONTENT -->
+            <div class="space-y-9">
+
+                <!-- RESEARCH SUMMARY -->
+                <section>
+                    <h3 class="text-xs font-semibold tracking-[0.18em] text-gray-500 uppercase mb-3">
+                        Research Summary
+                    </h3>
+
+                    <div class="text-gray-700 leading-7 text-[15px]">
+                        ${project.summary}
+                    </div>
+                </section>
+
+
+                <!-- METHODOLOGY -->
+                <section>
+                    <h3 class="text-xs font-semibold tracking-[0.18em] text-gray-500 uppercase mb-3">
+                        Methodology
+                    </h3>
+
+                    <div class="text-gray-700 leading-7 text-[15px]">
+                        ${project.methodology}
+                    </div>
+                </section>
+
+
+                <!-- KEY FINDINGS -->
+                <section>
+                    <h3 class="text-xs font-semibold tracking-[0.18em] text-gray-500 uppercase mb-3">
+                        Key Findings
+                    </h3>
+
+                    <div class="text-gray-700 leading-7 text-[15px]">
+                        ${project.findings}
+                    </div>
+                </section>
+
+
+                <!-- RESEARCH INSIGHT -->
+                <section>
+                    <h3 class="text-xs font-semibold tracking-[0.18em] text-gray-500 uppercase mb-3">
+                        Research Insight
+                    </h3>
+
+                    <div class="text-gray-700 leading-7 text-[15px]">
+                        ${project.insight}
+                    </div>
+                </section>
+
+            </div>
+
+
+            <!-- RIGHT: PROJECT INFORMATION -->
+            <aside class="lg:border-l lg:border-gray-200 lg:pl-8">
+
+                <h3 class="text-xs font-semibold tracking-[0.18em] text-gray-500 uppercase mb-6">
+                    Project Information
+                </h3>
+
+
+                <div class="space-y-6">
+
+
+                    <!-- TYPE -->
+                    <div>
+                        <p class="text-[10px] tracking-[0.15em] text-gray-400 uppercase mb-1">
+                            Project Type
+                        </p>
+
+                        <p class="text-sm text-gray-700">
+                            ${project.type}
+                        </p>
+                    </div>
+
+
+                    <!-- YEAR -->
+                    <div>
+                        <p class="text-[10px] tracking-[0.15em] text-gray-400 uppercase mb-1">
+                            Year
+                        </p>
+
+                        <p class="text-sm text-gray-700">
+                            ${project.year}
+                        </p>
+                    </div>
+
+
+                    <!-- INSTITUTION -->
+                    <div>
+                        <p class="text-[10px] tracking-[0.15em] text-gray-400 uppercase mb-1">
+                            Institution
+                        </p>
+
+                        <p class="text-sm text-gray-700">
+                            ${project.institution}
+                        </p>
+                    </div>
+
+
+                    <!-- LOCATION -->
+                    <div>
+                        <p class="text-[10px] tracking-[0.15em] text-gray-400 uppercase mb-1">
+                            Location
+                        </p>
+
+                        <p class="text-sm text-gray-700">
+                            ${project.location}
+                        </p>
+                    </div>
+
+
+                    <!-- ROLE -->
+                    <div>
+                        <p class="text-[10px] tracking-[0.15em] text-gray-400 uppercase mb-1">
+                            Role
+                        </p>
+
+                        <p class="text-sm text-gray-700">
+                            ${project.role}
+                        </p>
+                    </div>
+
+
+                    <!-- SUPERVISOR -->
+                    <div>
+                        <p class="text-[10px] tracking-[0.15em] text-gray-400 uppercase mb-1">
+                            Supervisor / PI
+                        </p>
+
+                        <p class="text-sm text-gray-700">
+                            ${project.supervisor}
+                        </p>
+                    </div>
+
+
+                    <!-- RESEARCH FOCUS -->
+                    <div>
+                        <p class="text-[10px] tracking-[0.15em] text-gray-400 uppercase mb-1">
+                            Research Focus
+                        </p>
+
+                        <p class="text-sm text-gray-700 leading-6">
+                            ${project.focus}
+                        </p>
+                    </div>
+
+                </div>
+
+            </aside>
+
+        </div>
+    `;
+
+
+    /*
+    =========================================================
+    INITIALISE RESEARCH IMAGE SLIDER
+    =========================================================
+    */
+
+    currentResearchImage = 0;
+    currentResearchImages = project.images;
+
+
+    updateResearchImage();
+
+
+    /*
+    =========================================================
+    OPEN MODAL
+    =========================================================
+    */
 
     modal.classList.remove("hidden");
     modal.classList.add("flex");
 
     document.body.style.overflow = "hidden";
 }
+        let currentResearchImage = 0;
+let currentResearchImages = [];
 
+
+function updateResearchImage() {
+
+    const image = document.getElementById("research-slider-image");
+    const counter = document.getElementById("research-image-counter");
+
+    if (!image || !currentResearchImages.length) return;
+
+    image.src = currentResearchImages[currentResearchImage];
+
+    counter.textContent = currentResearchImage + 1;
+}
+
+
+function changeResearchImage(direction) {
+
+    if (!currentResearchImages.length) return;
+
+    currentResearchImage += direction;
+
+    if (currentResearchImage < 0) {
+        currentResearchImage = currentResearchImages.length - 1;
+    }
+
+    if (currentResearchImage >= currentResearchImages.length) {
+        currentResearchImage = 0;
+    }
+
+    updateResearchImage();
+}
 
 function closeResearchModal() {
 
