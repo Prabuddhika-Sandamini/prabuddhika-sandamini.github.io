@@ -3965,6 +3965,30 @@ function handleContactSubmit(event) {
 
 }
 
+        function handleContactSubmit(event) {
+
+    event.preventDefault();
+
+    const form = event.target;
+
+    const name = form.elements["name"].value;
+    const email = form.elements["email"].value;
+    const subject = form.elements["subject"].value;
+    const message = form.elements["message"].value;
+
+    const emailBody =
+        "Name: " + name + "\n" +
+        "Email: " + email + "\n\n" +
+        message;
+
+    const mailtoLink =
+        "mailto:prabuddhikasr@gmail.com" +
+        "?subject=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(emailBody);
+
+    window.location.href = mailtoLink;
+}
+        
 </script>
 
 </body>
