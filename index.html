@@ -617,7 +617,7 @@
         <!-- RESEARCH PROJECT 1 — MSc THESIS -->
 
         <div
-            onclick="openModal('research-1')"
+            onclick="openResearchModal('research-1')"
             class="arch-card rounded-lg p-4 cursor-pointer group flex flex-col justify-between"
         >
 
@@ -682,7 +682,7 @@
         <!-- RESEARCH PROJECT 2 — OTDK -->
 
         <div
-            onclick="openModal('research-2')"
+            onclick="openResearchModal('research-2')"
             class="arch-card rounded-lg p-4 cursor-pointer group flex flex-col justify-between"
         >
 
@@ -747,7 +747,7 @@
         <!-- RESEARCH PROJECT 3 — SPACE SYNTAX -->
 
         <div
-            onclick="openModal('research-3')"
+            onclick="openResearchModal('research-3')"
             class="arch-card rounded-lg p-4 cursor-pointer group flex flex-col justify-between"
         >
 
@@ -812,7 +812,7 @@
         <!-- RESEARCH PROJECT 4 — CITY BRANDING -->
 
         <div
-            onclick="openModal('research-4')"
+            onclick="openResearchModal('research-4')"
             class="arch-card rounded-lg p-4 cursor-pointer group flex flex-col justify-between"
         >
 
@@ -877,7 +877,7 @@
         <!-- RESEARCH PROJECT 5 — THERMAL COMFORT -->
 
         <div
-            onclick="openModal('research-5')"
+            onclick="openResearchModal('research-5')"
             class="arch-card rounded-lg p-4 cursor-pointer group flex flex-col justify-between"
         >
 
@@ -1067,6 +1067,106 @@
             </div>
         </section>
 
+        <!-- RESEARCH MODAL -->
+
+<div
+    id="research-modal"
+    class="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs hidden items-center justify-center p-4"
+>
+
+    <div
+        class="bg-white border-2 border-drafting-blue rounded-lg max-w-5xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative p-6 md:p-8"
+    >
+
+        <!-- CLOSE BUTTON -->
+        <button
+            onclick="closeResearchModal()"
+            class="absolute top-4 right-4 text-gray-500 hover:text-black text-2xl"
+        >
+            ×
+        </button>
+
+
+        <!-- IMAGE -->
+        <div class="mb-6">
+            <img
+                id="research-modal-image"
+                src=""
+                alt=""
+                class="w-full max-h-[500px] object-contain bg-slate-100 rounded"
+            >
+        </div>
+
+
+        <!-- TEXT -->
+        <p
+            id="research-modal-category"
+            class="text-xs font-mono tracking-widest text-slate-500 mb-2"
+        ></p>
+
+        <h2
+            id="research-modal-title"
+            class="text-2xl md:text-3xl font-bold font-heading text-navy-900 mb-5"
+        ></h2>
+
+        <div
+            id="research-modal-description"
+            class="text-sm text-slate-700 leading-relaxed space-y-4"
+        ></div>
+
+
+        <!-- INFORMATION -->
+
+        <div class="mt-8 pt-5 border-t border-slate-200 grid grid-cols-2 md:grid-cols-3 gap-5">
+
+            <div>
+                <p class="text-[9px] font-mono tracking-widest text-slate-400">
+                    PROJECT TYPE
+                </p>
+                <p id="research-modal-type" class="text-xs text-slate-700 mt-1"></p>
+            </div>
+
+            <div>
+                <p class="text-[9px] font-mono tracking-widest text-slate-400">
+                    YEAR
+                </p>
+                <p id="research-modal-year" class="text-xs text-slate-700 mt-1"></p>
+            </div>
+
+            <div>
+                <p class="text-[9px] font-mono tracking-widest text-slate-400">
+                    INSTITUTION
+                </p>
+                <p id="research-modal-institution" class="text-xs text-slate-700 mt-1"></p>
+            </div>
+
+            <div>
+                <p class="text-[9px] font-mono tracking-widest text-slate-400">
+                    LOCATION
+                </p>
+                <p id="research-modal-location" class="text-xs text-slate-700 mt-1"></p>
+            </div>
+
+            <div>
+                <p class="text-[9px] font-mono tracking-widest text-slate-400">
+                    ROLE
+                </p>
+                <p id="research-modal-role" class="text-xs text-slate-700 mt-1"></p>
+            </div>
+
+            <div>
+                <p class="text-[9px] font-mono tracking-widest text-slate-400">
+                    SUPERVISOR / PI
+                </p>
+                <p id="research-modal-supervisor" class="text-xs text-slate-700 mt-1"></p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+        
     </main>
 
     <div id="project-modal" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs hidden items-center justify-center p-4">
